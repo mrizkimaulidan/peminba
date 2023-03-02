@@ -17,6 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('authentication.login');
-})->name('login');
+require_once __DIR__ . '/administrator.php';
