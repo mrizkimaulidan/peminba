@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Mazer Admin Dashboard</title>
+  <title>Login - {{ config('app.name') }}</title>
   <link rel="stylesheet" href="{{ asset('css/main/app.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/pages/auth.css') }}" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.svg') }}" type="image/x-icon" />
@@ -16,9 +16,6 @@
     <div class="row h-100">
       <div class="col-lg-5 col-12">
         <div id="auth-left">
-          <div class="auth-logo">
-            <a href="index.html"><img src="{{ asset('images/logo/logo.svg') }}" alt="Logo" /></a>
-          </div>
           <h1 class="auth-title">Log in.</h1>
           <p class="auth-subtitle mb-5">
             Login untuk melanjutkan.
