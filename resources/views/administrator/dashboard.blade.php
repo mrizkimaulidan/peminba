@@ -263,3 +263,7 @@
   </div>
 </section>
 @endsection
+
+@push('script')
+@include('administrator.script')
+@endpush

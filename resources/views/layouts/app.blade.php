@@ -463,9 +463,7 @@
   <script src="{{ asset('js/bootstrap.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
 
-  <!-- Need: Apexcharts -->
-  <script src="{{ asset('extensions/apexcharts/apexcharts.min.js') }}"></script>
-  <script src="{{ asset('js/pages/dashboard.js') }}"></script>
+  @stack('script')
 </body>
 
 </html>
