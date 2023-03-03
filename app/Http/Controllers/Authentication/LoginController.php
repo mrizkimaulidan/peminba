@@ -13,4 +13,15 @@ class LoginController extends Controller
     {
         return view('authentication.login');
     }
+
+    public function authenticate(Request $request): RedirectResponse
+    {
+        $credentials = $request->only(['email' => $request->email, 'password' => $request->password]);
+
+        if (!auth('administrator')->attempt($credentials)) {
+            return redirect()->route('login')->with('error', 'Email atau password salah!');
+        }
+
+        return redirect('/administrator/dashboard');
+    }
 }
