@@ -10,17 +10,19 @@
   <link rel="stylesheet" href="{{ asset('css/main/app-dark.css') }}" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.svg') }}" type="image/x-icon" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/png" />
+
+  <link rel="stylesheet" href="{{ asset('css/shared/iconly.css') }}" />
 </head>
 
 <body>
-  <script src="assets/js/initTheme.js"></script>
+  <script src="{{ asset('js/initTheme.js') }}"></script>
   <div id="app">
     <div id="sidebar" class="active">
       <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-              <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset="" /></a>
+              <a href="index.html"><img src="{{ asset('images/logo/logo.svg') }}" alt="Logo" srcset="" /></a>
             </div>
             <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -94,6 +96,8 @@
   </div>
   <script src="{{ asset('js/bootstrap.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
+
+  @stack('script')
 </body>
 
 </html>
