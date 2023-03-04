@@ -8,10 +8,22 @@
         <h4 class="card-title">Default Layout</h4>
       </div>
       <div class="card-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam,
-        commodi? Ullam quaerat similique iusto temporibus, vero aliquam
-        praesentium, odit deserunt eaque nihil saepe hic deleniti?
-        Placeat delectus quibusdam ratione ullam!
+        <div class="table-responsive">
+          <table class="table" id="datatable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

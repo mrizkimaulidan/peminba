@@ -11,7 +11,6 @@
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.svg') }}" type="image/x-icon" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/png" />
 
-  <link rel="stylesheet" href="//cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
 
   <link rel="stylesheet" href="{{ asset('css/shared/iconly.css') }}" />
@@ -105,6 +104,12 @@
   <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
 
   @stack('script')
+
+  <script>
+    $(function() {
+      $('#datatable').DataTable();
+    });
+  </script>
 </body>
 
 </html>
