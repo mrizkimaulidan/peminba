@@ -16,14 +16,16 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
+                <th scope="col">Nama</th>
               </tr>
             </thead>
             <tbody>
+              @foreach ($commodities as $commodity)
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $commodity->name }}</td>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

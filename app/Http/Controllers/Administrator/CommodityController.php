@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Models\Commodity;
 use Illuminate\Http\Request;
 
 class CommodityController extends Controller
@@ -12,7 +13,9 @@ class CommodityController extends Controller
      */
     public function index()
     {
-        return view('administrator.commodity.index');
+        $commodities = Commodity::select('id', 'name')->get();
+
+        return view('administrator.commodity.index', compact('commodities'));
     }
 
     /**
