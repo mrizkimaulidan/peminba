@@ -24,13 +24,15 @@
           <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="form-group position-relative has-icon-left mb-4">
-              <input type="email" name="email" class="form-control form-control-xl" placeholder="Email" />
+              <input type="email" name="email" value="admin@mail.com" class="form-control form-control-xl"
+                placeholder="Email" />
               <div class="form-control-icon">
                 <i class="bi bi-person"></i>
               </div>
             </div>
             <div class="form-group position-relative has-icon-left mb-4">
-              <input type="password" name="password" class="form-control form-control-xl" placeholder="Password" />
+              <input type="password" name="password" value="secret" class="form-control form-control-xl"
+                placeholder="Password" />
               <div class="form-control-icon">
                 <i class="bi bi-shield-lock"></i>
               </div>
