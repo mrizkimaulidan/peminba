@@ -12,7 +12,7 @@
     <li class="sidebar-title">Data Master</li>
 
     <li class="sidebar-item {{ request()->routeIs('administrators.commodities.*') ? 'active' : '' }}">
-      <a href="form-layout.html" class="sidebar-link">
+      <a href="{{ route('administrators.commodities.index') }}" class="sidebar-link">
         <i class="bi bi-file-earmark-medical-fill"></i>
         <span>Komoditas</span>
       </a>
