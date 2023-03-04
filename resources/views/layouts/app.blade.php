@@ -4,25 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard - Mazer Admin Dashboard</title>
+  <title>Layout Default - Mazer Admin Dashboard</title>
 
   <link rel="stylesheet" href="{{ asset('css/main/app.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/main/app-dark.css') }}" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.svg') }}" type="image/x-icon" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/png" />
-
-  <link rel="stylesheet" href="{{ asset('css/shared/iconly.css') }}" />
 </head>
 
 <body>
-  <script src="{{ asset('js/initTheme.js') }}"></script>
+  <script src="assets/js/initTheme.js"></script>
   <div id="app">
     <div id="sidebar" class="active">
       <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
           <div class="d-flex justify-content-between align-items-center">
             <div class="logo">
-              <a href="index.html"><img src="{{ asset('images/logo/logo.svg') }}" alt="Logo" srcset="" /></a>
+              <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset="" /></a>
             </div>
             <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
@@ -67,9 +65,14 @@
       </header>
 
       <div class="page-heading">
-        <h3>Profile Statistics</h3>
-      </div>
-      <div class="page-content">
+        <div class="page-title">
+          <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+              <h3>Layout Default</h3>
+              <p class="text-subtitle text-muted">The default layout.</p>
+            </div>
+          </div>
+        </div>
         @yield('content')
       </div>
 
@@ -91,8 +94,6 @@
   </div>
   <script src="{{ asset('js/bootstrap.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
-
-  @stack('script')
 </body>
 
 </html>

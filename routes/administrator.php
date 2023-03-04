@@ -6,4 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::name('administrators.')->prefix('administrator')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/commodities', function () {
+        return view('administrator.commodity.index');
+    });
 });
