@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Layout Default - Mazer Admin Dashboard</title>
+  <title>@yield('title') - {{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ asset('css/main/app.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/main/app-dark.css') }}" />
@@ -72,8 +72,8 @@
         <div class="page-title">
           <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-              <h3>Layout Default</h3>
-              <p class="text-subtitle text-muted">The default layout.</p>
+              <h3>@yield('title', 'Default title').</h3>
+              <p class="text-subtitle text-muted">@yield('description', 'Default description').</p>
             </div>
           </div>
         </div>

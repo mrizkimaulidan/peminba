@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Dashboard')
+@section('description', 'Halaman dashboard')
+
 @section('content')
 <section class="row">
   <div class="col-12 col-lg-9">
