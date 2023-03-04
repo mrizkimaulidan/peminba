@@ -13,28 +13,28 @@
 
     <li class="sidebar-item {{ request()->routeIs('administrators.commodities.*') ? 'active' : '' }}">
       <a href="{{ route('administrators.commodities.index') }}" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-collection-fill"></i>
         <span>Komoditas</span>
       </a>
     </li>
 
     <li class="sidebar-item">
       <a href="form-layout.html" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-bookmarks-fill"></i>
         <span>Program Studi</span>
       </a>
     </li>
 
     <li class="sidebar-item">
       <a href="form-layout.html" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-building-fill"></i>
         <span>Kelas</span>
       </a>
     </li>
 
     <li class="sidebar-item">
       <a href="form-layout.html" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-book-half"></i>
         <span>Mata Kuliah</span>
       </a>
     </li>
@@ -61,14 +61,14 @@
 
     <li class="sidebar-item">
       <a href="form-layout.html" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-people-fill"></i>
         <span>Mahasiswa</span>
       </a>
     </li>
 
     <li class="sidebar-item">
       <a href="form-layout.html" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-person-badge-fill"></i>
         <span>Administrator</span>
       </a>
     </li>
@@ -77,7 +77,7 @@
 
     <li class="sidebar-item">
       <a href="form-layout.html" class="sidebar-link">
-        <i class="bi bi-file-earmark-medical-fill"></i>
+        <i class="bi bi-box-arrow-right"></i>
         <span>Logout</span>
       </a>
     </li>
