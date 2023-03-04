@@ -2,7 +2,7 @@
   <ul class="menu">
     <li class="sidebar-title">Menu</li>
 
-    <li class="sidebar-item active">
+    <li class="sidebar-item {{ request()->routeIs('administrators.dashboard') ? 'active' : '' }}">
       <a href="index.html" class="sidebar-link">
         <i class="bi bi-grid-fill"></i>
         <span>Dashboard</span>
@@ -11,7 +11,7 @@
 
     <li class="sidebar-title">Data Master</li>
 
-    <li class="sidebar-item">
+    <li class="sidebar-item {{ request()->routeIs('administrators.commodities.*') ? 'active' : '' }}">
       <a href="form-layout.html" class="sidebar-link">
         <i class="bi bi-file-earmark-medical-fill"></i>
         <span>Komoditas</span>
