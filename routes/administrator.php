@@ -9,4 +9,5 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/commodities', [CommodityController::class, 'index'])->name('commodities.index');
     Route::put('/commodities/{commodity}', [CommodityController::class, 'update'])->name('commodities.update');
+    Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy'])->name('commodities.destroy');
 });

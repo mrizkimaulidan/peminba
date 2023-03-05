@@ -108,8 +108,27 @@
   @stack('script')
 
   <script>
-    $(function() {
+    $(function () {
       $('#datatable').DataTable();
+
+      $('.btn-delete').click(function (e) {
+        e.preventDefault();
+        Swal.fire({
+          title: 'Yakin?',
+          text: "Data tersebut akan dihapus",
+          icon: 'warning',
+          showCancelButton: true,
+          reverseButtons: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya!',
+          cancelButtonText: 'Tidak',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $(this).parent().submit();
+          }
+        });
+      });
     });
   </script>
 

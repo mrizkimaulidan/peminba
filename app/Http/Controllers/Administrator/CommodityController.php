@@ -63,8 +63,10 @@ class CommodityController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Commodity $commodity)
     {
-        //
+        $commodity->delete();
+
+        return redirect()->route('administrators.commodities.index')->with('success', 'Data berhasil dihapus!');
     }
 }

@@ -38,7 +38,13 @@
                           Ubah
                         </button>
                       </li>
-                      <li><a class="dropdown-item text-danger" href="#">Hapus</a></li>
+                      <li>
+                        <form action="{{ route('administrators.commodities.destroy', $commodity) }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
+                        </form>
+                      </li>
                     </ul>
                   </div>
                 </td>
