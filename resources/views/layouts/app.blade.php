@@ -102,7 +102,9 @@
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
   <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  @stack('modal')
   @stack('script')
 
   <script>
@@ -110,6 +112,7 @@
       $('#datatable').DataTable();
     });
   </script>
+
 </body>
 
 </html>

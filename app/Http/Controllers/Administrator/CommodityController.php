@@ -53,9 +53,11 @@ class CommodityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Commodity $commodity)
     {
-        //
+        $commodity->update($request->all());
+
+        return redirect()->route('administrators.commodities.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**

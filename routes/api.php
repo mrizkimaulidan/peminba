@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\API\v1\CommodityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::name('administrator.api.v1.')->prefix('v1')->group(function () {
+    Route::get('/commodities/{commodity}', [CommodityController::class, 'show'])->name('commodities.show');
 });

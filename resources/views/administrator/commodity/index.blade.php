@@ -32,7 +32,12 @@
                       <i class="bi bi-three-dots-vertical"></i>
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item text-success" href="#">Ubah</a></li>
+                      <li>
+                        <button type="button" class="dropdown-item text-success editCommodityButton"
+                          data-bs-toggle="modal" data-id="{{ $commodity->id }}" data-bs-target="#editCommodityModal">
+                          Ubah
+                        </button>
+                      </li>
                       <li><a class="dropdown-item text-danger" href="#">Hapus</a></li>
                     </ul>
                   </div>
@@ -47,3 +52,11 @@
   </div>
 </section>
 @endsection
+
+@push('modal')
+@include('administrator.commodity.modal.edit')
+@endpush
+
+@push('script')
+@include('administrator.commodity.script')
+@endpush
