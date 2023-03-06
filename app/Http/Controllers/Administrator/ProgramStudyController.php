@@ -63,8 +63,10 @@ class ProgramStudyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ProgramStudy $programStudy)
     {
-        //
+        $programStudy->delete();
+
+        return redirect()->route('administrators.program-studies.index')->with('success', 'Data berhasil dihapus!');
     }
 }
