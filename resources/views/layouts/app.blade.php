@@ -109,7 +109,13 @@
 
   <script>
     $(function () {
-      $('#datatable').DataTable();
+      $('#datatable').DataTable({
+        pageLength: 5,
+        lengthMenu: [[5, 10, 15, 20, 25, 50, -1], [5, 10, 15, 20, 25, 50, "All"]],
+        language: {
+          url: '//cdn.datatables.net/plug-ins/1.13.3/i18n/id.json',
+        },
+      });
 
       $('.btn-delete').click(function (e) {
         e.preventDefault();
