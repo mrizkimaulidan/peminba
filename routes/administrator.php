@@ -14,6 +14,7 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
     Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy'])->name('commodities.destroy');
 
     Route::get('/program-studies', [ProgramStudyController::class, 'index'])->name('program-studies.index');
+    Route::post('/program-studies', [ProgramStudyController::class, 'store'])->name('program-studies.store');
     Route::put('/program-studies/{program_study}', [ProgramStudyController::class, 'update'])->name('program-studies.update');
     Route::delete('/program-studies/{program_study}', [ProgramStudyController::class, 'destroy'])->name('program-studies.destroy');
 });

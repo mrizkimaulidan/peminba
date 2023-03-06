@@ -11,6 +11,15 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
+        <div class="d-flex flex-row-reverse mb-3">
+          <div class="p-2">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#createProgramStudyModal">
+              <i class="bi bi-plus-circle-fill"></i>
+              Tambah
+            </button>
+          </div>
+        </div>
         <table class="table" id="datatable">
           <thead>
             <tr>
@@ -59,6 +68,7 @@
 @endsection
 
 @push('modal')
+@include('administrator.program_study.modal.create')
 @include('administrator.program_study.modal.edit')
 @endpush
 

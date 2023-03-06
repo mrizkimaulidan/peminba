@@ -31,7 +31,9 @@ class ProgramStudyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ProgramStudy::create($request->all());
+
+        return redirect()->route('administrators.program-studies.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
