@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:administrator')->name('administrators.')->prefix('administrator')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::get('/commodities', [CommodityController::class, 'index'])->name('commodities.index');
+    Route::post('/commodities', [CommodityController::class, 'store'])->name('commodities.store');
     Route::put('/commodities/{commodity}', [CommodityController::class, 'update'])->name('commodities.update');
     Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy'])->name('commodities.destroy');
 

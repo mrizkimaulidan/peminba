@@ -31,7 +31,9 @@ class CommodityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Commodity::create($request->all());
+
+        return redirect()->route('administrators.commodities.store')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
