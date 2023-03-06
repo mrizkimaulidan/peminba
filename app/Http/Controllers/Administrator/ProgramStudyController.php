@@ -53,9 +53,11 @@ class ProgramStudyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, ProgramStudy $programStudy)
     {
-        //
+        $programStudy->update($request->all());
+
+        return redirect()->route('administrators.program-studies.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**
