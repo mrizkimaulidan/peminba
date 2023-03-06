@@ -20,6 +20,7 @@
             </button>
           </div>
         </div>
+        @include('utilities.alert')
         <table class="table" id="datatable">
           <thead>
             <tr>
