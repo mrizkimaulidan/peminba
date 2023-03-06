@@ -18,8 +18,8 @@
       </a>
     </li>
 
-    <li class="sidebar-item">
-      <a href="form-layout.html" class="sidebar-link">
+    <li class="sidebar-item {{ request()->routeIs('administrators.program-studies.*') ? 'active' : '' }}">
+      <a href="{{ route('administrators.program-studies.index') }}" class="sidebar-link">
         <i class="bi bi-bookmarks-fill"></i>
         <span>Program Studi</span>
       </a>

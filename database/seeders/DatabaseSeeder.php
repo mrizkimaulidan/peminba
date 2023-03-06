@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             AdministratorSeeder::class,
-            CommoditySeeder::class
+            CommoditySeeder::class,
+            ProgramStudySeeder::class
         ]);
     }
 }
