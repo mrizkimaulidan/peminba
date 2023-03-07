@@ -26,7 +26,7 @@
               <th scope="col">#</th>
               <th scope="col">NIM</th>
               <th scope="col">Nama</th>
-              <th scope="col">Jurusan</th>
+              <th scope="col">Program Studi</th>
               <th scope="col">Kelas</th>
               <th scope="col">Aksi</th>
             </tr>
@@ -82,6 +82,7 @@
 
 @push('modal')
 @include('administrator.student.modal.create')
+@include('administrator.student.modal.show')
 @include('administrator.student.modal.edit')
 @endpush
 
