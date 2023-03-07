@@ -32,8 +32,8 @@
       </a>
     </li>
 
-    <li class="sidebar-item">
-      <a href="form-layout.html" class="sidebar-link">
+    <li class="sidebar-item {{ request()->routeIs('administrators.subjects.*') ? 'active' : '' }}">
+      <a href="{{ route('administrators.subjects.index') }}" class="sidebar-link">
         <i class="bi bi-book-half"></i>
         <span>Mata Kuliah</span>
       </a>

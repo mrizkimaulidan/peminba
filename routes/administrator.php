@@ -4,6 +4,7 @@ use App\Http\Controllers\Administrator\CommodityController;
 use App\Http\Controllers\Administrator\DashboardController;
 use App\Http\Controllers\Administrator\ProgramStudyController;
 use App\Http\Controllers\Administrator\SchoolClassController;
+use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Authentication\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,9 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
     Route::post('/school-classes', [SchoolClassController::class, 'store'])->name('school-classes.store');
     Route::put('/school-classes/{school_class}', [SchoolClassController::class, 'update'])->name('school-classes.update');
     Route::delete('/school-classes/{school_class}', [SchoolClassController::class, 'destroy'])->name('school-classes.destroy');
+
+    Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects.index');
+    Route::post('/subjects', [SubjectController::class, 'store'])->name('subjects.store');
+    Route::put('/subjects/{subject}', [SubjectController::class, 'update'])->name('subjects.update');
+    Route::delete('/subjects/{subject}', [SubjectController::class, 'destroy'])->name('subjects.destroy');
 });
