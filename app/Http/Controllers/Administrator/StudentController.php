@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProgramStudy;
+use App\Models\SchoolClass;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -21,7 +23,10 @@ class StudentController extends Controller
             'name',
         )->get();
 
-        return view('administrator.student.index', compact('students'));
+        $programStudies = ProgramStudy::select('id', 'name')->get();
+        $schoolClasses = SchoolClass::select('id', 'name')->get();
+
+        return view('administrator.student.index', compact('students', 'programStudies', 'schoolClasses'));
     }
 
     /**
@@ -37,7 +42,9 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Student::create($request->all());
+
+        return redirect()->route('administrators.students.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
