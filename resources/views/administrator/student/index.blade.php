@@ -35,7 +35,9 @@
             @foreach ($students as $student)
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
-              <td>{{ $student->identification_number }}</td>
+              <td>
+                <span class="badge rounded-pill text-bg-primary">{{ $student->identification_number }}</span>
+              </td>
               <td>{{ $student->name }}</td>
               <td>{{ $student->programStudy->name }}</td>
               <td>{{ $student->schoolClass->name }}</td>
