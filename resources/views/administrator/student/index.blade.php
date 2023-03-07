@@ -37,8 +37,8 @@
               <th scope="row">{{ $loop->iteration }}</th>
               <td>{{ $student->identification_number }}</td>
               <td>{{ $student->name }}</td>
-              <td>{{ $student->program_study_id }}</td>
-              <td>{{ $student->school_class_id }}</td>
+              <td>{{ $student->programStudy->name }}</td>
+              <td>{{ $student->schoolClass->name }}</td>
               <td>
                 <div class="btn-group" role="group">
                   <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
