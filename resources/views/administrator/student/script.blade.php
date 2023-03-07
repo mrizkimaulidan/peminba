@@ -1,0 +1,36 @@
+<script>
+  $(function () {
+    $('#datatable').on('click', '.editProgramStudyButton', function (e) {
+      let id = $(this).data('id');
+      let showURL = "{{ route('administrator.api.v1.program-studies.show', 'id') }}";
+      let updateURL = "{{ route('administrators.program-studies.update', 'id') }}";
+      showURL = showURL.replace('id', id);
+      updateURL = updateURL.replace('id', id);
+
+      let input = $('#editProgramStudyModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
+      input.val('Sedang mengambil data..');
+      input.attr('disabled', true);
+
+      $.ajax({
+        url: showURL,
+        method: 'GET',
+        success: (res) => {
+          input.attr('disabled', false);
+          $('#editProgramStudyModal #name').val(res.data.name);
+          $('#editProgramStudyModal form').attr('action', updateURL);
+        },
+        error: (err) => {
+          Swal.fire(
+            'Error',
+            'Terjadi kesalahan, lapor kepada administrator!',
+            'error'
+          );
+
+          $('#editProgramStudyModal').on('shown.bs.modal', () => {
+            $('#editProgramStudyModal').modal('hide');
+          });
+        }
+      });
+    });
+  });
+</script>

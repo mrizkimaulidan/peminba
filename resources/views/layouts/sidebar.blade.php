@@ -59,8 +59,8 @@
 
     <li class="sidebar-title">Manajemen Akun</li>
 
-    <li class="sidebar-item">
-      <a href="form-layout.html" class="sidebar-link">
+    <li class="sidebar-item {{ request()->routeIs('administrators.students.*') ? 'active' : '' }}">
+      <a href="{{ route('administrators.students.index') }}" class="sidebar-link">
         <i class="bi bi-people-fill"></i>
         <span>Mahasiswa</span>
       </a>
