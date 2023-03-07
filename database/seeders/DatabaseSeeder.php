@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             AdministratorSeeder::class,
             CommoditySeeder::class,
             ProgramStudySeeder::class,
-            SchoolClassSeeder::class
+            SchoolClassSeeder::class,
+            SubjectSeeder::class
         ]);
     }
 }
