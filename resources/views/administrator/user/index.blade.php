@@ -32,12 +32,12 @@
             </tr>
           </thead>
           <tbody>
-            @foreach ($administrators as $administrator)
+            @foreach ($administrators as $user)
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
-              <td>{{ $administrator->name }}</td>
-              <td>{{ $administrator->email }}</td>
-              <td>{{ $administrator->phone_number }}</td>
+              <td>{{ $user->name }}</td>
+              <td>{{ $user->email }}</td>
+              <td>{{ $user->phone_number }}</td>
               <td>
                 <div class="btn-group" role="group">
                   <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
@@ -47,13 +47,12 @@
                   <ul class="dropdown-menu">
                     <li>
                       <button type="button" class="dropdown-item text-success editAdministratorButton"
-                        data-bs-toggle="modal" data-id="{{ $administrator->id }}"
-                        data-bs-target="#editAdministratorModal">
+                        data-bs-toggle="modal" data-id="{{ $user->id }}" data-bs-target="#editAdministratorModal">
                         Ubah
                       </button>
                     </li>
                     <li>
-                      <form action="{{ route('administrators.users.destroy', $administrator) }}" method="POST">
+                      <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
