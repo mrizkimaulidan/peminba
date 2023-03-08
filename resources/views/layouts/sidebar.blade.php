@@ -66,8 +66,8 @@
       </a>
     </li>
 
-    <li class="sidebar-item">
-      <a href="form-layout.html" class="sidebar-link">
+    <li class="sidebar-item {{ request()->routeIs('administrators.users.*') ? 'active' : '' }}">
+      <a href="{{ route('administrators.users.index') }}" class="sidebar-link">
         <i class="bi bi-person-badge-fill"></i>
         <span>Administrator</span>
       </a>
