@@ -33,15 +33,15 @@
       });
     });
 
-    $('#datatable').on('click', '.editProgramStudyButton', function (e) {
+    $('#datatable').on('click', '.editStudentButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('administrator.api.v1.program-studies.show', 'id') }}";
-      let updateURL = "{{ route('administrators.program-studies.update', 'id') }}";
+      let showURL = "{{ route('administrator.api.v1.students.show', 'id') }}";
+      let updateURL = "{{ route('administrators.students.update', 'id') }}";
       showURL = showURL.replace('id', id);
       updateURL = updateURL.replace('id', id);
 
-      let input = $('#editProgramStudyModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
-      input.val('Sedang mengambil data..');
+      let input = $('#editStudentModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
+      input.not('[type=password]').not('select').val('Sedang mengambil data..');
       input.attr('disabled', true);
 
       $.ajax({
@@ -49,8 +49,13 @@
         method: 'GET',
         success: (res) => {
           input.attr('disabled', false);
-          $('#editProgramStudyModal #name').val(res.data.name);
-          $('#editProgramStudyModal form').attr('action', updateURL);
+          $('#editStudentModal #identification_number').val(res.data.identification_number);
+          $('#editStudentModal #name').val(res.data.name);
+          $('#editStudentModal #program_study_id').val(res.data.program_study.id);
+          $('#editStudentModal #school_class_id').val(res.data.school_class.id);
+          $('#editStudentModal #email').val(res.data.email);
+          $('#editStudentModal #phone_number').val(res.data.phone_number);
+          $('#editStudentModal form').attr('action', updateURL);
         },
         error: (err) => {
           Swal.fire(
@@ -59,8 +64,8 @@
             'error'
           );
 
-          $('#editProgramStudyModal').on('shown.bs.modal', () => {
-            $('#editProgramStudyModal').modal('hide');
+          $('#editStudentModal').on('shown.bs.modal', () => {
+            $('#editStudentModal').modal('hide');
           });
         }
       });

@@ -42,9 +42,19 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $student->update([
+            'program_study_id' => $request->program_study_id,
+            'school_class_id' => $request->school_class_id,
+            'identification_number' => $request->identification_number,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password ?? $student->password,
+            'phone_number' => $request->phone_number,
+        ]);
+
+        return redirect()->route('administrators.students.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**
