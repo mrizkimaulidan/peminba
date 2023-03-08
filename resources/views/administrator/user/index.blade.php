@@ -39,6 +39,7 @@
               <td>{{ $user->email }}</td>
               <td>{{ $user->phone_number }}</td>
               <td>
+                @if(auth()->id() === $user->id)
                 <div class="btn-group" role="group">
                   <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -51,6 +52,7 @@
                         Ubah
                       </button>
                     </li>
+                    @if(auth()->id() !== $user->id)
                     <li>
                       <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
                         @csrf
@@ -58,8 +60,10 @@
                         <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
                       </form>
                     </li>
+                    @endif
                   </ul>
                 </div>
+                @endif
               </td>
             </tr>
             @endforeach
