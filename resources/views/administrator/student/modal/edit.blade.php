@@ -6,18 +6,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('administrators.students.store') }}" method="POST">
+        <form action="#" method="POST">
           @csrf
           @method('PUT')
           <div class="row">
-            <div class="col-4">
+            <div class="col-xs-12 col-md-4">
               <div class="mb-3">
                 <label for="identification_number" class="form-label">NIM</label>
                 <input type="text" name="identification_number" id="identification_number" class="form-control"
                   placeholder="Masukkan nim..">
               </div>
             </div>
-            <div class="col">
+            <div class="col-xs-12 col-md-8">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama..">
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="program_study_id" class="form-label">Program Studi</label>
                 <select class="form-select" name="program_study_id" id="program_study_id">
@@ -36,7 +36,7 @@
                 </select>
               </div>
             </div>
-            <div class="col">
+            <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="school_class_id" class="form-label">Kelas</label>
                 <select class="form-select" name="school_class_id" id="school_class_id">
@@ -52,14 +52,7 @@
             <div class="col">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan email..">
-              </div>
-            </div>
-            <div class="col">
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control"
-                  placeholder="Masukkan password..">
+                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan email..">
               </div>
             </div>
             <div class="col">
@@ -67,6 +60,22 @@
                 <label for="phone_number" class="form-label">Nomor Handphone</label>
                 <input type="text" name="phone_number" id="phone_number" class="form-control"
                   placeholder="Masukkan nomor handphone..">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control"
+                  placeholder="Masukkan password..">
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                <input type="password" name="password_confirmation" id="password" class="form-control"
+                  placeholder="Masukkan password..">
               </div>
             </div>
           </div>

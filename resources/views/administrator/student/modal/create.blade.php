@@ -9,21 +9,22 @@
         <form action="{{ route('administrators.students.store') }}" method="POST">
           @csrf
           <div class="row">
-            <div class="col-4">
+            <div class="col-xs-12 col-md-4">
               <div class="mb-3">
                 <label for="identification_number" class="form-label">NIM</label>
                 <input type="text" name="identification_number" class="form-control" placeholder="Masukkan nim..">
               </div>
             </div>
-            <div class="col">
+            <div class="col-xs-12 col-md-8">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
                 <input type="text" name="name" class="form-control" placeholder="Masukkan nama..">
               </div>
             </div>
           </div>
+
           <div class="row">
-            <div class="col">
+            <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="program_study_id" class="form-label">Program Studi</label>
                 <select class="form-select" name="program_study_id">
@@ -34,7 +35,7 @@
                 </select>
               </div>
             </div>
-            <div class="col">
+            <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="school_class_id" class="form-label">Kelas</label>
                 <select class="form-select" name="school_class_id">
@@ -55,14 +56,23 @@
             </div>
             <div class="col">
               <div class="mb-3">
+                <label for="phone_number" class="form-label">Nomor Handphone</label>
+                <input type="text" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone..">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-6">
+              <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" placeholder="Masukkan password..">
               </div>
             </div>
-            <div class="col">
+            <div class="col-xs-12 col-md-6">
               <div class="mb-3">
-                <label for="phone_number" class="form-label">Nomor Handphone</label>
-                <input type="text" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone..">
+                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                <input type="password" name="password_confirmation" class="form-control"
+                  placeholder="Masukkan password..">
               </div>
             </div>
           </div>
