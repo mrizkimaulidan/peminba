@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSchoolClassRequest;
+use App\Http\Requests\UpdateSchoolClassRequest;
 use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 
@@ -21,9 +23,9 @@ class SchoolClassController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSchoolClassRequest $request)
     {
-        SchoolClass::create($request->all());
+        SchoolClass::create($request->validated()());
 
         return redirect()->route('administrators.school-classes.index')->with('success', 'Data berhasil ditambahkan!');
     }
@@ -31,9 +33,9 @@ class SchoolClassController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SchoolClass $schoolClass)
+    public function update(UpdateSchoolClassRequest $request, SchoolClass $schoolClass)
     {
-        $schoolClass->update($request->all());
+        $schoolClass->update($request->validated()());
 
         return redirect()->route('administrators.school-classes.index')->with('success', 'Data berhasil diubah!');
     }

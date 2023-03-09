@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCommodityRequest;
+use App\Http\Requests\UpdateCommodityRequest;
 use App\Models\Commodity;
 use Illuminate\Http\Request;
 
@@ -21,9 +23,9 @@ class CommodityController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCommodityRequest $request)
     {
-        Commodity::create($request->all());
+        Commodity::create($request->validated());
 
         return redirect()->route('administrators.commodities.store')->with('success', 'Data berhasil ditambahkan!');
     }
@@ -31,9 +33,9 @@ class CommodityController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Commodity $commodity)
+    public function update(UpdateCommodityRequest $request, Commodity $commodity)
     {
-        $commodity->update($request->all());
+        $commodity->update($request->validated());
 
         return redirect()->route('administrators.commodities.index')->with('success', 'Data berhasil diubah!');
     }

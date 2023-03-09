@@ -12,7 +12,15 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="name" name="name" id="name" class="form-control" placeholder="Masukkan nama..">
+                <input type="name" name="name" id="name"
+                  class="form-control @error('name', 'store') is-invalid @enderror" @if($errors->hasBag('store'))
+                value="{{ old('name') }}" @endif placeholder="Masukkan nama.."
+                required>
+                @error('name', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>

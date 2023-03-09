@@ -12,11 +12,26 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="code" class="form-label">Kode</label>
-                <input type="text" name="code" id="code" class="form-control" placeholder="Masukkan kode..">
+                <input type="text" name="code" id="code"
+                  class="form-control @error('code', 'store') is-invalid @enderror" @if($errors->hasBag('store'))
+                value="{{ old('code') }}" @endif placeholder="Masukkan kode.." required>
+                @error('code', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama..">
+                <input type="text" name="name" id="name"
+                  class="form-control  @error('name', 'store') is-invalid @enderror" @if($errors->hasBag('store'))
+                value="{{ old('name') }}" @endif placeholder="Masukkan nama.."
+                required>
+                @error('name', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
