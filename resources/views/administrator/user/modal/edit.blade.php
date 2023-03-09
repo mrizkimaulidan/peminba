@@ -25,6 +25,16 @@
               </div>
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="phone_number" class="form-label">Nomor Handphone</label>
+                <input type="text" name="phone_number" id="phone_number" class="form-control"
+                  placeholder="Masukkan nomor handphone..">
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-12">
               <div class="mb-3">
@@ -37,9 +47,9 @@
           <div class="row">
             <div class="col-12">
               <div class="mb-3">
-                <label for="phone_number" class="form-label">Nomor Handphone</label>
-                <input type="text" name="phone_number" id="phone_number" class="form-control"
-                  placeholder="Masukkan nomor handphone..">
+                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
+                  placeholder="Masukkan password..">
               </div>
             </div>
           </div>
