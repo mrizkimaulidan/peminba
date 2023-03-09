@@ -1,5 +1,13 @@
 <script>
   $(function () {
+    $('#createSubjectModal').on('shown.bs.modal', () => {
+      $('#createSubjectModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
+    $('#editSubjectModal').on('shown.bs.modal', () => {
+      $('#editSubjectModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
     $('#datatable').on('click', '.editSubjectButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('administrator.api.v1.subjects.show', 'id') }}";

@@ -1,5 +1,13 @@
 <script>
   $(function () {
+    $('#createProgramStudyModal').on('shown.bs.modal', () => {
+      $('#createProgramStudyModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
+    $('#editProgramStudyModal').on('shown.bs.modal', () => {
+      $('#editProgramStudyModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
     $('#datatable').on('click', '.editProgramStudyButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('administrator.api.v1.program-studies.show', 'id') }}";

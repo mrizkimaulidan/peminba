@@ -1,5 +1,13 @@
 <script>
   $(function () {
+    $('#createSchoolClassModal').on('shown.bs.modal', () => {
+      $('#createSchoolClassModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
+    $('#editSchoolClassModal').on('shown.bs.modal', () => {
+      $('#editSchoolClassModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
     $('#datatable').on('click', '.editSchoolClassButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('administrator.api.v1.school-classes.show', 'id') }}";

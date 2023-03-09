@@ -1,5 +1,13 @@
 <script>
   $(function () {
+    $('#createCommodityModal').on('shown.bs.modal', () => {
+      $('#createCommodityModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
+    $('#editCommodityModal').on('shown.bs.modal', () => {
+      $('#editCommodityModal').find('input').not('[type=hidden]')[0].focus();
+    });
+
     $('#datatable').on('click', '.editCommodityButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('administrator.api.v1.commodities.show', 'id') }}";

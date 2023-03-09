@@ -13,7 +13,8 @@
       <div class="card-body">
         <div class="d-flex flex-row-reverse mb-3">
           <div class="p-2">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createCommodityModal">
+            <button type="button" class="btn btn-primary" id="createCommodityButton" data-bs-toggle="modal"
+              data-bs-target="#createCommodityModal">
               <i class="bi bi-plus-circle-fill"></i>
               Tambah
             </button>
