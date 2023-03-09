@@ -12,13 +12,14 @@
             <div class="col-xs-12 col-md-4">
               <div class="mb-3">
                 <label for="identification_number" class="form-label">NIM</label>
-                <input type="text" name="identification_number" class="form-control" placeholder="Masukkan nim..">
+                <input type="text" name="identification_number" class="form-control" placeholder="Masukkan nim.."
+                  required>
               </div>
             </div>
             <div class="col-xs-12 col-md-8">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" class="form-control" placeholder="Masukkan nama..">
+                <input type="text" name="name" class="form-control" placeholder="Masukkan nama.." required>
               </div>
             </div>
           </div>
@@ -52,14 +53,15 @@
               <label for="email" class="form-label">Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
-                <input type="text" name="email" class="form-control" placeholder="Masukkan email..">
+                <input type="text" name="email" class="form-control" placeholder="Masukkan email.." required>
               </div>
             </div>
             <div class="col">
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="text" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone..">
+                <input type="text" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone.."
+                  required>
               </div>
             </div>
           </div>
@@ -67,14 +69,14 @@
             <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Masukkan password..">
+                <input type="password" name="password" class="form-control" placeholder="Masukkan password.." required>
               </div>
             </div>
             <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                 <input type="password" name="password_confirmation" class="form-control"
-                  placeholder="Masukkan password..">
+                  placeholder="Masukkan password.." required>
               </div>
             </div>
           </div>
