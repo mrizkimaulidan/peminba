@@ -7,13 +7,13 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col">
+          <div class="col-xs-12 col-md-6">
             <div class="mb-3">
               <label for="identification_number" class="form-label">NIM</label>
               <input type="text" id="identification_number" class="form-control" disabled>
             </div>
           </div>
-          <div class="col">
+          <div class="col-xs-12 col-md-6">
             <div class="mb-3">
               <label for="name" class="form-label">Nama</label>
               <input type="text" id="name" class="form-control" disabled>
@@ -21,13 +21,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col-xs-12 col-md-6">
             <div class="mb-3">
               <label for="program_study_id" class="form-label">Program Studi</label>
               <input type="text" id="program_study_id" class="form-control" disabled>
             </div>
           </div>
-          <div class="col">
+          <div class="col-xs-12 col-md-6">
             <div class="mb-3">
               <label for="school_class_id" class="form-label">Kelas</label>
               <input type="text" id="school_class_id" class="form-control" disabled>
@@ -35,13 +35,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col">
+          <div class="col-xs-12 col-md-6">
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
               <input type="text" id="email" class="form-control" disabled>
             </div>
           </div>
-          <div class="col">
+          <div class="col-xs-12 col-md-6">
             <div class="mb-3">
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <input type="text" id="phone_number" class="form-control" disabled>
