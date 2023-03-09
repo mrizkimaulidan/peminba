@@ -53,7 +53,7 @@
               <label for="email" class="form-label">Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
-                <input type="text" name="email" class="form-control" placeholder="Masukkan email.." required>
+                <input type="email" name="email" class="form-control" placeholder="Masukkan email.." required>
               </div>
             </div>
             <div class="col">
