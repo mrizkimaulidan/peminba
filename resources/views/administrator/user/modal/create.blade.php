@@ -12,7 +12,7 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama..">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama.." required>
               </div>
             </div>
           </div>
@@ -20,7 +20,8 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan email..">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan email.."
+                  required>
               </div>
             </div>
           </div>
@@ -29,7 +30,7 @@
               <div class="mb-3">
                 <label for="phone_number" class="form-label">Nomor Handphone</label>
                 <input type="text" name="phone_number" id="phone_number" class="form-control"
-                  placeholder="Masukkan nomor handphone..">
+                  placeholder="Masukkan nomor handphone.." required>
               </div>
             </div>
           </div>
@@ -38,7 +39,7 @@
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" class="form-control"
-                  placeholder="Masukkan password..">
+                  placeholder="Masukkan password.." required>
               </div>
             </div>
           </div>
@@ -47,7 +48,7 @@
               <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                 <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
-                  placeholder="Masukkan konfirmasi password..">
+                  placeholder="Masukkan konfirmasi password.." required>
               </div>
             </div>
           </div>
