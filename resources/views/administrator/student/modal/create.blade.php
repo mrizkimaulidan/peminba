@@ -49,14 +49,16 @@
           </div>
           <div class="row">
             <div class="col">
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group mb-3">
+                <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
                 <input type="text" name="email" class="form-control" placeholder="Masukkan email..">
               </div>
             </div>
             <div class="col">
-              <div class="mb-3">
-                <label for="phone_number" class="form-label">Nomor Handphone</label>
+              <label for="phone_number" class="form-label">Nomor Handphone</label>
+              <div class="input-group mb-3">
+                <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
                 <input type="text" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone..">
               </div>
             </div>
