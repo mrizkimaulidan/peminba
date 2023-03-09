@@ -5,6 +5,7 @@ use App\Http\Controllers\Administrator\API\v1\ProgramStudyController;
 use App\Http\Controllers\Administrator\API\v1\SchoolClassController;
 use App\Http\Controllers\Administrator\API\v1\StudentController;
 use App\Http\Controllers\Administrator\API\v1\SubjectController;
+use App\Http\Controllers\Administrator\API\v1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,5 @@ Route::name('administrator.api.v1.')->prefix('v1')->group(function () {
     Route::get('/school-classes/{school_class}', [SchoolClassController::class, 'show'])->name('school-classes.show');
     Route::get('/subjects/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
+    Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 });

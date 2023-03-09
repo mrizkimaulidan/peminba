@@ -36,9 +36,16 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Administrator $user)
     {
-        //
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => is_null($request->password) ? $user->password : bcrypt($request->password),
+            'phone_number' => $request->phone_number,
+        ]);
+
+        return redirect()->route('administrators.users.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**

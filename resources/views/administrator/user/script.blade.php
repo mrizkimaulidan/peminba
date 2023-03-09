@@ -1,14 +1,14 @@
 <script>
   $(function () {
-    $('#datatable').on('click', '.editSubjectButton', function (e) {
+    $('#datatable').on('click', '.editAdministratorButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('administrator.api.v1.subjects.show', 'id') }}";
-      let updateURL = "{{ route('administrators.subjects.update', 'id') }}";
+      let showURL = "{{ route('administrator.api.v1.users.show', 'id') }}";
+      let updateURL = "{{ route('administrators.users.update', 'id') }}";
       showURL = showURL.replace('id', id);
       updateURL = updateURL.replace('id', id);
 
-      let input = $('#editSubjectModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
-      input.val('Sedang mengambil data..');
+      let input = $('#editAdministratorModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
+      input.not('[type=password]').val('Sedang mengambil data..');
       input.attr('disabled', true);
 
       $.ajax({
@@ -16,9 +16,11 @@
         method: 'GET',
         success: (res) => {
           input.attr('disabled', false);
-          $('#editSubjectModal #code').val(res.data.code);
-          $('#editSubjectModal #name').val(res.data.name);
-          $('#editSubjectModal form').attr('action', updateURL);
+          $('#editAdministratorModal #code').val(res.data.code);
+          $('#editAdministratorModal #name').val(res.data.name);
+          $('#editAdministratorModal #email').val(res.data.email);
+          $('#editAdministratorModal #phone_number').val(res.data.phone_number);
+          $('#editAdministratorModal form').attr('action', updateURL);
         },
         error: (err) => {
           Swal.fire(
@@ -27,8 +29,8 @@
             'error'
           );
 
-          $('#editSubjectModal').on('shown.bs.modal', () => {
-            $('#editSubjectModal').modal('hide');
+          $('#editAdministratorModal').on('shown.bs.modal', () => {
+            $('#editAdministratorModal').modal('hide');
           });
         }
       });
