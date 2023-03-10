@@ -21,54 +21,56 @@
           </div>
         </div>
         @include('utilities.alert')
-        <table class="table" id="datatable">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nama</th>
-              <th scope="col">Email</th>
-              <th scope="col">Nomor Handphone</th>
-              <th scope="col">Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($administrators as $user)
-            <tr>
-              <th scope="row">{{ $loop->iteration }}</th>
-              <td>{{ $user->name }}</td>
-              <td>{{ $user->email }}</td>
-              <td>{{ $user->phone_number }}</td>
-              <td>
-                @if(auth()->id() === $user->id)
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <button type="button" class="dropdown-item text-success editAdministratorButton"
-                        data-bs-toggle="modal" data-id="{{ $user->id }}" data-bs-target="#editAdministratorModal">
-                        Ubah
-                      </button>
-                    </li>
-                    @if(auth()->id() !== $user->id)
-                    <li>
-                      <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
-                      </form>
-                    </li>
-                    @endif
-                  </ul>
-                </div>
-                @endif
-              </td>
-            </tr>
-            @endforeach
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table" id="datatable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nomor Handphone</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($administrators as $user)
+              <tr>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->phone_number }}</td>
+                <td>
+                  @if(auth()->id() === $user->id)
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <i class="bi bi-three-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <button type="button" class="dropdown-item text-success editAdministratorButton"
+                          data-bs-toggle="modal" data-id="{{ $user->id }}" data-bs-target="#editAdministratorModal">
+                          Ubah
+                        </button>
+                      </li>
+                      @if(auth()->id() !== $user->id)
+                      <li>
+                        <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
+                        </form>
+                      </li>
+                      @endif
+                    </ul>
+                  </div>
+                  @endif
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
