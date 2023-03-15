@@ -25,7 +25,7 @@ class SchoolClassController extends Controller
      */
     public function store(StoreSchoolClassRequest $request)
     {
-        SchoolClass::create($request->validated()());
+        SchoolClass::create($request->validated());
 
         return redirect()->route('administrators.school-classes.index')->with('success', 'Data berhasil ditambahkan!');
     }
