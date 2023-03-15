@@ -36,27 +36,18 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $schoolClass->name }}</td>
                 <td>
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      <i class="bi bi-three-dots-vertical"></i>
+                  <div class="btn-group gap-1">
+                    <button type="button" class="btn btn-sm btn-success editSchoolClassButton" data-bs-toggle="modal"
+                      data-id="{{ $schoolClass->id }}" data-bs-target="#editSchoolClassModal">
+                      <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <button type="button" class="dropdown-item text-success editSchoolClassButton"
-                          data-bs-toggle="modal" data-id="{{ $schoolClass->id }}"
-                          data-bs-target="#editSchoolClassModal">
-                          Ubah
-                        </button>
-                      </li>
-                      <li>
-                        <form action="{{ route('administrators.school-classes.destroy', $schoolClass) }}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
-                        </form>
-                      </li>
-                    </ul>
+
+                    <form action="{{ route('administrators.school-classes.destroy', $schoolClass) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
+                          class="bi bi-trash-fill"></i></button>
+                    </form>
                   </div>
                 </td>
               </tr>

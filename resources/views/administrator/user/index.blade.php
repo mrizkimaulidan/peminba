@@ -41,28 +41,21 @@
                 <td>{{ $user->phone_number }}</td>
                 <td>
                   @if(auth()->id() === $user->id)
-                  <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      <i class="bi bi-three-dots-vertical"></i>
+                  <div class="btn-group gap-1">
+                    <button type="button" class="btn btn-sm btn-success editAdministratorButton" data-bs-toggle="modal"
+                      data-id="{{ $user->id }}" data-bs-target="#editAdministratorModal">
+                      <i class="bi bi-pencil-fill"></i>
                     </button>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <button type="button" class="dropdown-item text-success editAdministratorButton"
-                          data-bs-toggle="modal" data-id="{{ $user->id }}" data-bs-target="#editAdministratorModal">
-                          Ubah
-                        </button>
-                      </li>
-                      @if(auth()->id() !== $user->id)
-                      <li>
-                        <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <button type="submit" class="dropdown-item text-danger btn-delete">Hapus</button>
-                        </form>
-                      </li>
+
+                    @if(auth()->id() !== $user->id)
+                    <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger btn-delete">
+                        <i class="bi bi-trash-fill"></i>
+                      </button>
                       @endif
-                    </ul>
+                    </form>
                   </div>
                   @endif
                 </td>
