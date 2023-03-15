@@ -35,7 +35,7 @@ class SchoolClassController extends Controller
      */
     public function update(UpdateSchoolClassRequest $request, SchoolClass $schoolClass)
     {
-        $schoolClass->update($request->validated()());
+        $schoolClass->update($request->validated());
 
         return redirect()->route('administrators.school-classes.index')->with('success', 'Data berhasil diubah!');
     }
