@@ -22,5 +22,7 @@ class StudentSeeder extends Seeder
             'password' => bcrypt('secret'),
             'phone_number' => '+6282144493985'
         ]);
+
+        Student::factory(20)->create();
     }
 }
