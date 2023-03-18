@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             ProgramStudySeeder::class,
             SchoolClassSeeder::class,
             SubjectSeeder::class,
-            StudentSeeder::class
+            StudentSeeder::class,
+            BorrowingSeeder::class
         ]);
     }
 }
