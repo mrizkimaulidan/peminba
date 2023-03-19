@@ -26,6 +26,12 @@ Setup the database based on your own.
 $ php artisan migrate --seed
 ```
 
+Generate ide helper:
+
+```bash
+$ php artisan ide-helper:generate
+```
+
 ```bash
 $ php artisan serve
 ```
