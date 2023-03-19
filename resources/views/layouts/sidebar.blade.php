@@ -44,15 +44,15 @@
         <i class="bi bi-stack"></i>
         <span>Peminjaman</span>
       </a>
-      <ul class="submenu">
+      <ul class="submenu {{ request()->routeIs('administrators.borrowings-report.index') ? 'active' : '' }}">
         <li class="submenu-item">
           <a href="component-alert.html">Peminjaman Hari Ini</a>
         </li>
         <li class="submenu-item">
           <a href="component-badge.html">Histori Peminjaman</a>
         </li>
-        <li class="submenu-item">
-          <a href="component-badge.html">Laporan</a>
+        <li class="submenu-item {{ request()->routeIs('administrators.borrowings-report.index') ? 'active' : '' }}">
+          <a href="{{ route('administrators.borrowings-report.index') }}">Laporan</a>
         </li>
       </ul>
     </li>

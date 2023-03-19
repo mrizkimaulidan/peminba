@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administrator\BorrowingReportController;
 use App\Http\Controllers\Administrator\CommodityController;
 use App\Http\Controllers\Administrator\DashboardController;
 use App\Http\Controllers\Administrator\ProgramStudyController;
@@ -41,4 +42,6 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    Route::get('/borrowings/report', [BorrowingReportController::class, 'index'])->name('borrowings-report.index');
 });
