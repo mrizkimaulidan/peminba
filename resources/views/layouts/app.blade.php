@@ -12,6 +12,7 @@
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/png" />
 
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <link rel="stylesheet" href="{{ asset('css/shared/iconly.css') }}" />
 </head>
@@ -103,6 +104,7 @@
   <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   @stack('modal')
   @stack('script')
@@ -116,6 +118,8 @@
           url: '//cdn.datatables.net/plug-ins/1.13.3/i18n/id.json',
         },
       });
+
+      $('input[type=date]').flatpickr();
 
       $('.btn-delete').click(function (e) {
         e.preventDefault();
