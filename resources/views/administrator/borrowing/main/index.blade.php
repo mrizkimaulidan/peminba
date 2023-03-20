@@ -21,7 +21,14 @@
           <div class="d-flex">
             <div class="flex-fill">
               <label for="date" class="form-label">Tanggal Awal:</label>
-              <input type="date" name="date" id="date" class="form-control" placeholder="Pilih tanggal awal..">
+              <div class="input-group">
+                <span class="input-group-text">
+                  <div>
+                    <i class="bi bi-calendar-date-fill"></i>
+                  </div>
+                </span>
+                <input type="date" name="date" id="date" class="form-control" placeholder="Pilih tanggal awal..">
+              </div>
             </div>
           </div>
 

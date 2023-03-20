@@ -15,12 +15,23 @@
           <div class="d-flex">
             <div class="flex-fill">
               <label for="start_date" class="form-label">Tanggal Awal:</label>
-              <input type="date" name="start_date" id="start_date" class="form-control"
-                placeholder="Pilih tanggal awal..">
+              <div class="input-group">
+                <div class="input-group-text">
+                  <div><i class="bi bi-calendar-date-fill"></i></div>
+                </div>
+                <input type="date" name="start_date" id="start_date" class="form-control"
+                  placeholder="Pilih tanggal awal..">
+              </div>
             </div>
             <div class="flex-fill">
               <label for="end_date" class="form-label">Tanggal Akhir:</label>
-              <input type="date" name="end_date" id="end_date" class="form-control" placeholder="Pilih tanggal akhir..">
+              <div class="input-group">
+                <div class="input-group-text">
+                  <div><i class="bi bi-calendar-date-fill"></i></div>
+                </div>
+                <input type="date" name="end_date" id="end_date" class="form-control"
+                  placeholder="Pilih tanggal akhir..">
+              </div>
             </div>
           </div>
 
