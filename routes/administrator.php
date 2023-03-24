@@ -4,6 +4,8 @@ use App\Http\Controllers\Administrator\BorrowingController;
 use App\Http\Controllers\Administrator\BorrowingReportController;
 use App\Http\Controllers\Administrator\CommodityController;
 use App\Http\Controllers\Administrator\DashboardController;
+use App\Http\Controllers\Administrator\ProfileController;
+use App\Http\Controllers\Administrator\ProfileSettingController;
 use App\Http\Controllers\Administrator\ProgramStudyController;
 use App\Http\Controllers\Administrator\SchoolClassController;
 use App\Http\Controllers\Administrator\StudentController;
@@ -46,4 +48,7 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
 
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
     Route::get('/borrowings/report', [BorrowingReportController::class, 'index'])->name('borrowings-report.index');
+
+    Route::get('/profile/settings', [ProfileSettingController::class, 'index'])->name('profile-settings.index');
+    Route::put('/profile/settings', [ProfileSettingController::class, 'update'])->name('profile-settings.update');
 });
