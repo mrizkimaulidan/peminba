@@ -84,8 +84,8 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
-                    <button type="button" class="btn btn-sm btn-success editBorrowingButton" data-bs-toggle="modal"
-                      data-id="#" data-bs-target="#editBorrowingModal">
+                    <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
+                      data-id="#" data-bs-target="#showBorrowingModal">
                       <i class="bi bi-pencil-fill"></i>
                     </button>
 
@@ -107,6 +107,10 @@
   </div>
 </section>
 @endsection
+
+@push('modal')
+@include('administrator.borrowing.main.modal.show')
+@endpush
 
 @push('script')
 @include('administrator.borrowing.script')
