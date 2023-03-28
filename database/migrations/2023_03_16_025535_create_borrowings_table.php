@@ -22,7 +22,6 @@ return new class extends Migration
             $table->time('time_end')->nullable();
             $table->boolean('is_returned')->default(0);
             $table->text('note')->nullable();
-            $table->string('officer')->nullable();
             $table->timestamps();
         });
     }

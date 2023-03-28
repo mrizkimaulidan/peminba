@@ -27,7 +27,6 @@ class BorrowingFactory extends Factory
             'time_start' => now()->createFromTime(mt_rand(1, 24), mt_rand(1, 59), mt_rand(1, 59)),
             'is_returned' => fake()->randomElement([0, 1]),
             'note' => fake()->text,
-            'officer' => fake()->name
         ];
     }
 }
