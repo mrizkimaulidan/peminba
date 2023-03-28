@@ -11,23 +11,30 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+          <i class="bi bi-exclamation-circle"></i>
+          Setiap data peminjaman dari mahasiswa diharapkan petugas melakukan validasi dengan menekan tombol
+          validasi
+          pada data di tabel. Agar petugas bisa memberikan pertanggung jawaban jika ada terjadinya komoditas yang
+          hilang. Silahkan petugas melakukan validasi jika jam kembali sudah terisi.
+        </div>
+
         <div class="alert alert-info" role="alert">
           Secara default data peminjaman akan tampil dengan tanggal hari ini. Jika ingin melihat data
           peminjaman
           dengan tanggal yang spesifik bisa menggunakan fitur pencarian di bawah.
         </div>
-
         <form action="" method="GET">
           <div class="d-flex">
             <div class="flex-fill">
-              <label for="date" class="form-label">Tanggal Awal:</label>
+              <label for="date" class="form-label">Tanggal:</label>
               <div class="input-group">
                 <span class="input-group-text">
                   <div>
                     <i class="bi bi-calendar-date-fill"></i>
                   </div>
                 </span>
-                <input type="date" name="date" id="date" class="form-control" placeholder="Pilih tanggal awal..">
+                <input type="date" name="date" id="date" class="form-control" placeholder="Pilih tanggal..">
               </div>
             </div>
           </div>
@@ -45,8 +52,8 @@
                 <th scope="col">Nama Mahasiswa</th>
                 <th scope="col">Komoditas</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Waktu Pinjam Awal</th>
-                <th scope="col">Waktu Pinjam Kembali</th>
+                <th scope="col">Jam Pinjam</th>
+                <th scope="col">Jam Kembali</th>
                 <th scope="col">Petugas</th>
                 <th scope="col">Aksi</th>
               </tr>
@@ -84,6 +91,11 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
+                    <button type="button" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top"
+                      data-bs-title="Validasi">
+                      <i class="bi bi-person-lines-fill"></i>
+                    </button>
+
                     <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
                       data-id="#" data-bs-target="#showBorrowingModal">
                       <i class="bi bi-pencil-fill"></i>
