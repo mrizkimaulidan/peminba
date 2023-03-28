@@ -119,7 +119,9 @@
         },
       });
 
-      $('input[type=date]').flatpickr();
+      $('input[type=date]').flatpickr({
+        dateFormat: "d-m-Y",
+      });
 
       $('.btn-delete').click(function (e) {
         e.preventDefault();
