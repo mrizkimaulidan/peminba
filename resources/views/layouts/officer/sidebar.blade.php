@@ -11,8 +11,8 @@
 
     <li class="sidebar-title">Data Master</li>
 
-    <li class="sidebar-item {{ request()->routeIs('administrators.commodities.*') ? 'active' : '' }}">
-      <a href="{{ route('administrators.commodities.index') }}" class="sidebar-link">
+    <li class="sidebar-item {{ request()->routeIs('officers.commodities.*') ? 'active' : '' }}">
+      <a href="{{ route('officers.commodities.index') }}" class="sidebar-link">
         <i class="bi bi-collection-fill"></i>
         <span>Komoditas</span>
       </a>
