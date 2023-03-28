@@ -18,12 +18,18 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (!auth('administrator')->attempt($credentials)) {
-            return redirect()->route('login')->with('error', 'Email atau password salah!');
+        if (auth('administrator')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect('administrator/dashboard');
         }
 
-        $request->session()->regenerate();
+        if (auth('officer')->attempt($credentials)) {
+            $request->session()->regenerate();
 
-        return redirect('/administrator/dashboard');
+            return redirect('officer/dashboard');
+        }
+
+        return redirect()->route('login')->with('error', 'Email atau password salah!');
     }
 }
