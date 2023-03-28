@@ -11,7 +11,11 @@ class BorrowingController extends Controller
 {
     public function index(): View
     {
-        $borrowings = Borrowing::whereDate('date', now())->orWhereNull('officer')->get();
+        $borrowings = Borrowing::whereDate('date', now())->get();
+
+        if (request()->has('date')) {
+            $borrowings = Borrowing::whereDate('date', request()->get('date'))->get();
+        }
 
         return view('administrator.borrowing.main.index', compact('borrowings'));
     }
