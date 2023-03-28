@@ -29,6 +29,6 @@ class BorrowingController extends Controller
             'officer_id' => auth('officer')->id()
         ]);
 
-        return redirect()->route('officers.borrowings.index');
+        return redirect()->route('officers.borrowings.index')->with('success', 'Berhasil melakukan validasi!');
     }
 }
