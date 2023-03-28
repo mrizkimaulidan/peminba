@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\v1\BorrowingController;
 use App\Http\Controllers\API\v1\CommodityController;
 use App\Http\Controllers\API\v1\ProgramStudyController;
 use App\Http\Controllers\API\v1\SchoolClassController;
@@ -31,4 +32,5 @@ Route::name('api.v1.')->prefix('v1')->group(function () {
     Route::get('/subjects/{subject}', [SubjectController::class, 'show'])->name('subjects.show');
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/borrowings/{borrowing}', [BorrowingController::class, 'show'])->name('borrowings.show');
 });
