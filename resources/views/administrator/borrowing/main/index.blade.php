@@ -53,7 +53,10 @@
             @foreach ($borrowings as $borrowing)
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
-              <th>{{ $borrowing->student->name }}</th>
+              <th>
+                <span class="badge text-bg-primary">{{ $borrowing->student->name }} - {{
+                  $borrowing->student->identification_number }}</span>
+              </th>
               <td>{{ $borrowing->commodity->name }}</td>
               <td>{{ $borrowing->subject->name }}</td>
               <td>{{ $borrowing->date }}</td>
