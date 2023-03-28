@@ -13,10 +13,15 @@
       <div class="card-body">
         <div class="alert alert-warning" role="alert">
           <i class="bi bi-exclamation-circle"></i>
-          Setiap data peminjaman dari mahasiswa diharapkan petugas melakukan validasi dengan menekan tombol
+          Setiap data peminjaman dari mahasiswa petugas wajib melakukan validasi dengan menekan tombol
           validasi
-          pada data di tabel. Agar petugas bisa memberikan pertanggung jawaban jika ada terjadinya komoditas yang
-          hilang. Silahkan petugas melakukan validasi jika jam kembali sudah terisi.
+          pada data di tabel agar petugas bisa memberikan pertanggung jawaban jika terjadinya komoditas yang
+          hilang. Silahkan petugas melakukan validasi jika jam kembali sudah terisi. Jika jam kembali sudah terisi maka
+          komoditas yang dipinjam telah dikembalikan oleh mahasiswa tersebut.
+
+          <div class="fw-bold pt-3">Diharapkan kembali petugas sebelum melakukan validasi melakukan cek terhadap
+            komoditas yang sudah
+            dipinjam apakah benar sudah dikembalikan.</div>
         </div>
 
         <div class="alert alert-info" role="alert">
@@ -85,7 +90,7 @@
                   </span>
                   @else
                   <span class="badge text-bg-warning" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-title="Belum diisi!">
+                    data-bs-title="Belum divalidasi oleh petugas!">
                     <i class="bi bi-exclamation-circle"></i>
                   </span>
                   @endif
