@@ -46,6 +46,7 @@
               <th scope="col">Mata Kuliah</th>
               <th scope="col">Tanggal</th>
               <th scope="col">Waktu Pinjam</th>
+              <th scope="col">Petugas</th>
               <th scope="col">Aksi</th>
             </tr>
           </thead>
@@ -54,13 +55,25 @@
             <tr>
               <th scope="row">{{ $loop->iteration }}</th>
               <th>
-                <span class="badge text-bg-primary">{{ $borrowing->student->name }} - {{
-                  $borrowing->student->identification_number }}</span>
+                <span class="badge text-bg-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-title="{{ $borrowing->student->identification_number }}">{{
+                  $borrowing->student->name }}</span>
               </th>
               <td>{{ $borrowing->commodity->name }}</td>
-              <td>{{ $borrowing->subject->name }}</td>
+              <td>
+                <span class="badge text-bg-secondary" data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-title="{{ $borrowing->subject->code }}">{{
+                  $borrowing->subject->name }}</span>
+              </td>
               <td>{{ $borrowing->date }}</td>
               <td>{{ $borrowing->time_start }}</td>
+              <td>
+                @if($borrowing->officer === NULL)
+                <span class="badge text-bg-warning">Belum Diisi</span>
+                @else
+                <span class="badge text-bg-success">Sudah Diisi</span>
+                @endif
+              </td>
               <td>
                 <div class="btn-group gap-1">
                   <button type="button" class="btn btn-sm btn-success editProgramStudyButton" data-bs-toggle="modal"
@@ -85,3 +98,7 @@
   </div>
 </section>
 @endsection
+
+@push('script')
+@include('administrator.borrowing.script')
+@endpush
