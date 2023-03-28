@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Administrator\API\v1;
+namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\SchoolClass;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SchoolClassController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display the specified resource.
      */
-    public function show(SchoolClass $schoolClass)
+    public function show(Student $student)
     {
         return response()->json([
             'code' => Response::HTTP_OK,
             'message' => 'success',
-            'data' => $schoolClass
+            'data' => $student->load('programStudy', 'schoolClass')
         ]);
     }
 }
