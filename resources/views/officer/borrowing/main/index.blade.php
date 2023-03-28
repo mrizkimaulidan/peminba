@@ -81,6 +81,8 @@
                   <span class="badge text-bg-info" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-title="Sedang dipinjam">
                     <i class="bi bi-clock"></i></span>
+                  @else
+                  {{ $borrowing->time_end }}
                   @endif
                 </td>
                 <td>
@@ -98,7 +100,7 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
-                    @if($borrowing->officer_id === NULL)
+                    @if($borrowing->time_end !== NULL)
                     <form action="{{ route('officers.borrowings.validate', $borrowing) }}">
                       <button type="submit" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-title="Validasi">

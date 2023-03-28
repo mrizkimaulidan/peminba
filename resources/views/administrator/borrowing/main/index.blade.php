@@ -11,6 +11,7 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
+        @include('utilities.alert')
         <div class="alert alert-warning" role="alert">
           <i class="bi bi-exclamation-circle"></i>
           Setiap data peminjaman dari mahasiswa petugas wajib melakukan validasi dengan menekan tombol
@@ -80,6 +81,8 @@
                   <span class="badge text-bg-info" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-title="Sedang dipinjam">
                     <i class="bi bi-clock"></i></span>
+                  @else
+                  {{ $borrowing->time_end }}
                   @endif
                 </td>
                 <td>
