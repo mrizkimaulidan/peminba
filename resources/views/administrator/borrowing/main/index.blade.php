@@ -41,18 +41,40 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Nama Mahasiswa</th>
+              <th scope="col">Komoditas</th>
+              <th scope="col">Mata Kuliah</th>
+              <th scope="col">Tanggal</th>
+              <th scope="col">Waktu Pinjam</th>
+              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($borrowings as $borrowing)
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th scope="row">{{ $loop->iteration }}</th>
+              <th>{{ $borrowing->student->name }}</th>
+              <td>{{ $borrowing->commodity->name }}</td>
+              <td>{{ $borrowing->subject->name }}</td>
+              <td>{{ $borrowing->date }}</td>
+              <td>{{ $borrowing->time_start }}</td>
+              <td>
+                <div class="btn-group gap-1">
+                  <button type="button" class="btn btn-sm btn-success editProgramStudyButton" data-bs-toggle="modal"
+                    data-id="#" data-bs-target="#editProgramStudyModal">
+                    <i class="bi bi-pencil-fill"></i>
+                  </button>
+
+                  <form action="#" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
+                        class="bi bi-trash-fill"></i></button>
+                  </form>
+                </div>
+              </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

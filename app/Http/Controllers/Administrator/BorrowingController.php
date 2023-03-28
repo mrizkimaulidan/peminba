@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Models\Borrowing;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -10,6 +11,8 @@ class BorrowingController extends Controller
 {
     public function index(): View
     {
-        return view('administrator.borrowing.main.index');
+        $borrowings = Borrowing::whereDate('date', now())->get();
+
+        return view('administrator.borrowing.main.index', compact('borrowings'));
     }
 }
