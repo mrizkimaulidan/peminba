@@ -10,7 +10,7 @@
 
     $('#datatable').on('click', '.showStudentButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('administrator.api.v1.students.show', 'id') }}";
+      let showURL = "{{ route('api.v1.students.show', 'id') }}";
       showURL = showURL.replace('id', id);
 
       let input = $('#detailStudentModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
@@ -43,7 +43,7 @@
 
     $('#datatable').on('click', '.editStudentButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('administrator.api.v1.students.show', 'id') }}";
+      let showURL = "{{ route('api.v1.students.show', 'id') }}";
       let updateURL = "{{ route('administrators.students.update', 'id') }}";
       showURL = showURL.replace('id', id);
       updateURL = updateURL.replace('id', id);

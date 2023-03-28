@@ -25,15 +25,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::name('administrator.api.v1.')->prefix('v1')->group(function () {
+Route::name('api.v1.')->prefix('v1')->group(function () {
     Route::get('/commodities/{commodity}', [AdministratorCommodityController::class, 'show'])->name('commodities.show');
     Route::get('/program-studies/{program_study}', [AdministratorProgramStudyController::class, 'show'])->name('program-studies.show');
     Route::get('/school-classes/{school_class}', [AdministratorSchoolClassController::class, 'show'])->name('school-classes.show');
     Route::get('/subjects/{subject}', [AdministratorSubjectController::class, 'show'])->name('subjects.show');
     Route::get('/students/{student}', [AdministratorStudentController::class, 'show'])->name('students.show');
     Route::get('/users/{user}', [AdministratorUserController::class, 'show'])->name('users.show');
-});
-
-Route::name('officer.api.v1.')->prefix('v1')->group(function () {
-    Route::get('/commodities/{commodity}', [OfficerCommodityController::class, 'show'])->name('commodities.show');
 });
