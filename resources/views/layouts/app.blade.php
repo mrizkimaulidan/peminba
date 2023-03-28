@@ -59,7 +59,13 @@
             </div>
           </div>
         </div>
-        @include('layouts.sidebar')
+        @auth('administrator')
+        @include('layouts.administrator.sidebar')
+        @endauth
+
+        @auth('officer')
+        @include('layouts.officer.sidebar')
+        @endauth
       </div>
     </div>
     <div id="main">
