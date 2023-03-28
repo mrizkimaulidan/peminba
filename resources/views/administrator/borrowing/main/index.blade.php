@@ -69,10 +69,15 @@
               <td>{{ $borrowing->time_start }}</td>
               <td>
                 @if($borrowing->officer === NULL)
-                <span class="badge text-bg-warning">Belum Diisi</span>
+                <span class="badge text-bg-warning" data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-title="Belum diisi!">
+                  <i class="bi bi-exclamation-circle"></i>
+                </span>
                 @else
-                <span class="badge text-bg-success">Sudah Diisi</span>
-                @endif
+                <span class="badge text-bg-success" data-bs-toggle="tooltip" data-bs-placement="top"
+                  data-bs-title="Sudah diisi oleh {{ $borrowing->officer }}">
+                  <i class="bi bi-check-circle"></i>
+                  @endif
               </td>
               <td>
                 <div class="btn-group gap-1">
