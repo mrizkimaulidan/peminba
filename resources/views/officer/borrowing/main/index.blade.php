@@ -110,7 +110,7 @@
                     @endif
 
                     <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
-                      data-id="#" data-bs-target="#showBorrowingModal">
+                      data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
                       <i class="bi bi-eye-fill"></i>
                     </button>
 
