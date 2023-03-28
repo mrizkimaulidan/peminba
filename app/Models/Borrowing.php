@@ -10,6 +10,8 @@ class Borrowing extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['officer_id'];
+
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
@@ -23,5 +25,10 @@ class Borrowing extends Model
     public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class);
+    }
+
+    public function officer(): BelongsTo
+    {
+        return $this->belongsTo(Officer::class);
     }
 }

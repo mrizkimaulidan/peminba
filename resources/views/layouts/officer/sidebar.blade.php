@@ -23,9 +23,9 @@
         <i class="bi bi-stack"></i>
         <span>Peminjaman</span>
       </a>
-      <ul class="submenu {{ request()->routeIs('administrators.borrowings*') ? 'active' : '' }}">
-        <li class="submenu-item {{ request()->routeIs('administrators.borrowings.index') ? 'active' : '' }}">
-          <a href="{{ route('administrators.borrowings.index') }}">Peminjaman Hari Ini</a>
+      <ul class="submenu {{ request()->routeIs('officers.borrowings*') ? 'active' : '' }}">
+        <li class="submenu-item {{ request()->routeIs('officers.borrowings.index') ? 'active' : '' }}">
+          <a href="{{ route('officers.borrowings.index') }}">Peminjaman Hari Ini</a>
         </li>
         <li class="submenu-item">
           <a href="component-badge.html">Histori Peminjaman</a>
