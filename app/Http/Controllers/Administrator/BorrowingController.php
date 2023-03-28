@@ -14,10 +14,7 @@ class BorrowingController extends Controller
         $borrowings = Borrowing::whereDate('date', now())->get();
 
         if (request()->has('date')) {
-            // Date from frontend is d-m-Y format
-            // so format it into Y-m-d
-            $formattedDate = now()->createFromDate(request()->get('date'));
-            $borrowings = Borrowing::whereDate('date', $formattedDate)->get();
+            $borrowings = Borrowing::whereDate('date', request('date'))->get();
         }
 
         return view('administrator.borrowing.main.index', compact('borrowings'));
