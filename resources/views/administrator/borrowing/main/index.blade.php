@@ -91,14 +91,9 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
-                    <button type="button" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top"
-                      data-bs-title="Validasi">
-                      <i class="bi bi-person-lines-fill"></i>
-                    </button>
-
                     <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
                       data-id="#" data-bs-target="#showBorrowingModal">
-                      <i class="bi bi-pencil-fill"></i>
+                      <i class="bi bi-eye-fill"></i>
                     </button>
 
                     <form action="#" method="POST">
