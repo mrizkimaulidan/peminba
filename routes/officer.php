@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Officer\BorrowingController;
+use App\Http\Controllers\Officer\BorrowingReportController;
 use App\Http\Controllers\Officer\CommodityController;
 use App\Http\Controllers\Officer\DashboardController;
 use App\Http\Controllers\Officer\StudentController;
@@ -20,5 +21,6 @@ Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(f
     Route::delete('/students/{commodity}', [StudentController::class, 'destroy'])->name('students.destroy');
 
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
+    Route::get('/borrowings/report', [BorrowingReportController::class, 'index'])->name('borrowings-report.index');
     Route::get('/borrowings/validate/{borrowing}', [BorrowingController::class, 'validateBorrowing'])->name('borrowings.validate');
 });

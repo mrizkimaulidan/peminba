@@ -30,8 +30,8 @@
         <li class="submenu-item">
           <a href="component-badge.html">Histori Peminjaman</a>
         </li>
-        <li class="submenu-item {{ request()->routeIs('administrators.borrowings-report.index') ? 'active' : '' }}">
-          <a href="{{ route('administrators.borrowings-report.index') }}">Laporan</a>
+        <li class="submenu-item {{ request()->routeIs('officers.borrowings-report.index') ? 'active' : '' }}">
+          <a href="{{ route('officers.borrowings-report.index') }}">Laporan</a>
         </li>
       </ul>
     </li>

@@ -40,24 +40,46 @@
           </div>
         </form>
 
-        <table class="table" id="datatable">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table" id="datatable">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama Mahasiswa</th>
+                <th scope="col">Komoditas</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Jam Pinjam</th>
+                <th scope="col">Jam Kembali</th>
+                <th scope="col">Petugas</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($borrowings as $borrowing)
+              <tr>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <th>
+                  <span class="badge text-bg-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="{{ $borrowing->student->identification_number }}">{{
+                    $borrowing->student->name }}</span>
+                </th>
+                <td>{{ $borrowing->commodity->name }}</td>
+                <td>{{ $borrowing->date }}</td>
+                <td>{{ $borrowing->time_start }}</td>
+                <td>
+                  @if($borrowing->time_end === NULL)
+                  <span class="badge text-bg-info" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Sedang dipinjam">
+                    <i class="bi bi-clock"></i></span>
+                  @else
+                  {{ $borrowing->time_end }}
+                  @endif
+                </td>
+                <td>{{ $borrowing->officer->name }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
