@@ -1,8 +1,5 @@
 <script>
   $(function() {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-
     $('#datatable').on('click', '.showBorrowingButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.borrowings.show', 'id') }}";
