@@ -9,8 +9,17 @@ use Illuminate\View\View;
 
 class BorrowingReportController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
-        return view('administrator.borrowing.report.index');
+        $borrowings = [];
+
+        if (request()->has('start_date') && request()->has('end_date')) {
+            $startDate = request()->get('start_date');
+            $endDate = request()->get('end_date');
+
+            $borrowings = Borrowing::whereBetween('date', [$startDate, $endDate])->get();
+        }
+
+        return view('administrator.borrowing.report.index', compact('borrowings'));
     }
 }
