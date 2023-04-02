@@ -74,7 +74,19 @@
                   {{ $borrowing->time_end }}
                   @endif
                 </td>
-                <td>{{ $borrowing->officer->name }}</td>
+                <td>
+                  @if($borrowing->officer_id !== NULL)
+                  <span class="badge text-bg-success" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Sudah divalidasi oleh {{ $borrowing->officer->name }}">
+                    <i class="bi bi-check-circle"></i>
+                  </span>
+                  @else
+                  <span class="badge text-bg-warning" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Belum divalidasi oleh petugas!">
+                    <i class="bi bi-exclamation-circle"></i>
+                  </span>
+                  @endif
+                </td>
               </tr>
               @endforeach
             </tbody>
