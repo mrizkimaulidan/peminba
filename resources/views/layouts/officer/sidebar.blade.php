@@ -27,8 +27,8 @@
         <li class="submenu-item {{ request()->routeIs('officers.borrowings.index') ? 'active' : '' }}">
           <a href="{{ route('officers.borrowings.index') }}">Peminjaman Hari Ini</a>
         </li>
-        <li class="submenu-item">
-          <a href="component-badge.html">Histori Peminjaman</a>
+        <li class="submenu-item {{ request()->routeIs('officers.borrowings-history.index') ? 'active' : '' }}">
+          <a href="{{ route('officers.borrowings-history.index') }}">Histori Peminjaman</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('officers.borrowings-report.index') ? 'active' : '' }}">
           <a href="{{ route('officers.borrowings-report.index') }}">Laporan</a>
