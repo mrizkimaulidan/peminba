@@ -12,7 +12,7 @@
       </div>
       <div class="card-body">
         <div class="alert alert-info" role="alert">
-          Tabel di bawah adalah daftar histori peminjaman yang sudah
+          Tabel di bawah adalah daftar histori peminjaman yang sudah dilakukan oleh Mahasiswa.
         </div>
         <form action="" method="GET">
           <div class="d-flex">
