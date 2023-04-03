@@ -25,3 +25,4 @@ Route::post('/logout', LogoutController::class)->name('logout');
 
 require_once __DIR__ . '/administrator.php';
 require_once __DIR__ . '/officer.php';
+require_once __DIR__ . '/student.php';

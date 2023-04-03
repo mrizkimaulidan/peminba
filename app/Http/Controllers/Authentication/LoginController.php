@@ -30,6 +30,12 @@ class LoginController extends Controller
             return redirect('officer/dashboard');
         }
 
+        if (auth('student')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect('student/dashboard');
+        }
+
         return redirect()->route('login')->with('error', 'Email atau password salah!');
     }
 }

@@ -66,6 +66,10 @@
         @auth('officer')
         @include('layouts.officer.sidebar')
         @endauth
+
+        @auth('student')
+        @include('layouts.student.sidebar')
+        @endauth
       </div>
     </div>
     <div id="main">
