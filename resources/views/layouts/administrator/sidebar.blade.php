@@ -48,8 +48,8 @@
         <li class="submenu-item {{ request()->routeIs('administrators.borrowings.index') ? 'active' : '' }}">
           <a href="{{ route('administrators.borrowings.index') }}">Peminjaman Hari Ini</a>
         </li>
-        <li class="submenu-item">
-          <a href="component-badge.html">Histori Peminjaman</a>
+        <li class="submenu-item {{ request()->routeIs('administrators.borrowings-history.index') ? 'active' : '' }}">
+          <a href="{{ route('administrators.borrowings-history.index') }}">Histori Peminjaman</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('administrators.borrowings-report.index') ? 'active' : '' }}">
           <a href="{{ route('administrators.borrowings-report.index') }}">Laporan</a>
