@@ -102,6 +102,11 @@
                       <i class="bi bi-eye-fill"></i>
                     </button>
 
+                    <button type="button" class="btn btn-sm btn-success editBorrowingButton" data-bs-toggle="modal"
+                      data-id="{{ $borrowing->id }}" data-bs-target="#editBorrowingModal">
+                      <i class="bi bi-pencil-fill"></i>
+                    </button>
+
                     <form action="#" method="POST">
                       @csrf
                       @method('DELETE')
@@ -122,9 +127,10 @@
 @endsection
 
 @push('modal')
-@include('administrator.borrowing.main.modal.show')
+@include('student.borrowing.main.modal.show')
+@include('student.borrowing.main.modal.edit')
 @endpush
 
 @push('script')
-@include('administrator.borrowing.script')
+@include('student.borrowing.script')
 @endpush

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
+use App\Models\Commodity;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class BorrowingController extends Controller
@@ -14,7 +16,9 @@ class BorrowingController extends Controller
     public function index()
     {
         $borrowings = Borrowing::where('student_id', auth()->id())->latest()->get();
+        $commodities = Commodity::all();
+        $subjects = Subject::all();
 
-        return view('student.borrowing.main.index', compact('borrowings'));
+        return view('student.borrowing.main.index', compact('borrowings', 'commodities', 'subjects'));
     }
 }
