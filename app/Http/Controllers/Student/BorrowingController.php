@@ -35,4 +35,14 @@ class BorrowingController extends Controller
 
         return redirect()->route('students.borrowings.index')->with('success', 'Data berhasil diubah!');
     }
+
+    public function returned(Borrowing $borrowing)
+    {
+        $borrowing->update([
+            'time_end' => now(),
+            'is_returned' => 1
+        ]);
+
+        return redirect()->back()->with('success', 'Status berhasil diubah!');
+    }
 }

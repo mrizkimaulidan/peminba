@@ -102,10 +102,22 @@
                       <i class="bi bi-eye-fill"></i>
                     </button>
 
+                    @if($borrowing->time_end === NULL)
+                    <form action="{{ route('students.borrowings.returned', $borrowing) }}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <button type="submit" class="btn btn-sm btn-success">
+                        <i class="bi bi-check-circle-fill"></i>
+                      </button>
+                    </form>
+                    @endif
+
+                    @if($borrowing->time_end === NULL)
                     <button type="button" class="btn btn-sm btn-success editBorrowingButton" data-bs-toggle="modal"
                       data-id="{{ $borrowing->id }}" data-bs-target="#editBorrowingModal">
                       <i class="bi bi-pencil-fill"></i>
                     </button>
+                    @endif
 
                     <form action="#" method="POST">
                       @csrf

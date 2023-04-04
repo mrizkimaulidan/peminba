@@ -8,4 +8,5 @@ Route::middleware('auth:student')->name('students.')->prefix('student')->group(f
 
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
     Route::put('/borrowings/{borrowing}', [BorrowingController::class, 'update'])->name('borrowings.update');
+    Route::put('/borrowings/returned/{borrowing}', [BorrowingController::class, 'returned'])->name('borrowings.returned');
 });
