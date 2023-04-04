@@ -9,6 +9,30 @@
       </a>
     </li>
 
+    <li class="sidebar-title">Daftar Menu</li>
+
+    <li class="sidebar-item has-sub">
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-stack"></i>
+        <span>Peminjaman</span>
+      </a>
+      <ul class="submenu">
+        <li class="submenu-item">
+          <a href="#">Peminjaman Saya Hari Ini</a>
+        </li>
+        <li class="submenu-item">
+          <a href="#">Histori Peminjaman</a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="sidebar-item">
+      <a href="#" class="sidebar-link">
+        <i class="bi bi-person-fill-gear"></i>
+        <span>Pengaturan Profil</span>
+      </a>
+    </li>
+
     <li class="sidebar-title"></li>
 
     <li class="sidebar-item">
