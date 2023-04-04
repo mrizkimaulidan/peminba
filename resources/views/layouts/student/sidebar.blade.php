@@ -18,7 +18,7 @@
       </a>
       <ul class="submenu {{ request()->routeIs('students.borrowings*') ? 'active' : '' }}">
         <li class="submenu-item {{ request()->routeIs('students.borrowings.index') ? 'active' : '' }}">
-          <a href="#">Peminjaman Saya Hari Ini</a>
+          <a href="{{ route('students.borrowings.index') }}">Peminjaman Saya Hari Ini</a>
         </li>
         <li class="submenu-item">
           <a href="#">Histori Peminjaman</a>
