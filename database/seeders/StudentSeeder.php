@@ -16,13 +16,11 @@ class StudentSeeder extends Seeder
         Student::create([
             'program_study_id' => 1,
             'school_class_id' => 1,
-            'identification_number' => '216152006',
-            'name' => 'Muhammad Rizki Maulidan',
-            'email' => 'mrizkimaulidanx@gmail.com',
+            'identification_number' => '123456',
+            'name' => 'Mahasiswa',
+            'email' => 'mahasiswa@mail.com',
             'password' => bcrypt('secret'),
-            'phone_number' => '+6282144493985'
+            'phone_number' => '+628123456789'
         ]);
-
-        Student::factory(20)->create();
     }
 }
