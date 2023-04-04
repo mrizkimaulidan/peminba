@@ -16,8 +16,8 @@
         <i class="bi bi-stack"></i>
         <span>Peminjaman</span>
       </a>
-      <ul class="submenu">
-        <li class="submenu-item">
+      <ul class="submenu {{ request()->routeIs('students.borrowings*') ? 'active' : '' }}">
+        <li class="submenu-item {{ request()->routeIs('students.borrowings.index') ? 'active' : '' }}">
           <a href="#">Peminjaman Saya Hari Ini</a>
         </li>
         <li class="submenu-item">
