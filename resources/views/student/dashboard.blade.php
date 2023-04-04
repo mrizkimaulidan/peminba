@@ -266,3 +266,7 @@
   </div>
 </section>
 @endsection
+
+@push('script')
+@include('student.script')
+@endpush
