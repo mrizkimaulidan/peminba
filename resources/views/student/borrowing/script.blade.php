@@ -42,7 +42,9 @@
     $('#datatable').on('click', '.editBorrowingButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.borrowings.show', 'id') }}";
+      let updateURL = "{{ route('students.borrowings.update', 'id') }}";
       showURL = showURL.replace('id', id);
+      updateURL = updateURL.replace('id', id);
 
       let input = $('#editBorrowingModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');
@@ -63,6 +65,8 @@
           $('#editBorrowingModal #time_end').val(res.data.timeEnd);
           $('#editBorrowingModal #is_returned').val(res.data.isReturned);
           $('#editBorrowingModal #note').val(res.data.note);
+
+          $('#editBorrowingModal form').attr('action', updateURL);
         },
         error: (err) => {
           Swal.fire(

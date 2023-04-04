@@ -7,4 +7,5 @@ Route::middleware('auth:student')->name('students.')->prefix('student')->group(f
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
+    Route::put('/borrowings/{borrowing}', [BorrowingController::class, 'update'])->name('borrowings.update');
 });

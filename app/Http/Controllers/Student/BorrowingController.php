@@ -21,4 +21,14 @@ class BorrowingController extends Controller
 
         return view('student.borrowing.main.index', compact('borrowings', 'commodities', 'subjects'));
     }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Borrowing $borrowing)
+    {
+        $borrowing->update($request->all());
+
+        return redirect()->route('students.borrowings.index')->with('success', 'Data berhasil diubah!');
+    }
 }

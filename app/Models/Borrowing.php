@@ -10,7 +10,7 @@ class Borrowing extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['officer_id'];
+    protected $fillable = ['commodity_id', 'officer_id', 'time_start'];
 
     public function student(): BelongsTo
     {
