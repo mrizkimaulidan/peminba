@@ -23,9 +23,11 @@ class BorrowingResource extends JsonResource
                 'schoolClass' => $this->student->schoolClass->name
             ],
             'commodity' => [
+                'id' => $this->commodity->id,
                 'name' => $this->commodity->name
             ],
             'subject' => [
+                'id' => $this->subject->id,
                 'name' => $this->subject->name
             ],
             'timeStart' => $this->time_start,
