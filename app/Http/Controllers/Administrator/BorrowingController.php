@@ -13,10 +13,6 @@ class BorrowingController extends Controller
     {
         $borrowings = Borrowing::whereDate('date', now())->get();
 
-        if (request()->has('date')) {
-            $borrowings = Borrowing::whereDate('date', request('date'))->get();
-        }
-
         return view('administrator.borrowing.main.index', compact('borrowings'));
     }
 }

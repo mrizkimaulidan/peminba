@@ -19,10 +19,6 @@ class BorrowingController extends Controller
         $commodities = Commodity::all();
         $subjects = Subject::all();
 
-        if (request()->has('date')) {
-            $borrowings = Borrowing::whereDate('date', request('date'))->where('student_id', auth()->id())->latest()->get();
-        }
-
         return view('student.borrowing.main.index', compact('borrowings', 'commodities', 'subjects'));
     }
 

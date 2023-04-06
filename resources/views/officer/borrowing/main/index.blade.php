@@ -25,31 +25,6 @@
             dipinjam apakah benar sudah dikembalikan.</div>
         </div>
 
-        <div class="alert alert-info" role="alert">
-          Secara default data peminjaman akan tampil dengan tanggal hari ini. Jika ingin melihat data
-          peminjaman
-          dengan tanggal yang spesifik bisa menggunakan fitur pencarian di bawah.
-        </div>
-        <form action="" method="GET">
-          <div class="d-flex">
-            <div class="flex-fill">
-              <label for="date" class="form-label">Tanggal:</label>
-              <div class="input-group">
-                <span class="input-group-text">
-                  <div>
-                    <i class="bi bi-calendar-date-fill"></i>
-                  </div>
-                </span>
-                <input type="date" name="date" id="date" class="form-control" placeholder="Pilih tanggal..">
-              </div>
-            </div>
-          </div>
-
-          <div class="d-flex pt-3 pb-3">
-            <button type="submit" class="btn btn-primary flex-fill">Cari</button>
-          </div>
-        </form>
-
         <div class="table-responsive">
           <table class="table" id="datatable">
             <thead>
