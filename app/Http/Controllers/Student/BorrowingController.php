@@ -27,6 +27,22 @@ class BorrowingController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        Borrowing::create([
+            'commodity_id' => $request->commodity_id,
+            'student_id' => auth('student')->id(),
+            'subject_id' => $request->subject_id,
+            'date' => $request->date,
+            'time_start' => $request->time_start,
+        ]);
+
+        return redirect()->route('students.borrowings.index')->with('success', 'Data berhasil ditambahkan!');
+    }
+
+    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Borrowing $borrowing)

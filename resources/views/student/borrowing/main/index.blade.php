@@ -48,6 +48,11 @@
         </form>
 
         <div class="table-responsive">
+          <div class="d-flex flex-row-reverse pb-3">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#addBorrowingModal">Tambah Peminjaman</button>
+          </div>
+
           <table class="table" id="datatable">
             <thead>
               <tr>
@@ -97,7 +102,7 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
-                    <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-sm btn-info showBorrowingButton" data-bs-toggle="modal"
                       data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
                       <i class="bi bi-eye-fill"></i>
                     </button>
@@ -106,7 +111,7 @@
                     <form action="{{ route('students.borrowings.returned', $borrowing) }}" method="POST">
                       @csrf
                       @method('PUT')
-                      <button type="submit" class="btn btn-sm btn-success">
+                      <button type="submit" class="btn btn-sm btn-warning">
                         <i class="bi bi-check-circle-fill"></i>
                       </button>
                     </form>
@@ -139,6 +144,7 @@
 @endsection
 
 @push('modal')
+@include('student.borrowing.main.modal.create')
 @include('student.borrowing.main.modal.show')
 @include('student.borrowing.main.modal.edit')
 @endpush
