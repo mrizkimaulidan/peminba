@@ -14,8 +14,16 @@
                 <label for="commodity_id" class="form-label">Komoditas</label>
                 <select class="form-select" name="commodity_id" id="commodity_id">
                   <option selected>Pilih..</option>
-                  @foreach ($commodities as $commodity)
+                  @foreach ($commoditiesCanBorrowed as $commodity)
                   <option value="{{ $commodity->id }}">{{ $commodity->name }}</option>
+                  @endforeach
+
+                  @if(count($commoditiesCannotBeBorrowed) > 1)
+                  <option disabled>&#9866;</option>
+                  @endif
+
+                  @foreach ($commoditiesCannotBeBorrowed as $commodity)
+                  <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }} - Sedang dipinjam</option>
                   @endforeach
                 </select>
               </div>

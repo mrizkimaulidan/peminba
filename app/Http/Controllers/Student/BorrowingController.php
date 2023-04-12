@@ -16,10 +16,13 @@ class BorrowingController extends Controller
     public function index()
     {
         $borrowings = Borrowing::whereDate('date', now())->where('student_id', auth()->id())->latest()->get();
-        $commodities = Commodity::all();
+        $commodityProgress = Borrowing::whereDate('date', now())->where('is_returned', 0)->latest()->get();
         $subjects = Subject::all();
 
-        return view('student.borrowing.main.index', compact('borrowings', 'commodities', 'subjects'));
+        $commoditiesCanBorrowed = Commodity::whereNotIn('id', $commodityProgress->pluck('commodity_id'))->get();
+        $commoditiesCannotBeBorrowed = Commodity::whereIn('id', $commodityProgress->pluck('commodity_id'))->get();
+
+        return view('student.borrowing.main.index', compact('borrowings', 'commoditiesCanBorrowed', 'commoditiesCannotBeBorrowed', 'subjects'));
     }
 
     /**
