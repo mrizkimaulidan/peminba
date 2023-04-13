@@ -152,6 +152,25 @@
           }
         });
       });
+
+      $('.btn-returned').click(function (e) {
+          e.preventDefault();
+          Swal.fire({
+            title: 'Kembalikan?',
+            text: "Status peminjaman tersebut akan berubah menjadi sudah kembali",
+            icon: 'warning',
+            showCancelButton: true,
+            reverseButtons: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya!',
+            cancelButtonText: 'Tidak',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              $(this).parent().submit();
+            }
+          });
+        });
     });
   </script>
 

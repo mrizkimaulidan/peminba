@@ -86,7 +86,7 @@
                     <form action="{{ route('students.borrowings.returned', $borrowing) }}" method="POST">
                       @csrf
                       @method('PUT')
-                      <button type="submit" class="btn btn-sm btn-warning">
+                      <button type="submit" class="btn btn-sm btn-warning btn-returned">
                         <i class="bi bi-check-circle-fill"></i>
                       </button>
                     </form>
