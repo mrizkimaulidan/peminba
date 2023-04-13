@@ -20,8 +20,8 @@
         <li class="submenu-item {{ request()->routeIs('students.borrowings.index') ? 'active' : '' }}">
           <a href="{{ route('students.borrowings.index') }}">Peminjaman Saya Hari Ini</a>
         </li>
-        <li class="submenu-item">
-          <a href="#">Histori Peminjaman</a>
+        <li class="submenu-item {{ request()->routeIs('students.borrowings-history.index') ? 'active' : '' }}">
+          <a href="{{ route('students.borrowings-history.index') }}">Histori Peminjaman</a>
         </li>
       </ul>
     </li>
