@@ -77,8 +77,8 @@
                   <div class="btn-group gap-1">
                     @if($borrowing->time_end !== NULL && $borrowing->officer_id === NULL)
                     <form action="{{ route('officers.borrowings.validate', $borrowing) }}">
-                      <button type="submit" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-placement="top"
-                        data-bs-title="Validasi">
+                      <button type="submit" class="btn btn-sm btn-info btn-validate" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-title="Validasi">
                         <i class="bi bi-person-lines-fill"></i>
                       </button>
                     </form>

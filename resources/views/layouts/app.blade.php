@@ -171,6 +171,25 @@
           }
         });
       });
+
+      $('.btn-validate').click(function (e) {
+        e.preventDefault();
+        Swal.fire({
+          title: 'Validasi?',
+          text: "Status validasi peminjaman tersebut akan terisi Anda",
+          icon: 'warning',
+          showCancelButton: true,
+          reverseButtons: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya!',
+          cancelButtonText: 'Tidak',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $(this).parent().submit();
+          }
+        });
+      });
     });
   </script>
 
