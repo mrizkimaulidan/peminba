@@ -5,6 +5,7 @@ use App\Http\Controllers\Officer\BorrowingHistoryController;
 use App\Http\Controllers\Officer\BorrowingReportController;
 use App\Http\Controllers\Officer\CommodityController;
 use App\Http\Controllers\Officer\DashboardController;
+use App\Http\Controllers\Officer\ProfileSettingController;
 use App\Http\Controllers\Officer\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,7 @@ Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(f
     Route::get('/borrowings/validate/{borrowing}', [BorrowingController::class, 'validateBorrowing'])->name('borrowings.validate');
 
     Route::get('/borrowings/history', BorrowingHistoryController::class)->name('borrowings-history.index');
+
+    Route::get('/profile/settings', [ProfileSettingController::class, 'index'])->name('profile-settings.index');
+    Route::put('/profile/settings', [ProfileSettingController::class, 'update'])->name('profile-settings.update');
 });

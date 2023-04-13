@@ -9,4 +9,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Officer extends Authenticatable
 {
     use HasFactory;
+
+    protected $fillable = ['name', 'email', 'password', 'phone_number'];
 }
