@@ -22,6 +22,6 @@ class BorrowingHistoryController extends Controller
                 ->where('is_returned', 1)->latest()->get();
         }
 
-        return view('officer.borrowing.history.index', compact('borrowings'));
+        return view('student.borrowing.history.index', compact('borrowings'));
     }
 }
