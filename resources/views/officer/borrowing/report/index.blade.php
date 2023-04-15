@@ -51,6 +51,7 @@
                 <th scope="col">Jam Pinjam</th>
                 <th scope="col">Jam Kembali</th>
                 <th scope="col">Petugas</th>
+                <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -74,7 +75,26 @@
                   {{ $borrowing->time_end }}
                   @endif
                 </td>
-                <td>{{ $borrowing->officer->name }}</td>
+                <td>
+                  @if($borrowing->officer_id === NULL)
+                  <span class="badge text-bg-warning" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Belum Divalidasi!">
+                    <i class="bi bi-exclamation-circle"></i>
+                  </span>
+                  @else
+                  {{ $borrowing->officer->name }}
+                  @endif
+                </td>
+                <td>
+                  @if($borrowing->time_end !== NULL && $borrowing->officer_id === NULL)
+                  <form action="{{ route('officers.borrowings.validate', $borrowing) }}">
+                    <button type="submit" class="btn btn-sm btn-info btn-validate" data-bs-toggle="tooltip"
+                      data-bs-placement="top" data-bs-title="Validasi">
+                      <i class="bi bi-person-lines-fill"></i>
+                    </button>
+                  </form>
+                  @endif
+                </td>
               </tr>
               @endforeach
             </tbody>
