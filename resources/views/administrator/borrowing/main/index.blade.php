@@ -79,13 +79,6 @@
                       data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
                       <i class="bi bi-eye-fill"></i>
                     </button>
-
-                    <form action="#" method="POST">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
-                          class="bi bi-trash-fill"></i></button>
-                    </form>
                   </div>
                 </td>
               </tr>
