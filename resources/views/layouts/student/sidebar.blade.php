@@ -26,8 +26,8 @@
       </ul>
     </li>
 
-    <li class="sidebar-item">
-      <a href="#" class="sidebar-link">
+    <li class="sidebar-item {{ request()->routeIs('students.profile-settings.*') ? 'active' : '' }}">
+      <a href="{{ route('students.profile-settings.index') }}" class="sidebar-link">
         <i class="bi bi-person-fill-gear"></i>
         <span>Pengaturan Profil</span>
       </a>
