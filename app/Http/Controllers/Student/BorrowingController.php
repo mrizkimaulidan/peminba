@@ -15,12 +15,17 @@ class BorrowingController extends Controller
      */
     public function index()
     {
-        $borrowings = Borrowing::whereDate('date', now())->where('student_id', auth()->id())->latest()->get();
-        $commodityProgress = Borrowing::whereDate('date', now())->where('is_returned', 0)->latest()->get();
-        $subjects = Subject::all();
+        $borrowings = Borrowing::with('student', 'commodity', 'officer')
+            ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
+            ->whereDate('date', now())->where('student_id', auth()->id())->latest()->get();
 
-        $commoditiesCanBorrowed = Commodity::whereNotIn('id', $commodityProgress->pluck('commodity_id'))->get();
-        $commoditiesCannotBeBorrowed = Commodity::whereIn('id', $commodityProgress->pluck('commodity_id'))->get();
+        $commodityProgress = Borrowing::select('commodity_id', 'date', 'is_returned')
+            ->whereDate('date', now())->where('is_returned', 0)->latest()->get();
+
+        $subjects = Subject::select('id', 'name')->get();
+
+        $commoditiesCanBorrowed = Commodity::select('id', 'name')->whereNotIn('id', $commodityProgress->pluck('commodity_id'))->get();
+        $commoditiesCannotBeBorrowed = Commodity::select('id', 'name')->whereIn('id', $commodityProgress->pluck('commodity_id'))->get();
 
         return view('student.borrowing.main.index', compact('borrowings', 'commoditiesCanBorrowed', 'commoditiesCannotBeBorrowed', 'subjects'));
     }

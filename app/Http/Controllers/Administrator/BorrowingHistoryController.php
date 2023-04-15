@@ -13,11 +13,15 @@ class BorrowingHistoryController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $borrowings = Borrowing::whereNotNull('time_end')->where('is_returned', 1)
+        $borrowings = Borrowing::with('student', 'commodity')
+            ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
+            ->whereNotNull('time_end')->where('is_returned', 1)
             ->latest()->get();
 
         if (request()->has('date')) {
-            $borrowings = Borrowing::whereNotNull('time_end')->whereDate('date', request('date'))
+            $borrowings = Borrowing::with('student', 'commodity')
+                ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
+                ->whereNotNull('time_end')->whereDate('date', request('date'))
                 ->where('is_returned', 1)->latest()->get();
         }
 
