@@ -20,6 +20,6 @@ class BorrowingReportController extends Controller
             $borrowings = Borrowing::whereBetween('date', [$startDate, $endDate])->get();
         }
 
-        return view('administrator.borrowing.report.index', compact('borrowings'));
+        return view('officer.borrowing.report.index', compact('borrowings'));
     }
 }
