@@ -51,6 +51,7 @@
                 <th scope="col">Jam Pinjam</th>
                 <th scope="col">Jam Kembali</th>
                 <th scope="col">Petugas</th>
+                <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -87,6 +88,12 @@
                   </span>
                   @endif
                 </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
+                    data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -97,3 +104,11 @@
   </div>
 </section>
 @endsection
+
+@push('modal')
+@include('administrator.borrowing.report.modal.show')
+@endpush
+
+@push('script')
+@include('administrator.borrowing.script')
+@endpush
