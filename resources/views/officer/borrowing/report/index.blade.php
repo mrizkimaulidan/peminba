@@ -94,6 +94,12 @@
                     </button>
                   </form>
                   @endif
+
+
+                  <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
+                    data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
                 </td>
               </tr>
               @endforeach
@@ -105,3 +111,11 @@
   </div>
 </section>
 @endsection
+
+@push('modal')
+@include('officer.borrowing.report.modal.show')
+@endpush
+
+@push('script')
+@include('officer.borrowing.script')
+@endpush
