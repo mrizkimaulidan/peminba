@@ -11,6 +11,7 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
+        @include('utilities.alert')
         <div class="alert alert-info" role="alert">
           Tabel di bawah adalah daftar histori peminjaman yang sudah dilakukan oleh Anda.
         </div>
@@ -88,6 +89,16 @@
                       data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
                       <i class="bi bi-eye-fill"></i>
                     </button>
+
+                    @if($borrowing->time_end === NULL)
+                    <form action="{{ route('students.borrowings.returned', $borrowing) }}" method="POST">
+                      @csrf
+                      @method('PUT')
+                      <button type="submit" class="btn btn-sm btn-warning btn-returned">
+                        <i class="bi bi-check-circle-fill"></i>
+                      </button>
+                    </form>
+                    @endif
                   </div>
                 </td>
               </tr>
