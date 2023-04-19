@@ -11,6 +11,7 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
+        @include('utilities.alert')
         <div class="alert alert-info" role="alert">
           Tabel di bawah adalah daftar histori peminjaman yang sudah dilakukan oleh Mahasiswa.
         </div>
@@ -84,6 +85,15 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
+                    @if($borrowing->time_end !== NULL && $borrowing->officer_id === NULL)
+                    <form action="{{ route('officers.borrowings.validate', $borrowing) }}">
+                      <button type="submit" class="btn btn-sm btn-info btn-validate" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-title="Validasi">
+                        <i class="bi bi-person-lines-fill"></i>
+                      </button>
+                    </form>
+                    @endif
+
                     <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
                       data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
                       <i class="bi bi-eye-fill"></i>
