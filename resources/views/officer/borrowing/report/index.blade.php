@@ -49,6 +49,7 @@
         </div>
         @endif
 
+        @include('utilities.alert')
         <div class="table-responsive">
           <table class="table" id="datatable">
             <thead>
@@ -104,7 +105,6 @@
                       </button>
                     </form>
                     @endif
-
 
                     <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
                       data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
