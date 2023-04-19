@@ -3,6 +3,7 @@
 use App\Http\Controllers\Administrator\BorrowingController;
 use App\Http\Controllers\Administrator\BorrowingHistoryController;
 use App\Http\Controllers\Administrator\BorrowingReportController;
+use App\Http\Controllers\Administrator\ChartController;
 use App\Http\Controllers\Administrator\CommodityController;
 use App\Http\Controllers\Administrator\DashboardController;
 use App\Http\Controllers\Administrator\ProfileController;

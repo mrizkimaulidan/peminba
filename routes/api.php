@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\v1\BorrowingController;
+use App\Http\Controllers\API\v1\ChartController;
 use App\Http\Controllers\API\v1\CommodityController;
 use App\Http\Controllers\API\v1\ProgramStudyController;
 use App\Http\Controllers\API\v1\SchoolClassController;
@@ -33,4 +34,6 @@ Route::name('api.v1.')->prefix('v1')->group(function () {
     Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
     Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
     Route::get('/borrowings/{borrowing}', [BorrowingController::class, 'show'])->name('borrowings.show');
+
+    Route::get('/borrowings/chart/this-year', [ChartController::class, 'chartThisYear'])->name('borrowings.chart.this-year');
 });
