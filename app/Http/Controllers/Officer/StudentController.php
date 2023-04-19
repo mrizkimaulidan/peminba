@@ -26,7 +26,7 @@ class StudentController extends Controller
         $programStudies = ProgramStudy::select('id', 'name')->get();
         $schoolClasses = SchoolClass::select('id', 'name')->get();
 
-        return view('administrator.student.index', compact('students', 'programStudies', 'schoolClasses'));
+        return view('officer.student.index', compact('students', 'programStudies', 'schoolClasses'));
     }
 
     /**
@@ -34,9 +34,17 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        Student::create($request->all());
+        Student::create([
+            'program_study_id' => $request->program_study_id,
+            'school_class_id' => $request->school_class_id,
+            'identification_number' => $request->identification_number,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phone_number' => $request->phone_number
+        ]);
 
-        return redirect()->route('administrators.students.index')->with('success', 'Data berhasil ditambahkan!');
+        return redirect()->route('officers.students.index')->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -50,11 +58,11 @@ class StudentController extends Controller
             'identification_number' => $request->identification_number,
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password ?? $student->password,
+            'password' => bcrypt($request->password) ?? $student->password,
             'phone_number' => $request->phone_number,
         ]);
 
-        return redirect()->route('administrators.students.index')->with('success', 'Data berhasil diubah!');
+        return redirect()->route('officers.students.index')->with('success', 'Data berhasil diubah!');
     }
 
     /**
@@ -64,6 +72,6 @@ class StudentController extends Controller
     {
         $student->delete();
 
-        return redirect()->route('administrators.students.index')->with('success', 'Data berhasil dihapus!');
+        return redirect()->route('officers.students.index')->with('success', 'Data berhasil dihapus!');
     }
 }

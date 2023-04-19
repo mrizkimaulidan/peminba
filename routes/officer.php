@@ -20,8 +20,8 @@ Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(f
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
     Route::post('/students', [StudentController::class, 'store'])->name('students.store');
-    Route::put('/students/{commodity}', [StudentController::class, 'update'])->name('students.update');
-    Route::delete('/students/{commodity}', [StudentController::class, 'destroy'])->name('students.destroy');
+    Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+    Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
 
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
     Route::get('/borrowings/report', [BorrowingReportController::class, 'index'])->name('borrowings-report.index');

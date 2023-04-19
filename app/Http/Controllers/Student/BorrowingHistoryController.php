@@ -21,7 +21,8 @@ class BorrowingHistoryController extends Controller
         if (request()->has('date')) {
             $borrowings = Borrowing::with('student', 'commodity')
                 ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-                ->where('is_returned', 1)->latest()->get();
+                ->where('student_id', auth()->id())
+                ->latest()->get();
         }
 
         return view('student.borrowing.history.index', compact('borrowings'));

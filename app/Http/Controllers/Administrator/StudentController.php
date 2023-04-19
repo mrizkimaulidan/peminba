@@ -34,7 +34,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        Student::create($request->all());
+        Student::create([
+            'program_study_id' => $request->program_study_id,
+            'school_class_id' => $request->school_class_id,
+            'identification_number' => $request->identification_number,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'phone_number' => $request->phone_number
+        ]);
 
         return redirect()->route('administrators.students.index')->with('success', 'Data berhasil ditambahkan!');
     }

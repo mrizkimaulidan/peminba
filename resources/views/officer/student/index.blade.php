@@ -54,7 +54,7 @@
                       <i class="bi bi-pencil-fill"></i>
                     </button>
 
-                    <form action="{{ route('administrators.students.destroy', $student) }}" method="POST">
+                    <form action="{{ route('officers.students.destroy', $student) }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-danger btn-delete"><i

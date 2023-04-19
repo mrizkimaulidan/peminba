@@ -19,7 +19,9 @@ class BorrowingReportController extends Controller
 
             $borrowings = Borrowing::with('student', 'commodity')
                 ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-                ->whereBetween('date', [$startDate, $endDate])->get();
+                ->whereBetween('date', [$startDate, $endDate])
+                ->orderBy('date')
+                ->get();
         }
 
         return view('administrator.borrowing.report.index', compact('borrowings'));
