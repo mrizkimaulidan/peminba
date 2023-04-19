@@ -40,6 +40,15 @@
           </div>
         </form>
 
+        @if(request('start_date') && request('end_date') !== NULL)
+        <div class="d-flex flex-row-reverse pb-3">
+          <a href="{{ route('officers.borrowings-report.export', [request('start_date'), request('end_date')]) }}"
+            class="btn btn-success" data-bs-toggle="tooltip" data-bs-title="Export excel">
+            <i class="bi bi-file-earmark-excel-fill"></i>
+          </a>
+        </div>
+        @endif
+
         <div class="table-responsive">
           <table class="table" id="datatable">
             <thead>

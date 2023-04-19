@@ -31,4 +31,19 @@ class Borrowing extends Model
     {
         return $this->belongsTo(Officer::class);
     }
+
+    public function getIsReturnedStatus(): string
+    {
+        return $this->is_returned ? 'Sudah dikembalikan!' : 'Belum dikembalikan!';
+    }
+
+    public function getOfficerName(): string
+    {
+        return !is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
+    }
+
+    public function getTimeEnd(): string
+    {
+        return $this->time_end ?? '-';
+    }
 }

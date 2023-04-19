@@ -13,6 +13,7 @@ use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Authentication\LoginController;
+use App\Http\Controllers\Exports\BorrowingReportExport;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:administrator')->name('administrators.')->prefix('administrator')->group(function () {
@@ -54,4 +55,6 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
 
     Route::get('/profile/settings', [ProfileSettingController::class, 'index'])->name('profile-settings.index');
     Route::put('/profile/settings', [ProfileSettingController::class, 'update'])->name('profile-settings.update');
+
+    Route::get('/borrowings/report/export/{start_date}/{end_date}', [BorrowingReportExport::class, 'export'])->name('borrowings-report.export');
 });

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Exports\BorrowingReportExport;
 use App\Http\Controllers\Officer\BorrowingController;
 use App\Http\Controllers\Officer\BorrowingHistoryController;
 use App\Http\Controllers\Officer\BorrowingReportController;
@@ -30,4 +31,6 @@ Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(f
 
     Route::get('/profile/settings', [ProfileSettingController::class, 'index'])->name('profile-settings.index');
     Route::put('/profile/settings', [ProfileSettingController::class, 'update'])->name('profile-settings.update');
+
+    Route::get('/borrowings/report/export/{start_date}/{end_date}', [BorrowingReportExport::class, 'export'])->name('borrowings-report.export');
 });
