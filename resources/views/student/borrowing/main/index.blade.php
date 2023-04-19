@@ -77,7 +77,7 @@
                 </td>
                 <td>
                   <div class="btn-group gap-1">
-                    <button type="button" class="btn btn-sm btn-info showBorrowingButton" data-bs-toggle="modal"
+                    <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
                       data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
                       <i class="bi bi-eye-fill"></i>
                     </button>
