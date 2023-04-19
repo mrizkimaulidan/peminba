@@ -15,14 +15,13 @@ class BorrowingHistoryController extends Controller
     {
         $borrowings = Borrowing::with('student', 'commodity')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->whereNotNull('time_end')->where('is_returned', 1)
             ->latest()->get();
 
         if (request()->has('date')) {
             $borrowings = Borrowing::with('student', 'commodity')
                 ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-                ->whereNotNull('time_end')->whereDate('date', request('date'))
-                ->where('is_returned', 1)->latest()->get();
+                ->whereDate('date', request('date'))
+                ->latest()->get();
         }
 
         return view('officer.borrowing.history.index', compact('borrowings'));
