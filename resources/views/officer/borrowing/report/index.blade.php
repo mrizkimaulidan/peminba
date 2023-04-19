@@ -95,20 +95,22 @@
                   @endif
                 </td>
                 <td>
-                  @if($borrowing->time_end !== NULL && $borrowing->officer_id === NULL)
-                  <form action="{{ route('officers.borrowings.validate', $borrowing) }}">
-                    <button type="submit" class="btn btn-sm btn-info btn-validate" data-bs-toggle="tooltip"
-                      data-bs-placement="top" data-bs-title="Validasi">
-                      <i class="bi bi-person-lines-fill"></i>
+                  <div class="btn-group gap-1">
+                    @if($borrowing->time_end !== NULL && $borrowing->officer_id === NULL)
+                    <form action="{{ route('officers.borrowings.validate', $borrowing) }}">
+                      <button type="submit" class="btn btn-sm btn-info btn-validate" data-bs-toggle="tooltip"
+                        data-bs-placement="top" data-bs-title="Validasi">
+                        <i class="bi bi-person-lines-fill"></i>
+                      </button>
+                    </form>
+                    @endif
+
+
+                    <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
+                      data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
+                      <i class="bi bi-eye-fill"></i>
                     </button>
-                  </form>
-                  @endif
-
-
-                  <button type="button" class="btn btn-sm btn-success showBorrowingButton" data-bs-toggle="modal"
-                    data-id="{{ $borrowing->id }}" data-bs-target="#detailBorrowingModal">
-                    <i class="bi bi-eye-fill"></i>
-                  </button>
+                  </div>
                 </td>
               </tr>
               @endforeach
