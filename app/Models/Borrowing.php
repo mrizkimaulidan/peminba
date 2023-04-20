@@ -34,7 +34,7 @@ class Borrowing extends Model
 
     public function getIsReturnedStatus(): string
     {
-        return $this->is_returned ? 'Sudah dikembalikan!' : 'Belum dikembalikan!';
+        return $this->is_returned ? 'Sudah dikembalikan.' : 'Belum dikembalikan!';
     }
 
     public function getOfficerName(): string
