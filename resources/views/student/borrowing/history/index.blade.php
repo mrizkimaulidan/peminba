@@ -6,6 +6,7 @@
 @section('content')
 <section class="row">
   <div class="col-12">
+    @include('utilities.alert')
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">@yield('title')</h4>

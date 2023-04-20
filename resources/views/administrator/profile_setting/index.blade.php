@@ -6,13 +6,12 @@
 @section('content')
 <div class="row">
   <div class="col-md-6">
+    @include('utilities.alert')
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">@yield('title')</h4>
       </div>
-
       <div class="card-body">
-        @include('utilities.alert')
         <form action="{{ route('administrators.profile-settings.update') }}" method="POST">
           @csrf
           @method('PUT')
@@ -55,7 +54,6 @@
               </div>
             </div>
           </div>
-
           <button type="submit" class="btn btn-success">Ubah</button>
         </form>
       </div>

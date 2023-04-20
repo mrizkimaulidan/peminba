@@ -6,13 +6,12 @@
 @section('content')
 <div class="row">
   <div class="col-md-6">
+    @include('utilities.alert')
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">@yield('title')</h4>
       </div>
-
       <div class="card-body">
-        @include('utilities.alert')
         <form action="{{ route('officers.profile-settings.update') }}" method="POST">
           @csrf
           @method('PUT')

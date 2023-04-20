@@ -6,12 +6,12 @@
 @section('content')
 <section class="row">
   <div class="col-12">
+    @include('utilities.alert')
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
-        @include('utilities.alert')
         <div class="alert alert-warning" role="alert">
           <i class="bi bi-exclamation-circle"></i>
           Setiap data peminjaman dari mahasiswa petugas wajib melakukan validasi dengan menekan tombol
