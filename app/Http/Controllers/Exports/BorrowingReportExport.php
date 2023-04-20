@@ -31,7 +31,8 @@ class BorrowingReportExport extends Controller
         $spreadsheet = new Spreadsheet();
         $activeWorkSheet = $spreadsheet->getActiveSheet();
 
-        $borrowings = Borrowing::whereBetween('date', [$startDate, $endDate])
+        $borrowings = Borrowing::select('id', 'commodity_id', 'student_id', 'subject_id', 'officer_id', 'date', 'time_start', 'time_end', 'is_returned')
+            ->whereBetween('date', [$startDate, $endDate])
             ->orderBy('date', 'ASC')
             ->get();
 
