@@ -12,7 +12,7 @@
             <div class="col-xs-12 col-md-4">
               <div class="mb-3">
                 <label for="identification_number" class="form-label">NIM</label>
-                <input type="text" name="identification_number" class="form-control" placeholder="Masukkan nim.."
+                <input type="number" name="identification_number" class="form-control" placeholder="Masukkan nim.."
                   required>
               </div>
             </div>
@@ -29,7 +29,7 @@
               <div class="mb-3">
                 <label for="program_study_id" class="form-label">Program Studi</label>
                 <select class="form-select" name="program_study_id">
-                  <option selected>Pilih..</option>
+                  <option value="0" selected>Pilih..</option>
                   @foreach ($programStudies as $programStudy)
                   <option value="{{ $programStudy->id }}">{{ $programStudy->name }}</option>
                   @endforeach
@@ -60,7 +60,7 @@
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="text" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone.."
+                <input type="number" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone.."
                   required>
               </div>
             </div>
