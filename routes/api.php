@@ -36,4 +36,5 @@ Route::name('api.v1.')->prefix('v1')->group(function () {
     Route::get('/borrowings/{borrowing}', [BorrowingController::class, 'show'])->name('borrowings.show');
 
     Route::get('/borrowings/chart/this-year', [ChartController::class, 'chartThisYear'])->name('borrowings.chart.this-year');
+    Route::post('/borrowings/chart/student', [ChartController::class, 'chartByStudentID'])->name('borrowings.chart.student');
 });

@@ -27,4 +27,24 @@ class ChartController extends Controller
             'data' => $results
         ], Response::HTTP_OK);
     }
+
+    public function chartByStudentID(Request $request): object
+    {
+        $months = ['jan', 'feb', 'mar', 'apr', 'mei', 'jun', 'jul', 'agu', 'sep', 'okt', 'nov', 'des'];
+
+        for ($i = 1; $i <= 12; $i++) {
+            $borrowings = Borrowing::whereMonth('date', "{$i}")
+                ->where('student_id', $request->student_id)
+                ->whereYear('date', now()->year)
+                ->count();
+
+            $results[$months[$i - 1]] = $borrowings;
+        }
+
+        return response()->json([
+            'code' => Response::HTTP_OK,
+            'message' => 'ok',
+            'data' => $results
+        ], Response::HTTP_OK);
+    }
 }
