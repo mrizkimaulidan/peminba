@@ -12,14 +12,29 @@
             <div class="col-xs-12 col-md-4">
               <div class="mb-3">
                 <label for="identification_number" class="form-label">NIM</label>
-                <input type="number" name="identification_number" class="form-control" placeholder="Masukkan nim.."
-                  required>
+                <input type="number" name="identification_number"
+                  class="form-control @error('identification_number', 'store') is-invalid @enderror"
+                  @if($errors->hasBag('store'))
+                value="{{ old('identification_number') }}" @endif placeholder="Masukkan nim.."
+                >
+                @error('identification_number', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
             <div class="col-xs-12 col-md-8">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" class="form-control" placeholder="Masukkan nama.." required>
+                <input type="text" name="name" class="form-control @error('name', 'store') is-invalid @enderror"
+                  @if($errors->hasBag('store'))
+                value="{{ old('name') }}" @endif placeholder="Masukkan nama.." >
+                @error('name', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -28,23 +43,40 @@
             <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="program_study_id" class="form-label">Program Studi</label>
-                <select class="form-select" name="program_study_id">
-                  <option value="0" selected>Pilih..</option>
+                <select class="form-select @error('program_study_id', 'store') is-invalid @enderror"
+                  name="program_study_id">
+                  <option value="0">Pilih..</option>
                   @foreach ($programStudies as $programStudy)
-                  <option value="{{ $programStudy->id }}">{{ $programStudy->name }}</option>
+                  <option value="{{ $programStudy->id }}" {{ old('program_study_id')===(string)$programStudy->id ?
+                    'selected' :
+                    '' }}>{{
+                    $programStudy->name }}</option>
                   @endforeach
                 </select>
+                @error('program_study_id', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
             <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="school_class_id" class="form-label">Kelas</label>
-                <select class="form-select" name="school_class_id">
-                  <option selected>Pilih..</option>
+                <select class="form-select @error('school_class_id', 'store') is-invalid @enderror"
+                  name="school_class_id">
+                  <option value="0">Pilih..</option>
                   @foreach ($schoolClasses as $schoolClass)
-                  <option value="{{ $schoolClass->id }}">{{ $schoolClass->name }}</option>
+                  <option value="{{ $schoolClass->id }}" {{ old('school_class_id')===(string)$schoolClass->id ?
+                    'selected' : ''}}>{{
+                    $schoolClass->name }}</option>
                   @endforeach
                 </select>
+                @error('school_class_id', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -53,15 +85,30 @@
               <label for="email" class="form-label">Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
-                <input type="email" name="email" class="form-control" placeholder="Masukkan email.." required>
+                <input type="email" name="email" class="form-control @error('email', 'store') is-invalid @enderror"
+                  @if($errors->hasBag('store'))
+                value="{{ old('email') }}" @endif placeholder="Masukkan email.." >
+                @error('email', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
             <div class="col">
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="number" name="phone_number" class="form-control" placeholder="Masukkan nomor handphone.."
-                  required>
+                <input type="number" name="phone_number"
+                  class="form-control @error('phone_number', 'store') is-invalid @enderror"
+                  @if($errors->hasBag('store'))
+                value="{{ old('phone_number') }}" @endif
+                placeholder="Masukkan nomor handphone.." >
+                @error('phone_number', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -69,14 +116,27 @@
             <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Masukkan password.." required>
+                <input type="password" name="password"
+                  class="form-control @error('password', 'store') is-invalid @enderror"
+                  placeholder="Masukkan password..">
+                @error('password', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
             <div class="col-xs-12 col-md-6">
               <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                <input type="password" name="password_confirmation" class="form-control"
-                  placeholder="Masukkan password.." required>
+                <input type="password" name="password_confirmation"
+                  class="form-control @error('password_confirmation', 'store') is-invalid @enderror"
+                  placeholder="Masukkan password..">
+                @error('password_confirmation', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
