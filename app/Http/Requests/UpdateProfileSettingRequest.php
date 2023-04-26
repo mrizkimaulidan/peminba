@@ -25,9 +25,9 @@ class UpdateProfileSettingRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:255',
-            'email' => 'required|email|unique:administrators,email,' . $this->user()->id . '|min:3|max:255',
+            'email' => 'required|email|unique:administrators,email,' . $this->user('administrator')->id . '|min:3|max:255',
             'password' => 'nullable|confirmed|min:3|max:255',
-            'phone_number' => 'required|numeric|unique:administrators,phone_number,' . $this->user()->id . '|digits_between:3,255'
+            'phone_number' => 'required|numeric|unique:administrators,phone_number,' . $this->user('administrator')->id . '|digits_between:3,255'
         ];
     }
 
