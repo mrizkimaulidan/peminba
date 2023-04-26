@@ -133,12 +133,6 @@
       });
 
       $('input[type=date]').flatpickr();
-      $('input[type=time]').flatpickr({
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "H:i",
-        time_24hr: true
-      });
 
       $('.btn-delete').click(function (e) {
         e.preventDefault();
