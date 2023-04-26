@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Officer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreStudentRequest;
+use App\Http\Requests\UpdateStudentRequest;
 use App\Models\ProgramStudy;
 use App\Models\SchoolClass;
 use App\Models\Student;
@@ -32,16 +34,18 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreStudentRequest $request)
     {
+        $validated = $request->validated();
+
         Student::create([
-            'program_study_id' => $request->program_study_id,
-            'school_class_id' => $request->school_class_id,
-            'identification_number' => $request->identification_number,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'phone_number' => $request->phone_number
+            'program_study_id' => $validated['program_study_id'],
+            'school_class_id' => $validated['school_class_id'],
+            'identification_number' => $validated['identification_number'],
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            'phone_number' => $validated['phone_number'],
         ]);
 
         return redirect()->route('officers.students.index')->with('success', 'Data berhasil ditambahkan!');
@@ -50,16 +54,18 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(UpdateStudentRequest $request, Student $student)
     {
+        $validated = $request->validated();
+
         $student->update([
-            'program_study_id' => $request->program_study_id,
-            'school_class_id' => $request->school_class_id,
-            'identification_number' => $request->identification_number,
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password) ?? $student->password,
-            'phone_number' => $request->phone_number,
+            'program_study_id' => $validated['program_study_id'],
+            'school_class_id' => $validated['school_class_id'],
+            'identification_number' => $validated['identification_number'],
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
+            'phone_number' => $validated['phone_number'],
         ]);
 
         return redirect()->route('officers.students.index')->with('success', 'Data berhasil diubah!');
