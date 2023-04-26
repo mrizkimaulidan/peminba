@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
 
@@ -22,13 +23,15 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
+        $validated = $request->validated();
+
         Administrator::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'phone_number' => $request->phone_number,
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'password' => bcrypt($validated['password']),
+            'phone_number' => $validated['phone_number'],
         ]);
 
         return redirect()->route('administrators.users.index')->with('success', 'Data berhasil ditambahkan!');

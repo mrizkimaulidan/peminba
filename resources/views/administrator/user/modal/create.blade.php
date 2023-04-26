@@ -12,7 +12,16 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama.." required>
+                <input type="text" name="name" id="name"
+                  class="form-control @error('name', 'store') is-invalid @enderror" placeholder="Masukkan nama.."
+                  @if($errors->hasBag('store'))
+                value="{{ old('name') }}"
+                @endif required>
+                @error('name', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -21,8 +30,15 @@
               <label for="email" class="form-label">Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Masukkan email.."
-                  required>
+                <input type="email" name="email" id="email"
+                  class="form-control @error('email', 'store') is-invalid @enderror" placeholder="Masukkan email.."
+                  @if($errors->hasBag('store'))
+                value="{{ old('email') }}" @endif required>
+                @error('email', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -31,8 +47,15 @@
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="text" name="phone_number" id="phone_number" class="form-control"
-                  placeholder="Masukkan nomor handphone.." required>
+                <input type="number" name="phone_number" id="phone_number"
+                  class="form-control @error('phone_number', 'store') is-invalid @enderror"
+                  placeholder="Masukkan nomor handphone.." @if($errors->hasBag('store'))
+                value="{{ old('phone_number') }}" @endif required>
+                @error('phone_number', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -40,8 +63,14 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" id="password" class="form-control"
+                <input type="password" name="password" id="password"
+                  class="form-control @error('password', 'store') is-invalid @enderror"
                   placeholder="Masukkan password.." required>
+                @error('password', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
@@ -49,8 +78,14 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"
+                <input type="password" name="password_confirmation" id="password_confirmation"
+                  class="form-control @error('password_confirmation', 'store') is-invalid @enderror"
                   placeholder="Masukkan konfirmasi password.." required>
+                @error('password_confirmation', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
             </div>
           </div>
