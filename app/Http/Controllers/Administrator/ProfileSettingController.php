@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProfileSettingRequest;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
 
@@ -19,15 +20,16 @@ class ProfileSettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateProfileSettingRequest $request)
     {
         $administrator = Administrator::find(auth('administrator')->id());
+        $validated = $request->validated();
 
         $administrator->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'password' => $request->password ?? $administrator->password
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone_number' => $validated['phone_number'],
+            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $administrator->password
         ]);
 
         return redirect()->route('administrators.profile-settings.index')->with('success', 'Data berhasil diubah!');
