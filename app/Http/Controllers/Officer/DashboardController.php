@@ -7,9 +7,15 @@ use App\Models\Commodity;
 use Illuminate\Http\Request;
 use App\Models\Administrator;
 use App\Http\Controllers\Controller;
+use App\Repositories\BorrowingRepository;
 
 class DashboardController extends Controller
 {
+    public function __construct(
+        private BorrowingRepository $repository
+    ) {
+    }
+
     /**
      * Handle the incoming request.
      */
@@ -22,7 +28,8 @@ class DashboardController extends Controller
         ];
 
         $latestRegisteredStudents = Student::select('name', 'email')->latest()->take(3)->get();
+        $borrowingsNotReturned = $this->repository->getCommoditiesNotReturnedByStudent();
 
-        return view('officer.dashboard', compact('counts', 'latestRegisteredStudents'));
+        return view('officer.dashboard', compact('counts', 'latestRegisteredStudents', 'borrowingsNotReturned'));
     }
 }
