@@ -69,7 +69,7 @@
                       @endforeach
 
                       @foreach ($commoditiesCannotBeBorrowed as $commodity)
-                      <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }}-Sedang dipinjam</option>
+                      <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }} - Sedang dipinjam</option>
                       @endforeach
                     </select>
                   </div>
