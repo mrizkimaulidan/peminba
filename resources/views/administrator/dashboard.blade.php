@@ -75,49 +75,30 @@
       <div class="col-12 col-xl-12">
         <div class="card">
           <div class="card-header">
-            <h4>Latest Comments</h4>
+            <h4>Komoditas Yang Belum Dikembalikan</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-hover table-lg">
+              <table class="table table-hover table-lg" id="datatable">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Comment</th>
+                    <th>Nama Mahasiswa</th>
+                    <th>Komoditas</th>
+                    <th>Tanggal Peminjaman</th>
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach ($borrowingsNotReturned as $borrowing)
                   <tr>
-                    <td class="col-3">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-md">
-                          <img src="{{ asset('images/faces/5.jpg') }}" />
-                        </div>
-                        <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                      </div>
+                    <td>
+                      <span class="badge text-bg-primary" data-bs-toggle="tooltip" data-bs-placement="top"
+                        data-bs-title="{{ $borrowing->student->identification_number }} - {{ $borrowing->student->phone_number }}">{{
+                        $borrowing->student->name }} - {{ $borrowing->student->email }}</span>
                     </td>
-                    <td class="col-auto">
-                      <p class="mb-0">
-                        Congratulations on your graduation!
-                      </p>
-                    </td>
+                    <td>{{ $borrowing->commodity->name }}</td>
+                    <td>{{ $borrowing->date }}</td>
                   </tr>
-                  <tr>
-                    <td class="col-3">
-                      <div class="d-flex align-items-center">
-                        <div class="avatar avatar-md">
-                          <img src="{{ asset('images/faces/2.jpg') }}" />
-                        </div>
-                        <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                      </div>
-                    </td>
-                    <td class="col-auto">
-                      <p class="mb-0">
-                        Wow amazing design! Can you make another
-                        tutorial for this design?
-                      </p>
-                    </td>
-                  </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
