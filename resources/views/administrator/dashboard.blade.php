@@ -132,9 +132,10 @@
         </div>
         @endforeach
         <div class="px-4">
-          <button class="btn btn-block btn-xl btn-outline-primary font-bold mt-3">
+          <a href="{{ route('administrators.students.index') }}"
+            class="btn btn-block btn-xl btn-outline-primary font-bold mt-3">
             Daftar Mahasiswa
-          </button>
+          </a>
         </div>
       </div>
     </div>
