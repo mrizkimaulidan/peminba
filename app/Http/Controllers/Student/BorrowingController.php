@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBorrowingRequest;
 use App\Models\Borrowing;
 use App\Models\Commodity;
 use App\Models\Subject;
@@ -33,15 +34,10 @@ class BorrowingController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBorrowingRequest $request)
     {
-        Borrowing::create([
-            'commodity_id' => $request->commodity_id,
-            'student_id' => auth('student')->id(),
-            'subject_id' => $request->subject_id,
-            'date' => $request->date,
-            'time_start' => $request->time_start,
-        ]);
+        $validated = $request->safe()->merge(['student_id' => auth('student')->id()]);
+        Borrowing::create($validated->toArray());
 
         return redirect()->route('students.borrowings.index')->with('success', 'Data berhasil ditambahkan!');
     }

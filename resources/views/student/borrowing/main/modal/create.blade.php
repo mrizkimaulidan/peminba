@@ -12,10 +12,13 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="commodity_id" class="form-label">Komoditas</label>
-                <select class="form-select" name="commodity_id" id="commodity_id">
+                <select class="form-select @error('commodity_id', 'store') is-invalid @enderror" name="commodity_id"
+                  id="commodity_id">
                   <option selected>Pilih..</option>
                   @foreach ($commoditiesCanBorrowed as $commodity)
-                  <option value="{{ $commodity->id }}">{{ $commodity->name }}</option>
+                  <option value="{{ $commodity->id }}" {{ old('commodity_id')===(string)$commodity->id ?
+                    'selected' :
+                    '' }}>{{ $commodity->name }}</option>
                   @endforeach
 
                   @if(count($commoditiesCannotBeBorrowed) > 1)
@@ -30,10 +33,13 @@
 
               <div class="mb-3">
                 <label for="subject_id" class="form-label">Mata Kuliah</label>
-                <select class="form-select" name="subject_id" id="subject_id">
+                <select class="form-select @error('subject_id', 'store') is-invalid @enderror" name="subject_id"
+                  id="subject_id">
                   <option selected>Pilih..</option>
                   @foreach ($subjects as $subject)
-                  <option value="{{ $subject->id }}">{{ $subject->name }}</option>
+                  <option value="{{ $subject->id }}" {{ old('subject_id')===(string)$subject->id ?
+                    'selected' :
+                    '' }}>{{ $subject->name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -42,7 +48,9 @@
                 <label for="date" class="form-label">Tanggal</label>
                 <div class="input-group mb-3">
                   <span class="d-block input-group-text"><i class="bi bi-calendar-date-fill"></i></span>
-                  <input type="date" class="form-control" name="date" id="date" placeholder="Pilih tanggal..">
+                  <input type="date" class="form-control  @error('date', 'store') is-invalid @enderror" name="date"
+                    id="date" @if($errors->hasBag('store'))
+                  value="{{ old('date') }}" @endif placeholder="Pilih tanggal..">
                 </div>
               </div>
 
@@ -50,7 +58,9 @@
                 <label for="time_start" class="form-label">Jam Pinjam</label>
                 <div class="input-group mb-3">
                   <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
-                  <input type="time" class="form-control" name="time_start" id="time_start">
+                  <input type="time" class="form-control @error('time_start', 'store') is-invalid @enderror"
+                    name="time_start" @if($errors->hasBag('store'))
+                  value="{{ old('time_start') }}" @endif id="time_start">
                 </div>
               </div>
             </div>
