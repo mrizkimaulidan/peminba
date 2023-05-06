@@ -41,10 +41,10 @@
 
     $('#datatable').on('click', '.editBorrowingButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.borrowings.show', 'id') }}";
-      let updateURL = "{{ route('students.borrowings.update', 'id') }}";
-      showURL = showURL.replace('id', id);
-      updateURL = updateURL.replace('id', id);
+      let showURL = "{{ route('api.v1.borrowings.show', 'param') }}";
+      let updateURL = "{{ route('students.borrowings.update', 'param') }}";
+      showURL = showURL.replace('param', id);
+      updateURL = updateURL.replace('param', id);
 
       let input = $('#editBorrowingModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');

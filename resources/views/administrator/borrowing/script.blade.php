@@ -5,8 +5,8 @@
 
     $('#datatable').on('click', '.showBorrowingButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.borrowings.show', 'id') }}";
-      showURL = showURL.replace('id', id);
+      let showURL = "{{ route('api.v1.borrowings.show', 'param') }}";
+      showURL = showURL.replace('param', id);
 
       let input = $('#detailBorrowingModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');

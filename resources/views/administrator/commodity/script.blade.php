@@ -10,10 +10,10 @@
 
     $('#datatable').on('click', '.editCommodityButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.commodities.show', 'id') }}";
-      let updateURL = "{{ route('administrators.commodities.update', 'id') }}";
-      showURL = showURL.replace('id', id);
-      updateURL = updateURL.replace('id', id);
+      let showURL = "{{ route('api.v1.commodities.show', 'param') }}";
+      let updateURL = "{{ route('administrators.commodities.update', 'param') }}";
+      showURL = showURL.replace('param', id);
+      updateURL = updateURL.replace('param', id);
 
       let input = $('#editCommodityModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');

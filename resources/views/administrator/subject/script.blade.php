@@ -10,10 +10,10 @@
 
     $('#datatable').on('click', '.editSubjectButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.subjects.show', 'id') }}";
-      let updateURL = "{{ route('administrators.subjects.update', 'id') }}";
-      showURL = showURL.replace('id', id);
-      updateURL = updateURL.replace('id', id);
+      let showURL = "{{ route('api.v1.subjects.show', 'param') }}";
+      let updateURL = "{{ route('administrators.subjects.update', 'param') }}";
+      showURL = showURL.replace('param', id);
+      updateURL = updateURL.replace('param', id);
 
       let input = $('#editSubjectModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');

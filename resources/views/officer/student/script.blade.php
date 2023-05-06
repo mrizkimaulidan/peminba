@@ -10,8 +10,8 @@
 
     $('#datatable').on('click', '.showStudentButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.students.show', 'id') }}";
-      showURL = showURL.replace('id', id);
+      let showURL = "{{ route('api.v1.students.show', 'param') }}";
+      showURL = showURL.replace('param', id);
 
       let input = $('#detailStudentModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');
@@ -44,10 +44,10 @@
 
     $('#datatable').on('click', '.editStudentButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.students.show', 'id') }}";
-      let updateURL = "{{ route('officers.students.update', 'id') }}";
-      showURL = showURL.replace('id', id);
-      updateURL = updateURL.replace('id', id);
+      let showURL = "{{ route('api.v1.students.show', 'param') }}";
+      let updateURL = "{{ route('officers.students.update', 'param') }}";
+      showURL = showURL.replace('param', id);
+      updateURL = updateURL.replace('param', id);
 
       let input = $('#editStudentModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.not('[type=password]').not('select').val('Sedang mengambil data..');

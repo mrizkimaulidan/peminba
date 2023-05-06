@@ -10,10 +10,10 @@
 
     $('#datatable').on('click', '.editAdministratorButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.users.show', 'id') }}";
-      let updateURL = "{{ route('administrators.users.update', 'id') }}";
-      showURL = showURL.replace('id', id);
-      updateURL = updateURL.replace('id', id);
+      let showURL = "{{ route('api.v1.users.show', 'param') }}";
+      let updateURL = "{{ route('administrators.users.update', 'param') }}";
+      showURL = showURL.replace('param', id);
+      updateURL = updateURL.replace('param', id);
 
       let input = $('#editAdministratorModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.not('[type=password]').val('Sedang mengambil data..');
