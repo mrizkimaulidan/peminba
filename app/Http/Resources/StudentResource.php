@@ -26,7 +26,7 @@ class StudentResource extends JsonResource
             'identificationNumber' => $this->identification_number,
             'name' => $this->name,
             'email' => $this->email,
-            'phoneNumber' => $this->phone_number
+            'phoneNumber' => (int)$this->phone_number
         ];
     }
 }

@@ -60,7 +60,7 @@
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="text" name="phone_number" id="phone_number" class="form-control"
+                <input type="number" name="phone_number" id="phone_number" class="form-control"
                   placeholder="Masukkan nomor handphone..">
               </div>
             </div>
