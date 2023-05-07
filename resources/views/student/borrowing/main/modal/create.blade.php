@@ -29,6 +29,11 @@
                   <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }} - Sedang dipinjam</option>
                   @endforeach
                 </select>
+                @error('commodity_id', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
 
               <div class="mb-3">
@@ -42,6 +47,11 @@
                     '' }}>{{ $subject->name }}</option>
                   @endforeach
                 </select>
+                @error('subject_id', 'store')
+                <div class="d-block invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
 
               <div class="mb-3">
@@ -51,6 +61,11 @@
                   <input type="date" class="form-control  @error('date', 'store') is-invalid @enderror" name="date"
                     id="date" @if($errors->hasBag('store'))
                   value="{{ old('date') }}" @endif placeholder="Pilih tanggal.." required>
+                  @error('date', 'store')
+                  <div class="d-block invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
 
@@ -61,6 +76,11 @@
                   <input type="time" class="form-control @error('time_start', 'store') is-invalid @enderror"
                     name="time_start" @if($errors->hasBag('store'))
                   value="{{ old('time_start') }}" @endif id="time_start" required>
+                  @error('time_start', 'store')
+                  <div class="d-block invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
               </div>
             </div>
