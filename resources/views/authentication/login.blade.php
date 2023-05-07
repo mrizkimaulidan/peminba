@@ -20,7 +20,7 @@
           <p class="auth-subtitle mb-5">
             Login untuk melanjutkan.
           </p>
-
+          @include('utilities.alert')
           <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="form-group position-relative has-icon-left mb-4">
@@ -52,6 +52,8 @@
       </div>
     </div>
   </div>
+
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 
 </html>

@@ -5,6 +5,13 @@
 </div>
 @endif
 
+@if(session('error'))
+<div class="alert alert-danger alert-dismissible show fade">
+  <i class="bi bi-shield-fill-exclamation"></i> {{ session('error') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
+
 @if($errors->store->any())
 <div class="alert alert-danger alert-dismissible show fade">
   <i class="bi bi-exclamation-circle"></i>
