@@ -16,7 +16,7 @@
           <div class="p-2">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createStudentModal">
               <i class="bi bi-plus-circle-fill"></i>
-              Tambah
+              Tambah Mahasiswa
             </button>
           </div>
         </div>

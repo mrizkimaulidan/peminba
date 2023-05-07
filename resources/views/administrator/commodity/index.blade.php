@@ -17,7 +17,7 @@
             <button type="button" class="btn btn-primary" id="createCommodityButton" data-bs-toggle="modal"
               data-bs-target="#createCommodityModal">
               <i class="bi bi-plus-circle-fill"></i>
-              Tambah
+              Tambah Komoditas
             </button>
           </div>
         </div>
