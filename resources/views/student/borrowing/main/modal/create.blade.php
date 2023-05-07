@@ -13,8 +13,8 @@
               <div class="mb-3">
                 <label for="commodity_id" class="form-label">Komoditas</label>
                 <select class="form-select @error('commodity_id', 'store') is-invalid @enderror" name="commodity_id"
-                  id="commodity_id">
-                  <option selected>Pilih..</option>
+                  id="commodity_id" required>
+                  <option value="" selected>Pilih..</option>
                   @foreach ($commoditiesCanBorrowed as $commodity)
                   <option value="{{ $commodity->id }}" {{ old('commodity_id')===(string)$commodity->id ?
                     'selected' :
@@ -34,8 +34,8 @@
               <div class="mb-3">
                 <label for="subject_id" class="form-label">Mata Kuliah</label>
                 <select class="form-select @error('subject_id', 'store') is-invalid @enderror" name="subject_id"
-                  id="subject_id">
-                  <option selected>Pilih..</option>
+                  id="subject_id" required>
+                  <option value="" selected>Pilih..</option>
                   @foreach ($subjects as $subject)
                   <option value="{{ $subject->id }}" {{ old('subject_id')===(string)$subject->id ?
                     'selected' :
@@ -50,7 +50,7 @@
                   <span class="d-block input-group-text"><i class="bi bi-calendar-date-fill"></i></span>
                   <input type="date" class="form-control  @error('date', 'store') is-invalid @enderror" name="date"
                     id="date" @if($errors->hasBag('store'))
-                  value="{{ old('date') }}" @endif placeholder="Pilih tanggal..">
+                  value="{{ old('date') }}" @endif placeholder="Pilih tanggal.." required>
                 </div>
               </div>
 
@@ -60,7 +60,7 @@
                   <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
                   <input type="time" class="form-control @error('time_start', 'store') is-invalid @enderror"
                     name="time_start" @if($errors->hasBag('store'))
-                  value="{{ old('time_start') }}" @endif id="time_start">
+                  value="{{ old('time_start') }}" @endif id="time_start" required>
                 </div>
               </div>
             </div>

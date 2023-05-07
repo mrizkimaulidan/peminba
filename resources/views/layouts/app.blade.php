@@ -132,7 +132,9 @@
         },
       });
 
-      $('input[type=date]').flatpickr();
+      $('input[type=date]').flatpickr({
+        allowInput: true,
+      });
 
       $('.btn-delete').click(function (e) {
         e.preventDefault();
