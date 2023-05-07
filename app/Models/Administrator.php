@@ -11,5 +11,7 @@ class Administrator extends Authenticatable
 {
     use HasFactory, SoftDeletes;
 
+    protected $guard = 'administrator';
+
     protected $fillable = ['name', 'email', 'password', 'phone_number'];
 }

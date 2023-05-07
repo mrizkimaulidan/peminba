@@ -12,6 +12,8 @@ class Student extends Authenticatable
 {
     use HasFactory, SoftDeletes;
 
+    protected $guard = 'student';
+
     protected $fillable = [
         'program_study_id', 'school_class_id', 'name',
         'identification_number', 'name', 'email',

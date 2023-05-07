@@ -10,5 +10,7 @@ class Officer extends Authenticatable
 {
     use HasFactory;
 
+    protected $guard = 'officer';
+
     protected $fillable = ['name', 'email', 'password', 'phone_number'];
 }
