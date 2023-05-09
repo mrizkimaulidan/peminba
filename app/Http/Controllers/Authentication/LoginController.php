@@ -42,7 +42,7 @@ class LoginController extends Controller
             return redirect('student/dashboard');
         }
 
-        return redirect()->route('login')->with('error', 'Email atau password salah!');
+        return redirect()->route('login')->with('authentication', 'Email atau password salah!')->withInput();
     }
 
     public function validation(array $data)

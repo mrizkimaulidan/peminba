@@ -29,6 +29,11 @@
               <div class="form-control-icon">
                 <i class="bi bi-person"></i>
               </div>
+              @error('email', 'authentication')
+              <div class="d-block invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
             </div>
             <div class="form-group position-relative has-icon-left mb-4">
               <input type="password" name="password" class="form-control form-control-xl" placeholder="Password"
@@ -36,6 +41,11 @@
               <div class="form-control-icon">
                 <i class="bi bi-shield-lock"></i>
               </div>
+              @error('password', 'authentication')
+              <div class="d-block invalid-feedback">
+                {{ $message }}
+              </div>
+              @enderror
             </div>
             <div class="form-check form-check-lg d-flex align-items-end">
               <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault" />

@@ -19,6 +19,12 @@
 </div>
 @endif
 
+@if(session('authentication'))
+<div class="alert alert-danger alert-dismissible show fade">
+  <i class="bi bi-shield-fill-exclamation"></i> {{ session('authentication') }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 
 @if($errors->store->any())
 <div class="alert alert-danger alert-dismissible show fade">
