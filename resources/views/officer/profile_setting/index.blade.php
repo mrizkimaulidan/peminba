@@ -35,7 +35,7 @@
               <label for="phone_number" class="form-label">Nomor Handphone:</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="text" class="form-control" name="phone_number" value="{{ auth()->user()->phone_number }}"
+                <input type="number" class="form-control" name="phone_number" value="{{ auth()->user()->phone_number }}"
                   placeholder="Masukkan nomor handphone..">
               </div>
             </div>

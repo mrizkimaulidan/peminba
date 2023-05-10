@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Officer;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStudentRequest;
-use App\Http\Requests\UpdateStudentRequest;
-use App\Models\ProgramStudy;
-use App\Models\SchoolClass;
 use App\Models\Student;
+use App\Models\SchoolClass;
+use App\Models\ProgramStudy;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Officer\StoreStudentRequest;
+use App\Http\Requests\Officer\UpdateStudentRequest;
 
 class StudentController extends Controller
 {

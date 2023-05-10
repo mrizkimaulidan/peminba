@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Officer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Officer\UpdateProfileSettingRequest;
 use App\Models\Officer;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class ProfileSettingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(UpdateProfileSettingRequest $request)
     {
         $officer = Officer::find(auth('officer')->id());
 
