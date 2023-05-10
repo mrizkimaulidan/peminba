@@ -13,7 +13,9 @@ class ProfileSettingController extends Controller
      */
     public function index()
     {
-        return view('student.profile_setting.index');
+        $myInformation = auth('student')->user();
+
+        return view('student.profile_setting.index', compact('myInformation'));
     }
 
     /**
