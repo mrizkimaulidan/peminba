@@ -12,7 +12,6 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
-        @include('utilities.alert')
         <div class="alert alert-info" role="alert">
           Tabel di bawah adalah daftar histori peminjaman yang sudah dilakukan oleh Anda.
         </div>
