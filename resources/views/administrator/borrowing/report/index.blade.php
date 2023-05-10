@@ -6,6 +6,7 @@
 @section('content')
 <section class="row">
   <div class="col-12">
+    @include('utilities.alert')
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">@yield('title')</h4>
@@ -22,7 +23,7 @@
                   <div><i class="bi bi-calendar-date-fill"></i></div>
                 </span>
                 <input type="date" class="form-control" name="start_date" id="start_date"
-                  value="{{ request('start_date') }}" placeholder="Pilih tanggal awal..">
+                  value="{{ request('start_date') }}" placeholder="Pilih tanggal awal.." required>
               </div>
             </div>
 
@@ -35,7 +36,7 @@
                   <div><i class="bi bi-calendar-date-fill"></i></div>
                 </span>
                 <input type="date" class="form-control" name="end_date" id="end_date" value="{{ request('end_date') }}"
-                  placeholder="Pilih tanggal akhir..">
+                  placeholder="Pilih tanggal akhir.." required>
               </div>
             </div>
           </div>

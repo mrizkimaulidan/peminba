@@ -16,12 +16,16 @@ class BorrowingController extends Controller
      */
     public function index()
     {
-        $borrowings = Borrowing::with('student', 'commodity', 'officer')
+        $borrowings = Borrowing::with(['student:id,identification_number,name'], ['commodity:id,name'], ['officer:id,name'])
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->whereDate('date', now())->where('student_id', auth()->id())->latest()->get();
+            ->whereDate('date', now())->where('student_id', auth()->id())
+            ->latest()
+            ->get();
 
         $commodityProgress = Borrowing::select('commodity_id', 'date', 'is_returned')
-            ->whereDate('date', now())->where('is_returned', 0)->latest()->get();
+            ->whereDate('date', now())->where('is_returned', 0)
+            ->latest()
+            ->get();
 
         $subjects = Subject::select('id', 'name')->get();
 

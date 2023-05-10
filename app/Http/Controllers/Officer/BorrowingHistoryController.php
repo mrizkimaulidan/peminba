@@ -13,16 +13,16 @@ class BorrowingHistoryController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $borrowings = Borrowing::with('student', 'commodity')
-            ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->latest()->get();
+        $query = Borrowing::query();
 
-        if (request()->has('date')) {
-            $borrowings = Borrowing::with('student', 'commodity')
-                ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-                ->whereDate('date', request('date'))
-                ->latest()->get();
-        }
+        $query->when(request()->has('date'), function ($q) {
+            return $q->whereDate('date', request('date'));
+        });
+
+        $borrowings = $query->with(['student:id,identification_number,name'], ['commodity:id,name'])
+            ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
+            ->latest()
+            ->get();
 
         return view('officer.borrowing.history.index', compact('borrowings'));
     }

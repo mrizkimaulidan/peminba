@@ -14,18 +14,15 @@ class BorrowingReportController extends Controller
      */
     public function index(): View
     {
-        $borrowings = [];
+        $query = Borrowing::query();
 
-        if (request()->has('start_date') && request()->has('end_date')) {
-            $startDate = request()->get('start_date');
-            $endDate = request()->get('end_date');
+        $query->when(request()->has('start_date') && request()->has('end_date'), function ($q) {
+            return $q->whereBetween('date', [request('start_date'), request('end_date')]);
+        });
 
-            $borrowings = Borrowing::with('student', 'commodity')
-                ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-                ->whereBetween('date', [$startDate, $endDate])
-                ->orderBy('date')
-                ->get();
-        }
+        $borrowings = $query->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
+            ->orderBy('date')
+            ->get();
 
         return view('officer.borrowing.report.index', compact('borrowings'));
     }

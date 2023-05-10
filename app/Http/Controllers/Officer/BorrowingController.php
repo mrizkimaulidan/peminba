@@ -14,9 +14,10 @@ class BorrowingController extends Controller
      */
     public function index()
     {
-        $borrowings = Borrowing::with('student', 'commodity')
+        $borrowings = Borrowing::with(['student:id,identification_number,name'], ['commodity:id,name'])
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->whereDate('date', now())->get();
+            ->whereDate('date', now())
+            ->get();
 
         return view('officer.borrowing.main.index', compact('borrowings'));
     }
