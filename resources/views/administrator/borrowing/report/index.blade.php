@@ -12,29 +12,33 @@
       </div>
       <div class="card-body">
         <form action="" method="GET">
-          <div class="d-flex">
-            <div class="flex-fill">
-              <label for="start_date" class="form-label">Tanggal Awal:</label>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="my-3">
+                <label for="start_date">Tanggal Awal:</label>
+              </div>
               <div class="input-group">
-                <div class="input-group-text">
+                <span class="input-group-text">
                   <div><i class="bi bi-calendar-date-fill"></i></div>
-                </div>
-                <input type="date" name="start_date" id="start_date" value="{{ request('start_date') }}"
-                  class="form-control" placeholder="Pilih tanggal awal..">
+                </span>
+                <input type="date" class="form-control" name="start_date" id="start_date"
+                  value="{{ request('start_date') }}" placeholder="Pilih tanggal awal..">
               </div>
             </div>
-            <div class="flex-fill">
-              <label for="end_date" class="form-label">Tanggal Akhir:</label>
+
+            <div class="col-md-6">
+              <div class="my-3">
+                <label for="end_date">Tanggal Akhir</label>
+              </div>
               <div class="input-group">
-                <div class="input-group-text">
+                <span class="input-group-text">
                   <div><i class="bi bi-calendar-date-fill"></i></div>
-                </div>
-                <input type="date" name="end_date" id="end_date" value="{{ request('end_date') }}" class="form-control"
+                </span>
+                <input type="date" class="form-control" name="end_date" id="end_date" value="{{ request('end_date') }}"
                   placeholder="Pilih tanggal akhir..">
               </div>
             </div>
           </div>
-
           <div class="d-flex pt-3 pb-3">
             <button type="submit" class="btn btn-primary flex-fill">Cari</button>
           </div>
