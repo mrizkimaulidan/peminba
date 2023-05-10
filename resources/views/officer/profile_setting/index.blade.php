@@ -19,7 +19,7 @@
             <div class="col-12">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap:</label>
-                <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}"
+                <input type="text" class="form-control" name="name" value="{{ $myInformation->name }}"
                   placeholder="Masukkan nama..">
               </div>
             </div>
@@ -27,7 +27,7 @@
               <label for="email" class="form-label">Email:</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
-                <input type="email" class="form-control" name="email" value="{{ auth()->user()->email }}"
+                <input type="email" class="form-control" name="email" value="{{ $myInformation->email }}"
                   placeholder="Masukkan email..">
               </div>
             </div>
@@ -35,7 +35,7 @@
               <label for="phone_number" class="form-label">Nomor Handphone:</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                <input type="number" class="form-control" name="phone_number" value="{{ auth()->user()->phone_number }}"
+                <input type="number" class="form-control" name="phone_number" value="{{ $myInformation->phone_number }}"
                   placeholder="Masukkan nomor handphone..">
               </div>
             </div>
