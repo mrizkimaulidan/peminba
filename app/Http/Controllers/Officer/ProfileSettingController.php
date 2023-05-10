@@ -25,12 +25,13 @@ class ProfileSettingController extends Controller
     public function update(UpdateProfileSettingRequest $request)
     {
         $officer = Officer::find(auth('officer')->id());
+        $validated = $request->validated();
 
         $officer->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'password' => $request->password ?? $officer->password
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone_number' => $validated['phone_number'],
+            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $officer->password
         ]);
 
         return redirect()->route('officers.profile-settings.index')->with('success', 'Data berhasil diubah!');

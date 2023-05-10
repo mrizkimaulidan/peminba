@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Officer;
+namespace App\Http\Requests\Student;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class UpdateProfileSettingRequest extends FormRequest
 {
-    protected $errorBag = 'store';
+    protected $errorBag = 'update';
 
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +25,15 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:255',
-            'email' => 'required|email|unique:administrators,email|min:3|max:255',
-            'password' => 'required|confirmed|min:3|max:255',
-            'phone_number' => 'required|numeric|unique:administrators,phone_number|digits_between:3,255'
+            'email' => 'required|email|unique:students,email,' . $this->user('student')->id . '|min:3|max:255',
+            'password' => 'nullable|confirmed|min:3|max:255',
+            'phone_number' => 'required|numeric|unique:students,phone_number,' . $this->user('student')->id . '|digits_between:3,255'
         ];
     }
 
     /**
      * Get the error messages for the defined validation rules.
-     *
+
      * @return array<string, string>
      */
     public function messages(): array

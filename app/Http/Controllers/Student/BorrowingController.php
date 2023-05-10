@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreBorrowingRequest;
+use App\Models\Subject;
 use App\Models\Borrowing;
 use App\Models\Commodity;
-use App\Models\Subject;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Student\StoreBorrowingRequest;
 
 class BorrowingController extends Controller
 {
