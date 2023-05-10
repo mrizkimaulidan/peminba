@@ -22,12 +22,14 @@
           </div>
         </div>
 
-        <div class="table-responsive">
-          <div class="d-flex flex-row-reverse pb-3">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-              data-bs-target="#addBorrowingModal">Tambah Peminjaman</button>
-          </div>
+        <div class="d-flex flex-row-reverse pb-3">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBorrowingModal">
+            <i class="bi bi-plus-circle-fill"></i>
+            Tambah Peminjaman
+          </button>
+        </div>
 
+        <div class="table-responsive">
           <table class="table" id="datatable">
             <thead>
               <tr>
