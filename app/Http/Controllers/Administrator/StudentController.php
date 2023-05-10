@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStudentRequest;
-use App\Http\Requests\UpdateStudentRequest;
+use App\Http\Requests\Administrator\StoreStudentRequest;
+use App\Http\Requests\Administrator\UpdateStudentRequest;
 use App\Models\ProgramStudy;
 use App\Models\SchoolClass;
 use App\Models\Student;

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Administrator;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUserRequest;
-use App\Models\Administrator;
 use Illuminate\Http\Request;
+use App\Models\Administrator;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Administrator\StoreUserRequest;
 
 class UserController extends Controller
 {

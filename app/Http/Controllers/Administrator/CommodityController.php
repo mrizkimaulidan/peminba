@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCommodityRequest;
-use App\Http\Requests\UpdateCommodityRequest;
+use App\Http\Requests\Administrator\StoreCommodityRequest;
+use App\Http\Requests\Administrator\UpdateCommodityRequest;
 use App\Models\Commodity;
 use Illuminate\Http\Request;
 

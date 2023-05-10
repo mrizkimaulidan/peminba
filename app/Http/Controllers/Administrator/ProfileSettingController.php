@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateProfileSettingRequest;
+use App\Http\Requests\Administrator\UpdateProfileSettingRequest;
 use App\Models\Administrator;
 use Illuminate\Http\Request;
 

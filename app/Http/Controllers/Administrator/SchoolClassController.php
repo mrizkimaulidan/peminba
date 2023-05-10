@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreSchoolClassRequest;
-use App\Http\Requests\UpdateSchoolClassRequest;
+use App\Http\Requests\Administrator\StoreSchoolClassRequest;
+use App\Http\Requests\Administrator\UpdateSchoolClassRequest;
 use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 

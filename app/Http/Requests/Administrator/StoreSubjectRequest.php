@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Administrator;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSchoolClassRequest extends FormRequest
+class StoreSubjectRequest extends FormRequest
 {
     protected $errorBag = 'store';
 
@@ -24,6 +24,7 @@ class StoreSchoolClassRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'code' => 'required|string|min:3|max:255',
             'name' => 'required|string|min:3|max:255'
         ];
     }
@@ -36,6 +37,11 @@ class StoreSchoolClassRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'code.required' => 'Kolom kode wajib diisi!',
+            'code.string' => 'Kolom kode wajib karakter!',
+            'code.min' => 'Kolom kode minimal :min karakter!',
+            'code.max' => 'Kolom kode maksimal :max karakter!',
+
             'name.required' => 'Kolom nama wajib diisi!',
             'name.string' => 'Kolom nama wajib karakter!',
             'name.min' => 'Kolom nama minimal :min karakter!',

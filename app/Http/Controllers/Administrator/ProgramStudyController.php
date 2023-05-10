@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProgramStudyRequest;
-use App\Http\Requests\UpdateProgramStudyRequest;
+use App\Http\Requests\Administrator\StoreProgramStudyRequest;
+use App\Http\Requests\Administrator\UpdateProgramStudyRequest;
 use App\Models\ProgramStudy;
 use Illuminate\Http\Request;
 

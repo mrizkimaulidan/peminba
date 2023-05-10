@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Administrator;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProgramStudyRequest extends FormRequest
+class StoreCommodityRequest extends FormRequest
 {
     protected $errorBag = 'store';
 
