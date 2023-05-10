@@ -13,8 +13,9 @@ class LogoutController extends Controller
     public function __invoke(Request $request)
     {
         auth()->logout();
-        auth('officer')->logout();
         auth('administrator')->logout();
+        auth('officer')->logout();
+        auth('student')->logout();
 
         $request->session()->invalidate();
 
