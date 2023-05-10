@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('is_returned')->default(0);
             $table->text('note')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
