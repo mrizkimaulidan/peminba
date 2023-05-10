@@ -9,6 +9,9 @@ use Illuminate\View\View;
 
 class BorrowingReportController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(): View
     {
         $borrowings = [];

@@ -9,6 +9,9 @@ use Illuminate\View\View;
 
 class BorrowingController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(): View
     {
         $borrowings = Borrowing::with('student', 'commodity')
