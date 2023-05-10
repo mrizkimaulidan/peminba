@@ -20,7 +20,7 @@
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap:</label>
                 <input type="text" class="form-control @error('name', 'update') is-invalid @enderror" name="name"
-                  value="{{ auth('administrator')->user()->name }}" placeholder="Masukkan nama..">
+                  value="{{ $myInformation->name }}" placeholder="Masukkan nama..">
                 @error('name', 'update')
                 <div class="d-block invalid-feedback">
                   {{ $message }}
@@ -33,7 +33,7 @@
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
                 <input type="email" class="form-control @error('email', 'update') is-invalid @enderror" name="email"
-                  value="{{ auth('administrator')->user()->email }}" placeholder="Masukkan email..">
+                  value="{{ $myInformation->email }}" placeholder="Masukkan email..">
                 @error('email', 'update')
                 <div class="d-block invalid-feedback">
                   {{ $message }}
@@ -46,7 +46,7 @@
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
                 <input type="number" class="form-control @error('phone_number', 'update') is-invalid @enderror"
-                  name="phone_number" value="{{ auth('administrator')->user()->phone_number }}"
+                  name="phone_number" value="{{ $myInformation->phone_number }}"
                   placeholder="Masukkan nomor handphone..">
                 @error('phone_number', 'update')
                 <div class="d-block invalid-feedback">
