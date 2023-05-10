@@ -24,7 +24,8 @@
                     <i class="bi bi-calendar-date-fill"></i>
                   </div>
                 </span>
-                <input type="date" name="date" id="date" class="form-control" placeholder="Pilih tanggal..">
+                <input type="date" name="date" id="date" class="form-control" value="{{ request('date') }}"
+                  placeholder="Pilih tanggal..">
               </div>
             </div>
           </div>

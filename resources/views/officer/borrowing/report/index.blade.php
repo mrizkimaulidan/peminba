@@ -21,7 +21,7 @@
                   <div><i class="bi bi-calendar-date-fill"></i></div>
                 </span>
                 <input type="date" class="form-control" name="start_date" id="start_date"
-                  placeholder="Pilih tanggal awal..">
+                  value="{{ request('start_date') }}" placeholder="Pilih tanggal awal..">
               </div>
             </div>
 
@@ -33,7 +33,7 @@
                 <span class="input-group-text">
                   <div><i class="bi bi-calendar-date-fill"></i></div>
                 </span>
-                <input type="date" class="form-control" name="end_date" id="end_date"
+                <input type="date" class="form-control" name="end_date" id="end_date" value="{{ request('end_date') }}"
                   placeholder="Pilih tanggal akhir..">
               </div>
             </div>
