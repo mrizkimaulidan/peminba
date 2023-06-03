@@ -2,23 +2,35 @@
 
 namespace App\Http\Controllers\API\v1;
 
-use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class ChartController extends Controller
 {
+    private $months = ['jan', 'feb', 'mar', 'apr', 'mei', 'jun', 'jul', 'agu', 'sep', 'okt', 'nov', 'des'];
+
+    /**
+     * Count borrowing each month by this current year.
+     *
+     * @return object
+     */
     public function chartThisYear(): object
     {
-        $months = ['jan', 'feb', 'mar', 'apr', 'mei', 'jun', 'jul', 'agu', 'sep', 'okt', 'nov', 'des'];
+        $borrowings = Borrowing::selectRaw('MONTH(date) as month, COUNT(*) as count')
+            ->whereYear('date', now()->year)
+            ->groupBy('month')
+            ->get()
+            ->pluck('count', 'month')
+            ->toArray();
 
         for ($i = 1; $i <= 12; $i++) {
-            $borrowings = Borrowing::whereMonth('date', "{$i}")
-                ->whereYear('date', now()->year)
-                ->count();
-
-            $results[$months[$i - 1]] = $borrowings;
+            // if key exists so there is a borrowing count on that month
+            // if key does not exists there is no borrowing on that month so the count
+            // should be 0
+            $results[$this->months[$i - 1]] = isset($borrowings[$i]) ? $borrowings[$i] : 0;
         }
 
         return response()->json([
@@ -28,17 +40,28 @@ class ChartController extends Controller
         ], Response::HTTP_OK);
     }
 
+    /**
+     * Count borrowing each month by this current year based on student_id provided
+     * in parameter.
+     *
+     * @param Request $request
+     * @return object
+     */
     public function chartByStudentID(Request $request): object
     {
-        $months = ['jan', 'feb', 'mar', 'apr', 'mei', 'jun', 'jul', 'agu', 'sep', 'okt', 'nov', 'des'];
+        $borrowings = Borrowing::selectRaw('MONTH(date) as month, COUNT(*) as count')
+            ->where('student_id', $request->student_id)
+            ->whereYear('date', now()->year)
+            ->groupBy('month')
+            ->get()
+            ->pluck('count', 'month')
+            ->toArray();
 
         for ($i = 1; $i <= 12; $i++) {
-            $borrowings = Borrowing::whereMonth('date', "{$i}")
-                ->where('student_id', $request->student_id)
-                ->whereYear('date', now()->year)
-                ->count();
-
-            $results[$months[$i - 1]] = $borrowings;
+            // if key exists so there is a borrowing count on that month
+            // if key does not exists there is no borrowing on that month so the count
+            // should be 0
+            $results[$this->months[$i - 1]] = isset($borrowings[$i]) ? $borrowings[$i] : 0;
         }
 
         return response()->json([
