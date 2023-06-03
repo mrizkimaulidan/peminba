@@ -71,6 +71,7 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" id="password" class="form-control"
                   placeholder="Masukkan password..">
+                  <small class="text-muted">Kosongkan kolom password jika tidak ingin diubah</small>
               </div>
             </div>
             <div class="col-xs-12 col-md-6">
