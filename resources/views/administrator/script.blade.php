@@ -14,7 +14,6 @@
     });
 
     function initChart(data) {
-      console.log(data.data);
       let borrowingsThisYear = {
         chart: {
           type: "bar",
