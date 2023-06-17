@@ -20,7 +20,7 @@
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap:</label>
                 <input type="text" class="form-control" name="name" value="{{ $myInformation->name }}"
-                  placeholder="Masukkan nama..">
+                  placeholder="Masukkan nama.." autofocus>
               </div>
             </div>
             <div class="col-12">

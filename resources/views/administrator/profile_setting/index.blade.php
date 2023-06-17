@@ -20,7 +20,7 @@
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap:</label>
                 <input type="text" class="form-control @error('name', 'update') is-invalid @enderror" name="name"
-                  value="{{ $myInformation->name }}" placeholder="Masukkan nama..">
+                  value="{{ $myInformation->name }}" placeholder="Masukkan nama.." autofocus>
                 @error('name', 'update')
                 <div class="d-block invalid-feedback">
                   {{ $message }}
