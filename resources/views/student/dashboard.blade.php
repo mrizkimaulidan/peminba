@@ -18,7 +18,7 @@
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                 <h6 class="text-muted font-semibold">Total Peminjaman Saya</h6>
-                <h6 class="font-extrabold mb-0">{{ $myBorrowings['counts'] }}</h6>
+                <h6 class="font-extrabold mb-0">{{ $myBorrowings['counts']['total'] }}</h6>
               </div>
             </div>
           </div>
@@ -35,7 +35,7 @@
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                 <h6 class="text-muted font-semibold">Peminjaman Sudah Dikembalikan</h6>
-                <h6 class="font-extrabold mb-0">{{ $myBorrowings['returned'] }}</h6>
+                <h6 class="font-extrabold mb-0">{{ $myBorrowings['counts']['returned'] }}</h6>
               </div>
             </div>
           </div>
@@ -52,7 +52,7 @@
               </div>
               <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                 <h6 class="text-muted font-semibold">Peminjaman Belum Dikembalikan</h6>
-                <h6 class="font-extrabold mb-0">{{ $myBorrowings['notReturned'] }}</h6>
+                <h6 class="font-extrabold mb-0">{{ $myBorrowings['counts']['notReturned'] }}</h6>
               </div>
             </div>
           </div>

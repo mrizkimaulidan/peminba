@@ -4,23 +4,33 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
+use App\Repositories\BorrowingRepository;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    public function __construct(
+        private BorrowingRepository $repository
+    ) {
+    }
+
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
-        $counts = Borrowing::where('student_id', auth('student')->user()->id)->count();
-        $returned = Borrowing::where('student_id', auth('student')->user()->id)->where('is_returned', 1)->count();
-        $notReturned = Borrowing::where('student_id', auth('student')->user()->id)->where('is_returned', 0)->count();
+        $studentID = auth('student')->user()->id;
+
+        $counts = $this->repository->countTotalBorrowingByStudentID($studentID);
+        $returned = $this->repository->countStudentBorrowingReturnedStatus($studentID, true);
+        $notReturned = $this->repository->countStudentBorrowingReturnedStatus($studentID, false);
 
         $myBorrowings = [
-            'counts' => $counts,
-            'returned' => $returned,
-            'notReturned' => $notReturned
+            'counts' => [
+                'total' => $counts,
+                'returned' => $returned,
+                'notReturned' => $notReturned
+            ]
         ];
 
         return view('student.dashboard', compact('myBorrowings'));
