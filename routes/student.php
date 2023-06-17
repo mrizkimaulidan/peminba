@@ -11,7 +11,7 @@ Route::middleware('auth:student')->name('students.')->prefix('student')->group(f
     Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
     Route::post('/borrowings', [BorrowingController::class, 'store'])->name('borrowings.store');
     Route::put('/borrowings/{borrowing}', [BorrowingController::class, 'update'])->name('borrowings.update');
-    Route::put('/borrowings/returned/{borrowing}', [BorrowingController::class, 'returned'])->name('borrowings.returned');
+    Route::put('/borrowings/return/{borrowing}', [BorrowingController::class, 'returnBorrowing'])->name('borrowings.return');
 
     Route::get('/borrowings/history', BorrowingHistoryController::class)->name('borrowings-history.index');
 

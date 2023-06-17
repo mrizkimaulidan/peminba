@@ -22,6 +22,9 @@ class BorrowingController extends Controller
         return view('officer.borrowing.main.index', compact('borrowings'));
     }
 
+    /**
+     * Validate student borrowing.
+     */
     public function validateBorrowing(Borrowing $borrowing): RedirectResponse
     {
         $borrowing->update([
