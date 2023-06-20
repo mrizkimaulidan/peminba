@@ -19,7 +19,7 @@ class BorrowingHistoryController extends Controller
             return $q->whereDate('date', request('date'));
         });
 
-        $borrowings = $query->with(['student:id,identification_number,name'], ['commodity:id,name'])
+        $borrowings = $query->with(['student:id,identification_number,name', 'commodity:id,name'])
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->latest()
             ->get();
