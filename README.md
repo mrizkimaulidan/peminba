@@ -35,3 +35,9 @@ $ php artisan ide-helper:generate
 ```bash
 $ php artisan serve
 ```
+
+Development menggunakan Laravel Sail:
+
+```bash
+$ ./vendor/bin/sail up
+```
