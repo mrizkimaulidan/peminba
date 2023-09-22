@@ -103,7 +103,7 @@
 @endsection
 
 @push('modal')
-@include('administrator.borrowing.main.modal.show')
+@include('administrator.borrowing.history.modal.show')
 @endpush
 
 @push('script')

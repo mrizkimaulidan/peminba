@@ -48,7 +48,10 @@
                 <div class="col-md-12">
                   <div class="mb-3">
                     <label class="form-label">Nomor Handphone</label>
-                    <input class="form-control" id="student_phone_number" disabled>
+                    <div class="input-group">
+                      <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
+                      <input class="form-control" id="student_phone_number" disabled>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -91,13 +94,19 @@
                 <div class="col-md-6 col-lg-6">
                   <div class="mb-3">
                     <label class="form-label">Jam Pinjam</label>
-                    <input type="time" step="any" class="form-control" name="time_start" id="time_start">
+                    <div class="input-group">
+                      <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
+                      <input type="time" step="any" class="form-control" name="time_start" id="time_start">
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                   <div class="mb-3">
                     <label class="form-label">Jam Kembali</label>
-                    <input class="form-control" id="time_end" disabled>
+                    <div class="input-group">
+                      <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
+                      <input class="form-control" id="time_end" disabled>
+                    </div>
                   </div>
                 </div>
               </div>
