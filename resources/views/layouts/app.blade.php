@@ -11,7 +11,7 @@
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.svg') }}" type="image/x-icon" />
   <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/png" />
 
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
   <link rel="stylesheet" href="{{ asset('css/shared/iconly.css') }}" />
@@ -110,9 +110,9 @@
   <script src="{{ asset('js/bootstrap.js') }}"></script>
   <script src="{{ asset('js/app.js') }}"></script>
 
-  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-  <script src="//cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
