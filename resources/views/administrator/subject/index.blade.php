@@ -34,7 +34,7 @@
               @foreach ($subjects as $subject)
               <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $subject->code }}</td>
+                <td><span class="badge text-bg-primary">{{ $subject->code }}</span></td>
                 <td>{{ $subject->name }}</td>
                 <td>
                   <div class="btn-group gap-1">

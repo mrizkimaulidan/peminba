@@ -75,14 +75,22 @@
                 </th>
                 <td>{{ $borrowing->commodity->name }}</td>
                 <td>{{ $borrowing->date }}</td>
-                <td>{{ $borrowing->time_start }}</td>
+                <td>
+                  <span class="badge text-bg-secondary">
+                    <i class="bi bi-clock-fill"></i>
+                    {{ $borrowing->time_start }}
+                  </span>
+                </td>
                 <td>
                   @if($borrowing->time_end === NULL)
                   <span class="badge text-bg-info" data-bs-toggle="tooltip" data-bs-placement="top"
                     data-bs-title="Sedang dipinjam">
                     <i class="bi bi-clock"></i></span>
                   @else
-                  {{ $borrowing->time_end }}
+                  <span class="badge text-bg-secondary">
+                    <i class="bi bi-clock-fill"></i>
+                    {{ $borrowing->time_end }}
+                  </span>
                   @endif
                 </td>
                 <td>
