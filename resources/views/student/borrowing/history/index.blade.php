@@ -92,7 +92,7 @@
                     </button>
 
                     @if($borrowing->time_end === NULL)
-                    <form action="{{ route('students.borrowings.returned', $borrowing) }}" method="POST">
+                    <form action="{{ route('students.borrowings.return', $borrowing) }}" method="POST">
                       @csrf
                       @method('PUT')
                       <button type="submit" class="btn btn-sm btn-warning btn-returned">
