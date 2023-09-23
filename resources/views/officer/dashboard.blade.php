@@ -26,36 +26,40 @@
       </div>
       <div class="col-6 col-lg-4 col-md-6">
         <div class="card">
-          <div class="card-body px-4 py-4-5">
-            <div class="row">
-              <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
-                <div class="stats-icon green mb-2">
-                  <i class="iconly-boldProfile"></i>
+          <a href="{{ route('officers.students.index') }}">
+            <div class="card-body px-4 py-4-5">
+              <div class="row">
+                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                  <div class="stats-icon green mb-2">
+                    <i class="iconly-boldProfile"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                  <h6 class="text-muted font-semibold">Total Mahasiswa</h6>
+                  <h6 class="font-extrabold mb-0">{{ $counts['student'] }}</h6>
                 </div>
               </div>
-              <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                <h6 class="text-muted font-semibold">Total Mahasiswa</h6>
-                <h6 class="font-extrabold mb-0">{{ $counts['student'] }}</h6>
-              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
       <div class="col-6 col-lg-4 col-md-6">
         <div class="card">
-          <div class="card-body px-4 py-4-5">
-            <div class="row">
-              <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
-                <div class="stats-icon red mb-2">
-                  <i class="iconly-boldBookmark"></i>
+          <a href="{{ route('officers.commodities.index') }}">
+            <div class="card-body px-4 py-4-5">
+              <div class="row">
+                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                  <div class="stats-icon red mb-2">
+                    <i class="iconly-boldBookmark"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                  <h6 class="text-muted font-semibold">Total Komoditas</h6>
+                  <h6 class="font-extrabold mb-0">{{ $counts['commodity'] }}</h6>
                 </div>
               </div>
-              <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                <h6 class="text-muted font-semibold">Total Komoditas</h6>
-                <h6 class="font-extrabold mb-0">{{ $counts['commodity'] }}</h6>
-              </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </div>
