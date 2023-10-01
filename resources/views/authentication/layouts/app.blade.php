@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/pages/auth.css') }}" />
     <link rel="shortcut icon" href="{{ asset('images/logo/favicon.svg') }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset('images/logo/favicon.png') }}" type="image/png" />
+    @vite([])
 </head>
 
 <body>
