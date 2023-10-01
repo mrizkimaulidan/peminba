@@ -43,7 +43,7 @@ _Daftar Komoditas_
 ![Image 3](https://i.imgur.com/6ItaCw8.png)
 
 _Daftar Program Studi_
-![Image 4](https://i.imgur.com/WVEAyKi.png)
+![Image 4](https://i.imgur.com/7qEKu6y.png)
 
 _Daftar Kelas_
 ![Image 5](https://i.imgur.com/mlfqj86.png)
