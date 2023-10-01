@@ -1,4 +1,4 @@
-# Inven BS
+# Peminba
 
 Aplikasi peminjaman barang jurusan menggunakan Framework Laravel 10. Aplikasi ini memiliki 3 role, yaitu _Administrator Jurusan_, _Petugas Jurusan_ dan _Mahasiswa_.
 Beberapa CRUD menggunakan AJAX untuk pengambilan data agar mengurangi penggunaan perpindahan halaman.
