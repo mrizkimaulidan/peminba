@@ -20,7 +20,8 @@ class BorrowingReportController extends Controller
             return $q->whereBetween('date', [request('start_date'), request('end_date')]);
         });
 
-        $borrowings = $query->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
+        $borrowings = $query->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name')
+            ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->orderBy('date')
             ->get();
 
