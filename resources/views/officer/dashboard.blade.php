@@ -97,7 +97,7 @@
                     <td>
                       <span class="badge text-bg-primary" data-bs-toggle="tooltip" data-bs-placement="top"
                         data-bs-title="{{ $borrowing->student->identification_number }} - {{ $borrowing->student->phone_number }}">{{
-                        $borrowing->student->name }} - {{ $borrowing->student->email }}</span>
+                        $borrowing->student->name }}</span>
                     </td>
                     <td>{{ $borrowing->commodity->name }}</td>
                     <td>{{ $borrowing->date }}</td>
