@@ -21,24 +21,17 @@ class ChartController extends Controller
      */
     public function index(Request $request)
     {
-        if ($request->has('year')) {
-            return $this->chartByYear($request->year);
-        }
+        $query = Borrowing::query();
 
-        if ($request->has('studentID')) {
-            return $this->chartByStudentID($request->year, $request->studentID);
-        }
-    }
+        $query->when($request->has('year'), function ($q) use ($request) {
+            return $q->whereYear('date', $request->year);
+        });
 
-    /**
-     * Count borrowing each month by this current year.
-     *
-     * @return object
-     */
-    public function chartByYear(string $year): object
-    {
-        $borrowings = Borrowing::selectRaw('MONTH(date) as month, COUNT(*) as count')
-            ->whereYear('date', $year)
+        $query->when($request->has('studentID'), function ($q) use ($request) {
+            return $q->where('student_id', $request->studentID);
+        });
+
+        $results = $query->selectRaw('MONTH(date) as month, COUNT(*) as count')
             ->groupBy('month')
             ->get()
             ->pluck('count', 'month')
@@ -48,44 +41,13 @@ class ChartController extends Controller
             // if key exists so there is a borrowing count on that month
             // if key does not exists there is no borrowing on that month so the count
             // should be 0
-            $results[$this->months[$i - 1]] = isset($borrowings[$i]) ? $borrowings[$i] : 0;
+            $statistics[$this->months[$i - 1]] = isset($results[$i]) ? $results[$i] : 0;
         }
 
         return response()->json([
             'code' => Response::HTTP_OK,
             'message' => 'ok',
-            'data' => $results
-        ], Response::HTTP_OK);
-    }
-
-    /**
-     * Count borrowing each month by this current year based on studentID provided
-     * in parameter.
-     *
-     * @param Request $request
-     * @return object
-     */
-    public function chartByStudentID(string $year, int $studentID): object
-    {
-        $borrowings = Borrowing::selectRaw('MONTH(date) as month, COUNT(*) as count')
-            ->where('student_id', $studentID)
-            ->whereYear('date', $year)
-            ->groupBy('month')
-            ->get()
-            ->pluck('count', 'month')
-            ->toArray();
-
-        for ($i = 1; $i <= 12; $i++) {
-            // if key exists so there is a borrowing count on that month
-            // if key does not exists there is no borrowing on that month so the count
-            // should be 0
-            $results[$this->months[$i - 1]] = isset($borrowings[$i]) ? $borrowings[$i] : 0;
-        }
-
-        return response()->json([
-            'code' => Response::HTTP_OK,
-            'message' => 'ok',
-            'data' => $results
+            'data' => $statistics
         ], Response::HTTP_OK);
     }
 }
