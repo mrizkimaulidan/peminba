@@ -19,5 +19,7 @@ class OfficerSeeder extends Seeder
             'password' => bcrypt('secret'),
             'phone_number' => fake()->phoneNumber()
         ]);
+
+        Officer::factory(100)->create();
     }
 }

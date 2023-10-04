@@ -19,5 +19,7 @@ class AdministratorSeeder extends Seeder
             'password' => bcrypt('secret'),
             'phone_number' => fake()->phoneNumber()
         ]);
+
+        Administrator::factory(100)->create();
     }
 }

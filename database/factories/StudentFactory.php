@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\ProgramStudy;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +18,8 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'program_study_id' => 1,
-            'school_class_id' => 1,
+            'program_study_id' => fake()->randomElement(ProgramStudy::pluck('id')),
+            'school_class_id' => fake()->randomElement(ProgramStudy::pluck('id')),
             'identification_number' => fake()->numberBetween(100000000, 999999999),
             'name' => fake()->name,
             'email' => fake()->email,

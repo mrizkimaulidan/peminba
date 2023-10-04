@@ -13,8 +13,15 @@ class ProgramStudySeeder extends Seeder
      */
     public function run(): void
     {
-        ProgramStudy::create([
-            'name' => 'Teknik Informatika'
-        ]);
+        $programStudies = [
+            'Teknik Informatika', 'Teknik Informatika Multimedia',
+            'Teknik Komputer', 'Teknologi Rekayasa Komputer',
+        ];
+
+        foreach ($programStudies as $programStudy) {
+            ProgramStudy::create([
+                'name' => $programStudy
+            ]);
+        }
     }
 }
