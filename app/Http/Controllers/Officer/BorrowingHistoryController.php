@@ -21,7 +21,7 @@ class BorrowingHistoryController extends Controller
 
         $borrowings = $query->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->latest()
+            ->orderBy('date', 'DESC')
             ->get();
 
         return view('officer.borrowing.history.index', compact('borrowings'));

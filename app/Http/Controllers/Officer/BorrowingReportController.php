@@ -22,7 +22,7 @@ class BorrowingReportController extends Controller
 
         $borrowings = $query->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->orderBy('date')
+            ->orderBy('date', 'DESC')
             ->get();
 
         return view('officer.borrowing.report.index', compact('borrowings'));

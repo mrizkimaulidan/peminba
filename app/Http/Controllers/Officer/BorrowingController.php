@@ -17,6 +17,7 @@ class BorrowingController extends Controller
         $borrowings = Borrowing::with(['student:id,identification_number,name'], ['commodity:id,name'])
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->whereDate('date', now())
+            ->orderBy('date', 'DESC')
             ->get();
 
         return view('officer.borrowing.main.index', compact('borrowings'));

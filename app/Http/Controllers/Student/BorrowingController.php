@@ -19,12 +19,12 @@ class BorrowingController extends Controller
         $borrowings = Borrowing::with(['student:id,identification_number,name'], ['commodity:id,name'], ['officer:id,name'])
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->whereDate('date', now())->where('student_id', auth()->id())
-            ->latest()
+            ->orderBy('date', 'DESC')
             ->get();
 
         $commodityProgress = Borrowing::select('commodity_id', 'date', 'is_returned')
             ->whereDate('date', now())->where('is_returned', 0)
-            ->latest()
+            ->orderBy('date', 'DESC')
             ->get();
 
         $subjects = Subject::select('id', 'name')->get();
