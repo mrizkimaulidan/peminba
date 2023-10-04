@@ -13,6 +13,18 @@ class BorrowingSeeder extends Seeder
      */
     public function run(): void
     {
-        Borrowing::factory(500)->create();
+        $borrowings = Borrowing::factory(500)->make()->toArray();
+
+        $recordsToInsert = [];
+        foreach ($borrowings as $borrowing) {
+            $createdAt = now();
+            $borrowing['created_at'] = $createdAt;
+            $borrowing['updated_at'] = $createdAt;
+            $recordsToInsert[] = $borrowing;
+        }
+
+        foreach (array_chunk($recordsToInsert, count($recordsToInsert) / 2) as $chunk) {
+            Borrowing::insert($chunk);
+        }
     }
 }
