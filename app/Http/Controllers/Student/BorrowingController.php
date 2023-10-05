@@ -16,7 +16,7 @@ class BorrowingController extends Controller
      */
     public function index()
     {
-        $borrowings = Borrowing::with(['student:id,identification_number,name'], ['commodity:id,name'], ['officer:id,name'])
+        $borrowings = Borrowing::with('student:id,identification_number,name', 'commodity:id,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->whereDate('date', now())->where('student_id', auth()->id())
             ->orderBy('date', 'DESC')
