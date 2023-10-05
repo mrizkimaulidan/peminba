@@ -22,17 +22,24 @@ class BorrowingController extends Controller
             ->orderBy('date', 'DESC')
             ->get();
 
-        $commodityProgress = Borrowing::select('commodity_id', 'date')
-            ->whereDate('date', now())->whereNotNull('time_end')
+        $commodityProgress = Borrowing::select('commodity_id', 'date', 'time_end')
+            ->whereDate('date', now())->whereNull('time_end')
             ->orderBy('date', 'DESC')
             ->get();
 
         $subjects = Subject::select('id', 'name')->get();
 
-        $commoditiesCanBorrowed = Commodity::select('id', 'name')->whereNotIn('id', $commodityProgress->pluck('commodity_id'))->get();
-        $commoditiesCannotBeBorrowed = Commodity::select('id', 'name')->whereIn('id', $commodityProgress->pluck('commodity_id'))->get();
+        $commoditiesCanBorrowed = Commodity::select('id', 'name')
+            ->whereNotIn('id', $commodityProgress->pluck('commodity_id'))->get();
+        $commoditiesCannotBeBorrowed = Commodity::select('id', 'name')
+            ->whereIn('id', $commodityProgress->pluck('commodity_id'))->get();
 
-        return view('student.borrowing.main.index', compact('borrowings', 'commoditiesCanBorrowed', 'commoditiesCannotBeBorrowed', 'subjects'));
+        return view('student.borrowing.main.index', compact(
+            'borrowings',
+            'commoditiesCanBorrowed',
+            'commoditiesCannotBeBorrowed',
+            'subjects'
+        ));
     }
 
     /**
