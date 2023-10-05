@@ -15,8 +15,16 @@ class BorrowingHistoryController extends Controller
     {
         $query = Borrowing::query();
 
-        $query->when(request()->has('date'), function ($q) {
+        $query->when(request()->filled('date'), function ($q) {
             return $q->whereDate('date', request('date'));
+        });
+
+        $query->when(request()->filled('status'), function ($q) {
+            if (request('status') === '1') {
+                return $q->where('student_id', auth()->id())->whereNotNull('time_end');
+            }
+
+            return $q->where('student_id', auth()->id())->whereNull('time_end');
         });
 
         $borrowings = $query->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name',)
