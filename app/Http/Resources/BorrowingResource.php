@@ -32,7 +32,7 @@ class BorrowingResource extends JsonResource
             ],
             'timeStart' => $this->time_start,
             'timeEnd' => $this->time_end ?? '-',
-            'isReturned' => $this->is_returned === 1 ? 'Sudah dikembalikan' : 'Belum dikembalikan',
+            'isReturned' => $this->time_end !== null ? 'Sudah dikembalikan.' : 'Belum dikembalikan!',
             'note' => $this->note ?? '-'
         ];
     }

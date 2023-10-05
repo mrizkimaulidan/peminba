@@ -11,7 +11,7 @@ class Borrowing extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['commodity_id',  'student_id', 'subject_id', 'officer_id', 'date', 'time_start', 'time_end', 'is_returned'];
+    protected $fillable = ['commodity_id',  'student_id', 'subject_id', 'officer_id', 'date', 'time_start', 'time_end'];
 
     public function student(): BelongsTo
     {
@@ -31,11 +31,6 @@ class Borrowing extends Model
     public function officer(): BelongsTo
     {
         return $this->belongsTo(Officer::class);
-    }
-
-    public function getIsReturnedStatus(): string
-    {
-        return $this->is_returned ? 'Sudah dikembalikan.' : 'Belum dikembalikan!';
     }
 
     public function getOfficerName(): string

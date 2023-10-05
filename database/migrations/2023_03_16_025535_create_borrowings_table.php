@@ -20,7 +20,6 @@ return new class extends Migration
             $table->date('date');
             $table->time('time_start');
             $table->time('time_end')->nullable();
-            $table->boolean('is_returned')->default(0);
             $table->text('note')->nullable();
             $table->timestamps();
             $table->softDeletes();

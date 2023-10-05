@@ -18,9 +18,9 @@ class BorrowingRepository
      */
     public function getCommoditiesNotReturnedByStudent(): object
     {
-        return $this->model->select('id', 'student_id', 'commodity_id', 'is_returned', 'date')
+        return $this->model->select('id', 'student_id', 'commodity_id', 'date', 'time_end')
             ->with('student:id,identification_number,name,email,phone_number', 'commodity:id,name')
-            ->where('is_returned', 0)->orderBy('date', 'DESC')->get();
+            ->whereNull('time_end')->orderBy('date', 'DESC')->get();
     }
 
     /**
@@ -45,9 +45,16 @@ class BorrowingRepository
      */
     public function countStudentBorrowingReturnedStatus(string $studentID, bool $isReturned): int
     {
-        return $this->model->select('id', 'student_id', 'is_returned')
+        if ($isReturned) {
+            return $this->model->select('id', 'student_id', 'time_end')
+                ->where('student_id', $studentID)
+                ->whereNotNull('time_end')
+                ->count();
+        }
+
+        return $this->model->select('id', 'student_id', 'time_end')
             ->where('student_id', $studentID)
-            ->where('is_returned', $isReturned)
+            ->whereNull('time_end')
             ->count();
     }
 }

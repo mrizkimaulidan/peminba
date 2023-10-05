@@ -22,8 +22,8 @@ class BorrowingController extends Controller
             ->orderBy('date', 'DESC')
             ->get();
 
-        $commodityProgress = Borrowing::select('commodity_id', 'date', 'is_returned')
-            ->whereDate('date', now())->where('is_returned', 0)
+        $commodityProgress = Borrowing::select('commodity_id', 'date')
+            ->whereDate('date', now())->whereNotNull('time_end')
             ->orderBy('date', 'DESC')
             ->get();
 
@@ -62,8 +62,7 @@ class BorrowingController extends Controller
     public function returnBorrowing(Borrowing $borrowing)
     {
         $borrowing->update([
-            'time_end' => now(),
-            'is_returned' => 1
+            'time_end' => now()
         ]);
 
         return redirect()->back()->with('success', 'Status berhasil diubah!');
