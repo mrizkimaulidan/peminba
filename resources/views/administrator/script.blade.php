@@ -3,28 +3,71 @@
 <script>
   $(function () {
     let url = "{{ route('api.v1.borrowings.statistics') }}";
+    let chart = null;
 
-    $.ajax({
-      url: url,
-      data: {
-        year: new Date().getFullYear(),
-      },
-      success: function (res) {
-        let chart = initChart(res);
-
-        chart.render();
-      },
-    });
-
-    function initChart(data) {
-      let borrowingsThisYear = {
-        chart: {
-          type: "bar",
-          height: 300,
+    function initChart() {
+      $.ajax({
+        url: url,
+        data: {
+          year: new Date().getFullYear(),
         },
-        series: [
+        success: function (res) {
+          let borrowingsThisYear = {
+            chart: {
+              type: "bar",
+              height: 300,
+            },
+            series: [
+              {
+                name: "Peminjaman",
+                data: [
+                  res.data.jan,
+                  res.data.feb,
+                  res.data.mar,
+                  res.data.apr,
+                  res.data.mei,
+                  res.data.jun,
+                  res.data.jul,
+                  res.data.agu,
+                  res.data.sep,
+                  res.data.okt,
+                  res.data.nov,
+                  res.data.des,
+                ],
+              },
+            ],
+            colors: ["#435ebe"],
+            xaxis: {
+              categories: [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "Mei",
+                "Jun",
+                "Jul",
+                "Agu",
+                "Sep",
+                "Okt",
+                "Nov",
+                "Des",
+              ],
+            },
+          };
+
+          chart = new ApexCharts(
+            document.querySelector("#chart-borrowing-by-year"),
+            borrowingsThisYear
+          );
+          chart.render();
+        },
+      });
+    }
+
+    function updateChartSeries(data) {
+      if (chart) {
+        chart.updateSeries([
           {
-            name: "Peminjaman",
             data: [
               data.data.jan,
               data.data.feb,
@@ -40,32 +83,29 @@
               data.data.des,
             ],
           },
-        ],
-        colors: "#435ebe",
-        xaxis: {
-          categories: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "Mei",
-            "Jun",
-            "Jul",
-            "Agu",
-            "Sep",
-            "Okt",
-            "Nov",
-            "Des",
-          ],
-        },
-      };
-
-      let chart = new ApexCharts(
-        document.querySelector("#chart-borrowings-this-year"),
-        borrowingsThisYear
-      );
-
-      return chart;
+        ]);
+      }
     }
+
+    // Initialize the chart when the page loads
+    initChart();
+
+    $("#year").keypress(function (e) {
+      if (e.keyCode === 13) {
+        $.ajax({
+          url: url,
+          data: {
+            year: $("#year").val(),
+          },
+          success: function (res) {
+            $("#card-chart-borrowing-title").text(
+              `Peminjaman Tahun ${$("#year").val()}`
+            );
+
+            updateChartSeries(res);
+          },
+        });
+      }
+    });
   });
 </script>

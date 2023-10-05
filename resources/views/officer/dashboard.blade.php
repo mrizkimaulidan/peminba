@@ -67,10 +67,15 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h4>Peminjaman Tahun Ini</h4>
+            <h4 id="card-chart-borrowing-title">Peminjaman Tahun Ini</h4>
+            <div class="mb-3">
+              <label for="year" class="form-label">Isi Tahun:</label>
+              <input type="number" id="year" placeholder="Masukan tahun.." value="{{ date('Y') }}" class="form-control">
+              <div class="form-text">Tekan tombol `Enter` untuk menampilkan grafik berdasarkan tahun yang dipilih.</div>
+            </div>
           </div>
           <div class="card-body">
-            <div id="chart-borrowings-this-year"></div>
+            <div id="chart-borrowing-by-year"></div>
           </div>
         </div>
       </div>
