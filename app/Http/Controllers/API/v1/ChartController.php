@@ -31,7 +31,7 @@ class ChartController extends Controller
             return $q->where('student_id', $request->studentID);
         });
 
-        $results = $query->selectRaw('MONTH(date) as month, COUNT(*) as count')
+        $results = $query->selectRaw('EXTRACT(MONTH FROM date) as month, COUNT(*) as count')
             ->groupBy('month')
             ->get()
             ->pluck('count', 'month')
