@@ -1,14 +1,14 @@
 @extends('authentication.layouts.app')
 
-@section('title', 'Login')
+@section('title', 'Masuk')
 
 @section('content')
 <div class="row h-100">
   <div class="col-lg-5 col-12">
     <div id="auth-left">
-      <h1 class="auth-title">Log in.</h1>
+      <h1 class="auth-title">Masuk</h1>
       <p class="auth-subtitle mb-5">
-        Login untuk melanjutkan.
+        Masuk untuk melanjutkan.
       </p>
       @include('utilities.alert')
       <form action="{{ route('login') }}" method="POST">
@@ -43,7 +43,7 @@
           </label>
         </div>
         <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">
-          Log in
+          Masuk
         </button>
       </form>
     </div>
