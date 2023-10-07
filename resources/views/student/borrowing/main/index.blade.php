@@ -14,8 +14,8 @@
       <div class="card-body">
         <div class="alert alert-warning" role="alert">
           <i class="bi bi-exclamation-circle"></i>
-          Data di bawah hanya akan tampil data peminjaman pada hari ini saja. Jika ingin melihat histori data peminjaman
-          yang sudah anda pinjam bisa pergi ke menu histori peminjaman pada daftar menu.
+          Data di bawah hanya akan tampil data peminjaman pada hari ini saja. Jika ingin melihat riwayat data peminjaman
+          yang sudah anda pinjam bisa pergi ke menu riwayat peminjaman pada daftar menu.
 
           <div class="fw-bold pt-3">
             Diharapkan setiap peminjaman yang sudah selesai mohon lakukan pengubahan data pada tombol Pengembalian.

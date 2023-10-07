@@ -5,7 +5,7 @@
     <li class="sidebar-item {{ request()->routeIs('officers.dashboard') ? 'active' : '' }}">
       <a href="{{ route('officers.dashboard') }}" class="sidebar-link">
         <i class="bi bi-grid-fill"></i>
-        <span>Dashboard</span>
+        <span>Beranda</span>
       </a>
     </li>
 
@@ -28,7 +28,7 @@
           <a href="{{ route('officers.borrowings.index') }}">Peminjaman Hari Ini</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('officers.borrowings-history.index') ? 'active' : '' }}">
-          <a href="{{ route('officers.borrowings-history.index') }}">Histori Peminjaman</a>
+          <a href="{{ route('officers.borrowings-history.index') }}">Riwayat Peminjaman</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('officers.borrowings-report.index') ? 'active' : '' }}">
           <a href="{{ route('officers.borrowings-report.index') }}">Laporan</a>

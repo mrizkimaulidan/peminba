@@ -36,7 +36,7 @@ Jika Anda menggunakan XAMPP, untuk PHP dan MySQL sudah menjadi 1 (bundle) di dal
 _Tampilan Login_
 ![Image 1](https://i.imgur.com/X6eZ9RU.png)
 
-_Dashboard_
+_Beranda_
 ![Image 2](https://i.imgur.com/voqS6Qp.png)
 
 _Daftar Komoditas_
@@ -54,7 +54,7 @@ _Daftar Mata Kuliah_
 _Daftar Peminjaman Hari Ini_
 ![Image 7](https://i.imgur.com/EhGDwtD.png)
 
-_Daftar Histori Peminjaman_
+_Daftar Riwayat Peminjaman_
 ![Image 8](https://i.imgur.com/1cQKe1D.png)
 
 _Daftar Laporan Peminjaman_

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Histori Peminjaman')
-@section('description', 'Halaman Daftar Histori Peminjaman')
+@section('title', 'Riwayat Peminjaman')
+@section('description', 'Halaman Daftar Riwayat Peminjaman')
 
 @section('content')
 <section class="row">
@@ -13,7 +13,7 @@
       </div>
       <div class="card-body">
         <div class="alert alert-info" role="alert">
-          Tabel di bawah adalah daftar histori peminjaman yang sudah dilakukan oleh Anda.
+          Tabel di bawah adalah daftar riwayat peminjaman yang sudah dilakukan oleh Anda.
         </div>
         <form action="" method="GET">
           <div class="row">

@@ -5,7 +5,7 @@
     <li class="sidebar-item {{ request()->routeIs('students.dashboard') ? 'active' : '' }}">
       <a href="{{ route('students.dashboard') }}" class="sidebar-link">
         <i class="bi bi-grid-fill"></i>
-        <span>Dashboard</span>
+        <span>Beranda</span>
       </a>
     </li>
 
@@ -21,7 +21,7 @@
           <a href="{{ route('students.borrowings.index') }}">Peminjaman Saya Hari Ini</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('students.borrowings-history.index') ? 'active' : '' }}">
-          <a href="{{ route('students.borrowings-history.index') }}">Histori Peminjaman</a>
+          <a href="{{ route('students.borrowings-history.index') }}">Riwayat Peminjaman</a>
         </li>
       </ul>
     </li>

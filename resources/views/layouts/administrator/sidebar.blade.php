@@ -5,7 +5,7 @@
     <li class="sidebar-item {{ request()->routeIs('administrators.dashboard') ? 'active' : '' }}">
       <a href="{{ route('administrators.dashboard') }}" class="sidebar-link">
         <i class="bi bi-grid-fill"></i>
-        <span>Dashboard</span>
+        <span>Beranda</span>
       </a>
     </li>
 
@@ -49,7 +49,7 @@
           <a href="{{ route('administrators.borrowings.index') }}">Peminjaman Hari Ini</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('administrators.borrowings-history.index') ? 'active' : '' }}">
-          <a href="{{ route('administrators.borrowings-history.index') }}">Histori Peminjaman</a>
+          <a href="{{ route('administrators.borrowings-history.index') }}">Riwayat Peminjaman</a>
         </li>
         <li class="submenu-item {{ request()->routeIs('administrators.borrowings-report.index') ? 'active' : '' }}">
           <a href="{{ route('administrators.borrowings-report.index') }}">Laporan</a>
