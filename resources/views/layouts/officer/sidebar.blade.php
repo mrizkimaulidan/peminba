@@ -59,7 +59,7 @@
         @csrf
         <a href="{{ route('logout') }}" class="sidebar-link" id="logout">
           <i class="bi bi-box-arrow-right"></i>
-          <span>Logout</span>
+          <span>Keluar</span>
         </a>
       </form>
     </li>
