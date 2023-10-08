@@ -74,6 +74,22 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="commodity_id" class="form-label">Komoditas:</label>
+                <select name="commodity_id" id="commodity_id" class="form-select">
+                  <option value="">Pilih komoditas..</option>
+                  @foreach ($commodities as $commodity)
+                  <option value="{{ $commodity->id }}" @selected(request('commodity_id')==$commodity->id)>{{
+                    $commodity->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="d-flex pt-3 pb-3">
             <button type="submit" class="btn btn-primary flex-fill">Cari</button>
           </div>
