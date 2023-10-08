@@ -22,12 +22,12 @@
           </div>
         </div>
 
-        <div class="d-flex flex-row-reverse pb-3">
+        <x-button-group-flex>
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBorrowingModal">
             <i class="bi bi-plus-circle-fill"></i>
             Tambah Peminjaman
           </button>
-        </div>
+        </x-button-group-flex>
 
         <div class="table-responsive">
           <table class="table" id="datatable">
