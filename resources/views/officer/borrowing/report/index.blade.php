@@ -94,13 +94,16 @@
                   @endif
                 </td>
                 <td>
-                  @if($borrowing->officer_id === NULL)
-                  <span class="badge text-bg-warning" data-bs-toggle="tooltip" data-bs-placement="top"
-                    data-bs-title="Belum Divalidasi!">
-                    <i class="bi bi-exclamation-circle"></i>
+                  @if($borrowing->officer_id !== NULL)
+                  <span class="badge text-bg-success" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Sudah divalidasi oleh {{ $borrowing->officer->name }}">
+                    <i class="bi bi-check-circle"></i>
                   </span>
                   @else
-                  {{ $borrowing->officer->name }}
+                  <span class="badge text-bg-warning" data-bs-toggle="tooltip" data-bs-placement="top"
+                    data-bs-title="Belum divalidasi oleh petugas!">
+                    <i class="bi bi-exclamation-circle"></i>
+                  </span>
                   @endif
                 </td>
                 <td>
