@@ -17,7 +17,17 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::with('programStudy:id,name', 'schoolClass:id,name')->select(
+        $query = Student::query();
+
+        $query->when(request()->filled('program_study_id'), function ($q) {
+            return $q->where('program_study_id', request('program_study_id'));
+        });
+
+        $query->when(request()->filled('school_class_id'), function ($q) {
+            return $q->where('school_class_id', request('school_class_id'));
+        });
+
+        $students = $query->with('programStudy:id,name', 'schoolClass:id,name')->select(
             'id',
             'program_study_id',
             'school_class_id',
