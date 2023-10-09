@@ -18,14 +18,13 @@
           <div class="accordion pb-3">
             <div class="accordion-item">
               <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                  aria-controls="panelsStayOpen-collapseOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelFilter"
+                  aria-expanded="true" aria-controls="panelFilter">
                   <span class="me-3"><i class="bi bi-filter"></i></span>Filter (klik atau sentuh untuk membuka/menutup
                   menu filter)
                 </button>
               </h2>
-              <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div id="panelFilter" class="accordion-collapse collapse show">
                 <div class="accordion-body">
                   <div class="row">
                     <div class="col-md-6">
