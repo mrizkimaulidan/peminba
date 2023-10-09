@@ -9,7 +9,7 @@
         <form action="{{ route('administrators.students.store') }}" method="POST">
           @csrf
           <div class="row">
-            <div class="col-xs-12 col-md-4">
+            <div class="col-md-12 col-lg-4">
               <div class="mb-3">
                 <label for="identification_number" class="form-label">NIM</label>
                 <input type="number" name="identification_number"
@@ -23,7 +23,7 @@
                 @enderror
               </div>
             </div>
-            <div class="col-xs-12 col-md-8">
+            <div class="col-md-12 col-lg-8">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama</label>
                 <input type="text" name="name" class="form-control @error('name', 'store') is-invalid @enderror"
@@ -39,7 +39,7 @@
           </div>
 
           <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="mb-3">
                 <label for="program_study_id" class="form-label">Program Studi</label>
                 <select class="form-select @error('program_study_id', 'store') is-invalid @enderror"
@@ -59,7 +59,7 @@
                 @enderror
               </div>
             </div>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="mb-3">
                 <label for="school_class_id" class="form-label">Kelas</label>
                 <select class="form-select @error('school_class_id', 'store') is-invalid @enderror"
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col">
+            <div class="col-md-12 col-lg-6">
               <label for="email" class="form-label">Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
@@ -94,7 +94,7 @@
                 @enderror
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-12 col-lg-6">
               <label for="phone_number" class="form-label">Nomor Handphone</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
@@ -112,7 +112,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password"
@@ -125,7 +125,7 @@
                 @enderror
               </div>
             </div>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-md-12 col-lg-6">
               <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                 <input type="password" name="password_confirmation"
