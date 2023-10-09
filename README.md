@@ -34,40 +34,40 @@ Jika Anda menggunakan XAMPP, untuk PHP dan MySQL sudah menjadi 1 (bundle) di dal
 ### Preview Gambar
 
 _Tampilan Login_
-![Image 1](https://i.imgur.com/X6eZ9RU.png)
+![Image 1](https://i.imgur.com/IVw0yEt.png)
 
 _Beranda_
-![Image 2](https://i.imgur.com/voqS6Qp.png)
+![Image 2](https://i.imgur.com/jE1zjU6.png)
 
 _Daftar Komoditas_
-![Image 3](https://i.imgur.com/6ItaCw8.png)
+![Image 3](https://i.imgur.com/XJyjXtY.png)
 
 _Daftar Program Studi_
-![Image 4](https://i.imgur.com/7qEKu6y.png)
+![Image 4](https://i.imgur.com/tT27eOD.png)
 
 _Daftar Kelas_
-![Image 5](https://i.imgur.com/mlfqj86.png)
+![Image 5](https://i.imgur.com/a8mVjTg.png)
 
 _Daftar Mata Kuliah_
-![Image 6](https://i.imgur.com/MF8wNNA.png)
+![Image 6](https://i.imgur.com/tPHMiDC.png)
 
 _Daftar Peminjaman Hari Ini_
-![Image 7](https://i.imgur.com/EhGDwtD.png)
+![Image 7](https://i.imgur.com/8CPC8CI.png)
 
 _Daftar Riwayat Peminjaman_
-![Image 8](https://i.imgur.com/1cQKe1D.png)
+![Image 8](https://i.imgur.com/uCj0WZd.png)
 
 _Daftar Laporan Peminjaman_
-![Image 9](https://i.imgur.com/J3ZoI70.png)
+![Image 9](https://i.imgur.com/o62NK8n.png)
 
 _Daftar Mahasiswa_
-![Image 10](https://i.imgur.com/nlu4dGQ.png)
+![Image 10](https://i.imgur.com/sysJ3Ty.png)
 
 _Daftar Administrator_
-![Image 11](https://i.imgur.com/9loDRw0.png)
+![Image 11](https://i.imgur.com/hShsruk.png)
 
 _Pengaturan Profil_
-![Image 12](https://i.imgur.com/gL77ZWJ.png)
+![Image 12](https://i.imgur.com/SCQQjom.png)
 
 ### Langkah-langkah instalasi
 
