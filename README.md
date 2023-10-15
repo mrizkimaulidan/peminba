@@ -75,34 +75,44 @@ _Pengaturan Profil_
 
 HTTPS:
 
-```
-git clone https://github.com/mrizkimaulidan/peminba.git
+```bash
+$ git clone https://github.com/mrizkimaulidan/peminba.git
 ```
 
 SSH:
 
-```
-git clone git@github.com:mrizkimaulidan/peminba.git
+```bash
+$ git clone git@github.com:mrizkimaulidan/peminba.git
 ```
 
 -   Install seluruh packages yang dibutuhkan
 
-```
-composer install
+```bash
+$ composer install
 ```
 
 -   Siapkan database dan atur file `.env` sesuai dengan konfigurasi Anda
 -   Ubah value `APP_NAME=` pada file `.env` menjadi nama aplikasi yang anda inginkan
 -   Jika sudah, migrate seluruh migrasi dan seeding data
 
+```bash
+$ php artisan migrate:fresh --seed
 ```
-php artisan migrate:fresh --seed
+
+-   Generate IDE Helper
+
+```bash
+$ php artisan ide-helper:generate
+```
+
+```bash
+$ php artisan ide-helper:models
 ```
 
 -   Jalankan local server
 
-```
-php artisan serve
+```bash
+$ php artisan serve
 ```
 
 -   User default aplikasi untuk login
