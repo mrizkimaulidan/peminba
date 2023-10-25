@@ -23,6 +23,7 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
     Route::post('/commodities', [CommodityController::class, 'store'])->name('commodities.store');
     Route::put('/commodities/{commodity}', [CommodityController::class, 'update'])->name('commodities.update');
     Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy'])->name('commodities.destroy');
+    Route::post('/commodities/import', [CommodityController::class, 'import'])->name('commodities.import');
 
     Route::get('/program-studies', [ProgramStudyController::class, 'index'])->name('program-studies.index');
     Route::post('/program-studies', [ProgramStudyController::class, 'store'])->name('program-studies.store');
