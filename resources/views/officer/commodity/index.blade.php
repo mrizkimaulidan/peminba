@@ -13,6 +13,11 @@
       </div>
       <div class="card-body">
         <x-button-group-flex>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
+            <i class="bi bi-file-excel"></i>
+            Impor Excel
+          </button>
+
           <button type="button" class="btn btn-primary" id="createCommodityButton" data-bs-toggle="modal"
             data-bs-target="#createCommodityModal">
             <i class="bi bi-plus-circle-fill"></i>
@@ -63,6 +68,7 @@
 @push('modal')
 @include('officer.commodity.modal.create')
 @include('officer.commodity.modal.edit')
+@include('officer.commodity.modal.import')
 @endpush
 
 @push('script')

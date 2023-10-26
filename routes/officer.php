@@ -17,6 +17,7 @@ Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(f
     Route::post('/commodities', [CommodityController::class, 'store'])->name('commodities.store');
     Route::put('/commodities/{commodity}', [CommodityController::class, 'update'])->name('commodities.update');
     Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy'])->name('commodities.destroy');
+    Route::post('/commodities/import', [CommodityController::class, 'import'])->name('commodities.import');
 
     Route::get('/students', [StudentController::class, 'index'])->name('students.index');
     Route::post('/students', [StudentController::class, 'store'])->name('students.store');

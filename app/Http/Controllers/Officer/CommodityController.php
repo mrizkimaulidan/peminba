@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Officer\StoreCommodityRequest;
 use App\Http\Requests\Officer\UpdateCommodityRequest;
+use App\Services\ImportService;
 
 class CommodityController extends Controller
 {
+    private ImportService $importService;
+
+    public function __construct()
+    {
+        $this->importService = new ImportService(new Commodity());
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -48,5 +56,16 @@ class CommodityController extends Controller
         $commodity->delete();
 
         return redirect()->route('officers.commodities.index')->with('success', 'Data berhasil dihapus!');
+    }
+
+    /**
+     * Import a listing of the resource.
+     */
+    public function import(Request $request)
+    {
+        $counts = $this->importService->importExcel($request->file('import'), ['name'], 'name', 0);
+        $message = "Total {$counts['imported']} berhasil diimpor, {$counts['ignored']} dihiraukan!";
+
+        return redirect()->route('officers.commodities.index')->with('success', $message);
     }
 }
