@@ -23,6 +23,12 @@
         </div>
 
         <x-button-group-flex>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal"
+            data-bs-target="#availableCommodityModal">
+            <i class="bi bi-collection-fill"></i>
+            Daftar Komoditas Yang Tersedia
+          </button>
+
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addBorrowingModal">
             <i class="bi bi-plus-circle-fill"></i>
             Tambah Peminjaman
@@ -30,7 +36,7 @@
         </x-button-group-flex>
 
         <div class="table-responsive">
-          <table class="table" id="datatable">
+          <table class="table datatable">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -125,6 +131,7 @@
 @include('student.borrowing.main.modal.create')
 @include('student.borrowing.main.modal.show')
 @include('student.borrowing.main.modal.edit')
+@include('student.borrowing.main.modal.available-commodity')
 @endpush
 
 @push('script')

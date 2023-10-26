@@ -110,7 +110,7 @@
         </form>
 
         <div class="table-responsive">
-          <table class="table" id="datatable">
+          <table class="table datatable">
             <thead>
               <tr>
                 <th scope="col">#</th>
