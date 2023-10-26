@@ -6,10 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\StoreProgramStudyRequest;
 use App\Http\Requests\Administrator\UpdateProgramStudyRequest;
 use App\Models\ProgramStudy;
+use App\Services\ImportService;
 use Illuminate\Http\Request;
 
 class ProgramStudyController extends Controller
 {
+    private ImportService $importService;
+
+    public function __construct()
+    {
+        $this->importService = new ImportService(new ProgramStudy());
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -48,5 +56,16 @@ class ProgramStudyController extends Controller
         $programStudy->delete();
 
         return redirect()->route('administrators.program-studies.index')->with('success', 'Data berhasil dihapus!');
+    }
+
+    /**
+     * Import a listing of the resource.
+     */
+    public function import(Request $request)
+    {
+        $counts = $this->importService->importExcel($request->file('import'), ['name'], 'name', 0);
+        $message = "Total {$counts['imported']} berhasil diimpor, {$counts['ignored']} dihiraukan!";
+
+        return redirect()->route('administrators.program-studies.index')->with('success', $message);
     }
 }

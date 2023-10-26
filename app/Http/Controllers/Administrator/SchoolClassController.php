@@ -6,10 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\StoreSchoolClassRequest;
 use App\Http\Requests\Administrator\UpdateSchoolClassRequest;
 use App\Models\SchoolClass;
+use App\Services\ImportService;
 use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
 {
+    private ImportService $importService;
+
+    public function __construct()
+    {
+        $this->importService = new ImportService(new SchoolClass());
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -48,5 +56,16 @@ class SchoolClassController extends Controller
         $schoolClass->delete();
 
         return redirect()->route('administrators.school-classes.index')->with('success', 'Data berhasil dihapus!');
+    }
+
+    /**
+     * Import a listing of the resource.
+     */
+    public function import(Request $request)
+    {
+        $counts = $this->importService->importExcel($request->file('import'), ['name'], 'name', 0);
+        $message = "Total {$counts['imported']} berhasil diimpor, {$counts['ignored']} dihiraukan!";
+
+        return redirect()->route('administrators.school-classes.index')->with('success', $message);
     }
 }

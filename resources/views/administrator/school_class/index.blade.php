@@ -13,6 +13,11 @@
       </div>
       <div class="card-body">
         <x-button-group-flex>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
+            <i class="bi bi-file-excel"></i>
+            Impor Excel
+          </button>
+
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createSchoolClassModal">
             <i class="bi bi-plus-circle-fill"></i>
             Tambah Kelas
@@ -62,6 +67,7 @@
 @push('modal')
 @include('administrator.school_class.modal.create')
 @include('administrator.school_class.modal.edit')
+@include('administrator.school_class.modal.import')
 @endpush
 
 @push('script')

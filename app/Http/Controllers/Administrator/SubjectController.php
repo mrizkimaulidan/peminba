@@ -7,9 +7,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\StoreSubjectRequest;
 use App\Http\Requests\Administrator\UpdateSubjectRequest;
+use App\Services\ImportService;
 
 class SubjectController extends Controller
 {
+    private ImportService $importService;
+
+    public function __construct()
+    {
+        $this->importService = new ImportService(new Subject());
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -48,5 +56,16 @@ class SubjectController extends Controller
         $subject->delete();
 
         return redirect()->route('administrators.subjects.index')->with('success', 'Data berhasil dihapus!');
+    }
+
+    /**
+     * Import a listing of the resource.
+     */
+    public function import(Request $request)
+    {
+        $counts = $this->importService->importExcel($request->file('import'), ['code', 'name'], 'code', 0);
+        $message = "Total {$counts['imported']} berhasil diimpor, {$counts['ignored']} dihiraukan!";
+
+        return redirect()->route('administrators.subjects.index')->with('success', $message);
     }
 }

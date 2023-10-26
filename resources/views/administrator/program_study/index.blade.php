@@ -13,6 +13,11 @@
       </div>
       <div class="card-body">
         <x-button-group-flex>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
+            <i class="bi bi-file-excel"></i>
+            Impor Excel
+          </button>
+
           <button type="button" class="btn btn-primary" data-bs-toggle="modal"
             data-bs-target="#createProgramStudyModal">
             <i class="bi bi-plus-circle-fill"></i>
@@ -63,6 +68,7 @@
 @push('modal')
 @include('administrator.program_study.modal.create')
 @include('administrator.program_study.modal.edit')
+@include('administrator.program_study.modal.import')
 @endpush
 
 @push('script')

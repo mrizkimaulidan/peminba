@@ -13,6 +13,11 @@
       </div>
       <div class="card-body">
         <x-button-group-flex>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#importModal">
+            <i class="bi bi-file-excel"></i>
+            Impor Excel
+          </button>
+
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createSubjectModal">
             <i class="bi bi-plus-circle-fill"></i>
             Tambah Mata Kuliah
@@ -64,6 +69,7 @@
 @push('modal')
 @include('administrator.subject.modal.create')
 @include('administrator.subject.modal.edit')
+@include('administrator.subject.modal.import')
 @endpush
 
 @push('script')
