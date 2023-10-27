@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdateSubjectRequest extends FormRequest
 {
     protected $errorBag = 'update';
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -24,7 +25,7 @@ class UpdateSubjectRequest extends FormRequest
     {
         return [
             'code' => 'required|string|min:3|max:255',
-            'name' => 'required|string|min:3|max:255'
+            'name' => 'required|string|min:3|max:255',
         ];
     }
 

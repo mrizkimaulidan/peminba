@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
-use App\Models\Borrowing;
 use App\Repositories\BorrowingRepository;
 use Illuminate\Http\Request;
 
@@ -29,8 +28,8 @@ class DashboardController extends Controller
             'counts' => [
                 'total' => $counts,
                 'returned' => $returned,
-                'notReturned' => $notReturned
-            ]
+                'notReturned' => $notReturned,
+            ],
         ];
 
         return view('student.dashboard', compact('myBorrowings'));

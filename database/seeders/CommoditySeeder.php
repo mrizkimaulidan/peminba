@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Commodity;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CommoditySeeder extends Seeder
@@ -15,25 +14,25 @@ class CommoditySeeder extends Seeder
     {
         for ($i = 1; $i <= 14; $i++) {
             Commodity::create([
-                'name' => 'Proyektor ' . $i
+                'name' => 'Proyektor '.$i,
             ]);
         }
 
         for ($i = 1; $i <= 12; $i++) {
             Commodity::create([
-                'name' => 'Terminal ' . $i
+                'name' => 'Terminal '.$i,
             ]);
         }
 
         for ($i = 1; $i <= 20; $i++) {
             Commodity::create([
-                'name' => 'ATK (Alat Tulis Kantor) ' . $i
+                'name' => 'ATK (Alat Tulis Kantor) '.$i,
             ]);
         }
 
         for ($i = 1; $i <= 10; $i++) {
             Commodity::create([
-                'name' => 'Kabel VGA to HDMI ' . $i
+                'name' => 'Kabel VGA to HDMI '.$i,
             ]);
         }
     }

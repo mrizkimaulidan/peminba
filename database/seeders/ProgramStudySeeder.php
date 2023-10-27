@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\ProgramStudy;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProgramStudySeeder extends Seeder
@@ -20,7 +19,7 @@ class ProgramStudySeeder extends Seeder
 
         foreach ($programStudies as $programStudy) {
             ProgramStudy::create([
-                'name' => $programStudy
+                'name' => $programStudy,
             ]);
         }
     }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Officer;
 use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class BorrowingController extends Controller
 {
@@ -29,7 +28,7 @@ class BorrowingController extends Controller
     public function validateBorrowing(Borrowing $borrowing): RedirectResponse
     {
         $borrowing->update([
-            'officer_id' => auth('officer')->id()
+            'officer_id' => auth('officer')->id(),
         ]);
 
         return redirect()->back()->with('success', 'Berhasil melakukan validasi!');

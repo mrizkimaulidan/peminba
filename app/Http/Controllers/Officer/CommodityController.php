@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Officer;
 
-use App\Models\Commodity;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Officer\StoreCommodityRequest;
 use App\Http\Requests\Officer\UpdateCommodityRequest;
+use App\Models\Commodity;
 use App\Services\ImportService;
+use Illuminate\Http\Request;
 
 class CommodityController extends Controller
 {

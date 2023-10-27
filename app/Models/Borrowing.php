@@ -40,7 +40,7 @@ class Borrowing extends Model
 
     public function getOfficerName(): string
     {
-        return !is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
+        return ! is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
     }
 
     public function getTimeEnd(): string

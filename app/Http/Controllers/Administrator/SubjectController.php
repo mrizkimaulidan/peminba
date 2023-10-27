@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Administrator;
 
-use App\Models\Subject;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\StoreSubjectRequest;
 use App\Http\Requests\Administrator\UpdateSubjectRequest;
+use App\Models\Subject;
 use App\Services\ImportService;
+use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {

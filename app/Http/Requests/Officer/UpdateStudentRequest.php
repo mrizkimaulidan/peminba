@@ -26,11 +26,11 @@ class UpdateStudentRequest extends FormRequest
         return [
             'program_study_id' => 'required|min:1|exists:program_studies,id',
             'school_class_id' => 'required|min:1|exists:school_classes,id',
-            'identification_number' => 'required|numeric|unique:students,identification_number,' . $this->student->id . '|digits_between:3,255',
+            'identification_number' => 'required|numeric|unique:students,identification_number,'.$this->student->id.'|digits_between:3,255',
             'name' => 'required|string|min:3|max:255',
-            'email' => 'required|email|unique:students,email,' . $this->student->id . '|min:3|max:255',
+            'email' => 'required|email|unique:students,email,'.$this->student->id.'|min:3|max:255',
             'password' => 'nullable|confirmed|min:3|max:255',
-            'phone_number' => 'required|numeric|unique:students,phone_number,' . $this->student->id . '|digits_between:3,255'
+            'phone_number' => 'required|numeric|unique:students,phone_number,'.$this->student->id.'|digits_between:3,255',
         ];
     }
 

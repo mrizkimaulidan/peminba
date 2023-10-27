@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SchoolClassResource;
 use App\Models\SchoolClass;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class SchoolClassController extends Controller
@@ -18,7 +17,7 @@ class SchoolClassController extends Controller
         return response()->json([
             'code' => Response::HTTP_OK,
             'message' => 'success',
-            'data' => new SchoolClassResource($schoolClass)
+            'data' => new SchoolClassResource($schoolClass),
         ]);
     }
 }

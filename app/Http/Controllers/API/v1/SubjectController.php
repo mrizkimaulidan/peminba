@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\SubjectResource;
 use App\Models\Subject;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class SubjectController extends Controller
@@ -18,7 +17,7 @@ class SubjectController extends Controller
         return response()->json([
             'code' => Response::HTTP_OK,
             'message' => 'success',
-            'data' => new SubjectResource($subject)
+            'data' => new SubjectResource($subject),
         ]);
     }
 }

@@ -30,7 +30,7 @@ class StoreStudentRequest extends FormRequest
             'name' => 'required|string|min:3|max:255',
             'email' => 'required|email|unique:students,email|min:3|max:255',
             'password' => 'required|confirmed|min:3|max:255',
-            'phone_number' => 'required|numeric|unique:students,phone_number|digits_between:3,255'
+            'phone_number' => 'required|numeric|unique:students,phone_number|digits_between:3,255',
         ];
     }
 

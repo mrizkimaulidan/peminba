@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Officer;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class OfficerSeeder extends Seeder
@@ -17,7 +16,7 @@ class OfficerSeeder extends Seeder
             'name' => 'Petugas',
             'email' => 'petugas@mail.com',
             'password' => '$2a$12$ChKeJotwLj9A.MQfoaQN6uc1xs5U5CRDNa6yMqmeAi9nIV8iaChj2', // secret
-            'phone_number' => fake()->phoneNumber()
+            'phone_number' => fake()->phoneNumber(),
         ]);
 
         $officers = Officer::factory(100)->make()->toArray();

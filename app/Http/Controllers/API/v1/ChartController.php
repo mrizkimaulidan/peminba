@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\API\v1;
 
+use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class ChartController extends Controller
@@ -14,9 +14,9 @@ class ChartController extends Controller
     /**
      * Handle chart statistics request.
      *
-     * @param Request $request
      *
      * @return void
+     *
      * @author Muhammad Rizki Maulidan <mrizkimaulidanx@gmail.com>
      */
     public function index(Request $request)
@@ -47,7 +47,7 @@ class ChartController extends Controller
         return response()->json([
             'code' => Response::HTTP_OK,
             'message' => 'ok',
-            'data' => $statistics
+            'data' => $statistics,
         ], Response::HTTP_OK);
     }
 }

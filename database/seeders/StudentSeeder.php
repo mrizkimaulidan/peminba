@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Student;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class StudentSeeder extends Seeder
@@ -20,7 +19,7 @@ class StudentSeeder extends Seeder
             'name' => 'Mahasiswa',
             'email' => 'mahasiswa@mail.com',
             'password' => '$2a$12$ChKeJotwLj9A.MQfoaQN6uc1xs5U5CRDNa6yMqmeAi9nIV8iaChj2', // secret,
-            'phone_number' => '+628123456789'
+            'phone_number' => '+628123456789',
         ]);
 
         $students = Student::factory(150)->make()->toArray();

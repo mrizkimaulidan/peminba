@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $counts = [
             'student' => Student::select('id')->count(),
             'administrator' => Administrator::select('id')->count(),
-            'commodity' => Commodity::select('id')->count()
+            'commodity' => Commodity::select('id')->count(),
         ];
 
         $latestRegisteredStudents = Student::select('name', 'email')->latest()->take(3)->get();

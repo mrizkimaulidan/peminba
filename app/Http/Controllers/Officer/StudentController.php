@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Officer;
 
-use App\Models\Student;
-use App\Models\SchoolClass;
-use App\Models\ProgramStudy;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Officer\StoreStudentRequest;
 use App\Http\Requests\Officer\UpdateStudentRequest;
+use App\Models\ProgramStudy;
+use App\Models\SchoolClass;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -74,7 +73,7 @@ class StudentController extends Controller
             'identification_number' => $validated['identification_number'],
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
+            'password' => ! is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
             'phone_number' => $validated['phone_number'],
         ]);
 

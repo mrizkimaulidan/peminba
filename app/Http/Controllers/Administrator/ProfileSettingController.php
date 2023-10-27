@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Administrator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\UpdateProfileSettingRequest;
 use App\Models\Administrator;
-use Illuminate\Http\Request;
 
 class ProfileSettingController extends Controller
 {
@@ -31,7 +30,7 @@ class ProfileSettingController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone_number' => $validated['phone_number'],
-            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $administrator->password
+            'password' => ! is_null($validated['password']) ? bcrypt($validated['password']) : $administrator->password,
         ]);
 
         return redirect()->route('administrators.profile-settings.index')->with('success', 'Data berhasil diubah!');

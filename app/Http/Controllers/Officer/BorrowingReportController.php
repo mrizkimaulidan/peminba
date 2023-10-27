@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Officer;
 
 use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class BorrowingReportController extends Controller

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\SchoolClass;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SchoolClassSeeder extends Seeder
@@ -15,36 +14,36 @@ class SchoolClassSeeder extends Seeder
     {
         for ($i = 1; $i <= 6; $i++) {
             foreach (range('A', 'E') as $char) {
-                $className = 'TI ' . $i . $char;
+                $className = 'TI '.$i.$char;
 
                 SchoolClass::create([
-                    'name' => $className
+                    'name' => $className,
                 ]);
             }
 
             foreach (range('A', 'E') as $char) {
-                $className = 'TK ' . $i . $char;
+                $className = 'TK '.$i.$char;
 
                 SchoolClass::create([
-                    'name' => $className
+                    'name' => $className,
                 ]);
             }
         }
 
         for ($i = 1; $i <= 8; $i++) {
             foreach (range('A', 'E') as $char) {
-                $className = 'TIM ' . $i . $char;
+                $className = 'TIM '.$i.$char;
 
                 SchoolClass::create([
-                    'name' => $className
+                    'name' => $className,
                 ]);
             }
 
             foreach (range('A', 'C') as $char) {
-                $className = 'TRK ' . $i . $char;
+                $className = 'TRK '.$i.$char;
 
                 SchoolClass::create([
-                    'name' => $className
+                    'name' => $className,
                 ]);
             }
         }

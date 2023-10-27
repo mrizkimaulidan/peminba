@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Models\Subject;
-use App\Models\Borrowing;
-use App\Models\Commodity;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\StoreBorrowingRequest;
+use App\Models\Borrowing;
+use App\Models\Commodity;
+use App\Models\Subject;
+use Illuminate\Http\Request;
 
 class BorrowingController extends Controller
 {
@@ -69,7 +69,7 @@ class BorrowingController extends Controller
     public function returnBorrowing(Borrowing $borrowing)
     {
         $borrowing->update([
-            'time_end' => now()
+            'time_end' => now(),
         ]);
 
         return redirect()->back()->with('success', 'Status berhasil diubah!');

@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use App\Http\Requests\StoreImportRequest;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 class ImportService
@@ -21,11 +19,10 @@ class ImportService
      * It utilizes a unique column to prevent duplicate records. It returns the counts of records
      * that were imported and ignored during the process.
      *
-     * @param UploadedFile $file The uploaded Excel file to import data from.
-     * @param array $columnMapping An associative array that maps columns from the Excel file to database table columns.
-     * @param string $uniqueColumn The name of the unique column in the database table.
-     * @param int $uniqueColumnIndex The index of the unique column in the Excel file.
-     *
+     * @param  UploadedFile  $file The uploaded Excel file to import data from.
+     * @param  array  $columnMapping An associative array that maps columns from the Excel file to database table columns.
+     * @param  string  $uniqueColumn The name of the unique column in the database table.
+     * @param  int  $uniqueColumnIndex The index of the unique column in the Excel file.
      * @return array An array containing the import statistics, with 'ignored' and 'imported' counts.
      */
     public function importExcel(UploadedFile $file, array $columnMapping, string $uniqueColumn, int $uniqueColumnIndex): array
@@ -57,6 +54,7 @@ class ImportService
             // database
             if ($records->contains($name)) {
                 $counts['ignored']++;
+
                 continue;
             }
 
@@ -71,7 +69,7 @@ class ImportService
             $counts['imported']++;
         }
 
-        if (!empty($insertData)) {
+        if (! empty($insertData)) {
             // Using eloquent insert for better performance
             $this->model->insert($insertData);
         }

@@ -25,7 +25,7 @@ class StoreSubjectRequest extends FormRequest
     {
         return [
             'code' => 'required|string|min:3|max:255',
-            'name' => 'required|string|min:3|max:255'
+            'name' => 'required|string|min:3|max:255',
         ];
     }
 

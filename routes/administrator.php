@@ -3,17 +3,14 @@
 use App\Http\Controllers\Administrator\BorrowingController;
 use App\Http\Controllers\Administrator\BorrowingHistoryController;
 use App\Http\Controllers\Administrator\BorrowingReportController;
-use App\Http\Controllers\Administrator\ChartController;
 use App\Http\Controllers\Administrator\CommodityController;
 use App\Http\Controllers\Administrator\DashboardController;
-use App\Http\Controllers\Administrator\ProfileController;
 use App\Http\Controllers\Administrator\ProfileSettingController;
 use App\Http\Controllers\Administrator\ProgramStudyController;
 use App\Http\Controllers\Administrator\SchoolClassController;
 use App\Http\Controllers\Administrator\StudentController;
 use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Administrator\UserController;
-use App\Http\Controllers\Authentication\LoginController;
 use App\Http\Controllers\Exports\BorrowingReportExport;
 use Illuminate\Support\Facades\Route;
 

@@ -31,7 +31,7 @@ class BorrowingFactory extends Factory
             'date' => now()->createFromDate(mt_rand(2010, now()->year), mt_rand(1, 12), mt_rand(1, 31)),
             'time_start' => now()->createFromTime(mt_rand(1, 24), mt_rand(1, 59), mt_rand(1, 59)),
             'time_end' => $timeEnd,
-            'note' => fake()->randomElement([fake()->text, null])
+            'note' => fake()->randomElement([fake()->text, null]),
         ];
     }
 }

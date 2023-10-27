@@ -13,8 +13,6 @@ class BorrowingRepository
 
     /**
      * Get commodity that are not returned by student.
-     *
-     * @return object
      */
     public function getCommoditiesNotReturnedByStudent(): object
     {
@@ -25,9 +23,6 @@ class BorrowingRepository
 
     /**
      * Get the count of borrowings by student ID.
-     *
-     * @param string $studentID
-     * @return int
      */
     public function countTotalBorrowingByStudentID(string $studentID): int
     {
@@ -39,9 +34,7 @@ class BorrowingRepository
      * true if borrowing is already returned
      * or false if it is not returned.
      *
-     * @param string $studentID
-     * @param boolean $isReturned the status boolean true or false
-     * @return integer
+     * @param  bool  $isReturned the status boolean true or false
      */
     public function countStudentBorrowingReturnedStatus(string $studentID, bool $isReturned): int
     {

@@ -27,7 +27,7 @@ class StoreBorrowingRequest extends FormRequest
             'commodity_id' => 'required|min:1|exists:commodities,id',
             'subject_id' => 'required|min:1|exists:subjects,id',
             'date' => 'required|date',
-            'time_start' => 'required|date_format:H:i'
+            'time_start' => 'required|date_format:H:i',
         ];
     }
 

@@ -8,7 +8,6 @@ use App\Http\Requests\Administrator\UpdateStudentRequest;
 use App\Models\ProgramStudy;
 use App\Models\SchoolClass;
 use App\Models\Student;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -74,7 +73,7 @@ class StudentController extends Controller
             'identification_number' => $validated['identification_number'],
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
+            'password' => ! is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
             'phone_number' => $validated['phone_number'],
         ]);
 

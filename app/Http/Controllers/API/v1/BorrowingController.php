@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API\v1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\BorrowingResource;
 use App\Models\Borrowing;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BorrowingController extends Controller
@@ -18,7 +17,7 @@ class BorrowingController extends Controller
         return response()->json([
             'code' => Response::HTTP_OK,
             'message' => 'success',
-            'data' => new BorrowingResource($borrowing)
+            'data' => new BorrowingResource($borrowing),
         ]);
     }
 }

@@ -17,16 +17,16 @@ class StudentResource extends JsonResource
         return [
             'programStudy' => [
                 'id' => $this->programStudy->id,
-                'name' => $this->programStudy->name
+                'name' => $this->programStudy->name,
             ],
             'schoolClass' => [
                 'id' => $this->schoolClass->id,
-                'name' => $this->schoolClass->name
+                'name' => $this->schoolClass->name,
             ],
             'identificationNumber' => $this->identification_number,
             'name' => $this->name,
             'email' => $this->email,
-            'phoneNumber' => (int)$this->phone_number
+            'phoneNumber' => (int) $this->phone_number,
         ];
     }
 }
