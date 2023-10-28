@@ -16,6 +16,7 @@ Berikut beberapa hal yang perlu diinstal terlebih dahulu:
 -   Composer (https://getcomposer.org/)
 -   PHP ^8.1
 -   MySQL 15.x
+-   NPM ^21.x (https://nodejs.org/)
 -   XAMPP
 
 Jika Anda menggunakan XAMPP, untuk PHP dan MySQL sudah menjadi 1 (bundle) di dalam aplikasi XAMPP.
@@ -86,6 +87,10 @@ $ git clone git@github.com:mrizkimaulidan/peminba.git
 ```
 
 -   Install seluruh packages yang dibutuhkan
+
+```bash
+$ npm install
+```
 
 ```bash
 $ composer install
