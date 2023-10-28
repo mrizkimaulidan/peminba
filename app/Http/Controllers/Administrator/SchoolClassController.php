@@ -8,7 +8,6 @@ use App\Http\Requests\Administrator\UpdateSchoolClassRequest;
 use App\Http\Requests\ImportExcelRequest;
 use App\Models\SchoolClass;
 use App\Services\ImportService;
-use Illuminate\Http\Request;
 
 class SchoolClassController extends Controller
 {

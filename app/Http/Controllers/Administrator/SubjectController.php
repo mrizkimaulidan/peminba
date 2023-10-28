@@ -8,7 +8,6 @@ use App\Http\Requests\Administrator\UpdateSubjectRequest;
 use App\Http\Requests\ImportExcelRequest;
 use App\Models\Subject;
 use App\Services\ImportService;
-use Illuminate\Http\Request;
 
 class SubjectController extends Controller
 {

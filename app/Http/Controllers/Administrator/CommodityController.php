@@ -8,7 +8,6 @@ use App\Http\Requests\Administrator\UpdateCommodityRequest;
 use App\Http\Requests\ImportExcelRequest;
 use App\Models\Commodity;
 use App\Services\ImportService;
-use Illuminate\Http\Request;
 
 class CommodityController extends Controller
 {
