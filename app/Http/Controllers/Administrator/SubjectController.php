@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administrator;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Administrator\StoreSubjectRequest;
 use App\Http\Requests\Administrator\UpdateSubjectRequest;
+use App\Http\Requests\ImportExcelRequest;
 use App\Models\Subject;
 use App\Services\ImportService;
 use Illuminate\Http\Request;
@@ -61,9 +62,9 @@ class SubjectController extends Controller
     /**
      * Import a listing of the resource.
      */
-    public function import(Request $request)
+    public function import(ImportExcelRequest $request)
     {
-        $counts = $this->importService->importExcel($request->file('import'), ['code', 'name'], 'code', 0);
+        $counts = $this->importService->importExcel($request->validated('import'), ['code', 'name'], 'code', 0);
         $message = "Total {$counts['imported']} berhasil diimpor, {$counts['ignored']} dihiraukan!";
 
         return redirect()->route('administrators.subjects.index')->with('success', $message);

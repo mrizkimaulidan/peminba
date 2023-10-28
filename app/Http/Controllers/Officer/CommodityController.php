@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Officer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ImportExcelRequest;
 use App\Http\Requests\Officer\StoreCommodityRequest;
 use App\Http\Requests\Officer\UpdateCommodityRequest;
 use App\Models\Commodity;
@@ -61,9 +62,9 @@ class CommodityController extends Controller
     /**
      * Import a listing of the resource.
      */
-    public function import(Request $request)
+    public function import(ImportExcelRequest $request)
     {
-        $counts = $this->importService->importExcel($request->file('import'), ['name'], 'name', 0);
+        $counts = $this->importService->importExcel($request->validated('import'), ['name'], 'name', 0);
         $message = "Total {$counts['imported']} berhasil diimpor, {$counts['ignored']} dihiraukan!";
 
         return redirect()->route('officers.commodities.index')->with('success', $message);
