@@ -1,6 +1,6 @@
 <script>
   $(function() {
-    $('#datatable').on('click', '.showBorrowingButton', function (e) {
+    $('.datatable').on('click', '.showBorrowingButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.borrowings.show', 'id') }}";
       showURL = showURL.replace('id', id);
@@ -39,7 +39,7 @@
       });
     });
 
-    $('#datatable').on('click', '.editBorrowingButton', function (e) {
+    $('.datatable').on('click', '.editBorrowingButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.borrowings.show', 'param') }}";
       let updateURL = "{{ route('students.borrowings.update', 'param') }}";

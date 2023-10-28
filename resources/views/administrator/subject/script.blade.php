@@ -8,7 +8,7 @@
       $('#editSubjectModal').find('input').not('[type=hidden]')[0].focus();
     });
 
-    $('#datatable').on('click', '.editSubjectButton', function (e) {
+    $('.datatable').on('click', '.editSubjectButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.subjects.show', 'param') }}";
       let updateURL = "{{ route('administrators.subjects.update', 'param') }}";

@@ -8,7 +8,7 @@
       $('#editStudentModal').find('input').not('[type=hidden]')[0].focus();
     });
 
-    $('#datatable').on('click', '.showStudentButton', function (e) {
+    $('.datatable').on('click', '.showStudentButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.students.show', 'param') }}";
       showURL = showURL.replace('param', id);
@@ -41,7 +41,7 @@
       });
     });
 
-    $('#datatable').on('click', '.editStudentButton', function (e) {
+    $('.datatable').on('click', '.editStudentButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.students.show', 'param') }}";
       let updateURL = "{{ route('administrators.students.update', 'param') }}";

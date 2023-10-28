@@ -8,7 +8,7 @@
       $('#editProgramStudyModal').find('input').not('[type=hidden]')[0].focus();
     });
 
-    $('#datatable').on('click', '.editProgramStudyButton', function (e) {
+    $('.datatable').on('click', '.editProgramStudyButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.program-studies.show', 'param') }}";
       let updateURL = "{{ route('administrators.program-studies.update', 'param') }}";

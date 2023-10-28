@@ -8,7 +8,7 @@
       $('#editAdministratorModal').find('input').not('[type=hidden]')[0].focus();
     });
 
-    $('#datatable').on('click', '.editAdministratorButton', function (e) {
+    $('.datatable').on('click', '.editAdministratorButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.users.show', 'param') }}";
       let updateURL = "{{ route('administrators.users.update', 'param') }}";

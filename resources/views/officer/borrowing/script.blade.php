@@ -1,6 +1,6 @@
 <script>
   $(function() {
-    $('#datatable').on('click', '.showBorrowingButton', function (e) {
+    $('.datatable').on('click', '.showBorrowingButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.borrowings.show', 'param') }}";
       showURL = showURL.replace('param', id);

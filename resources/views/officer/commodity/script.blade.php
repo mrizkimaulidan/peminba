@@ -8,7 +8,7 @@
       $('#editCommodityModal').find('input').not('[type=hidden]')[0].focus();
     });
 
-    $('#datatable').on('click', '.editCommodityButton', function (e) {
+    $('.datatable').on('click', '.editCommodityButton', function (e) {
       let id = $(this).data('id');
       let showURL = "{{ route('api.v1.commodities.show', 'param') }}";
       let updateURL = "{{ route('officers.commodities.update', 'param') }}";
