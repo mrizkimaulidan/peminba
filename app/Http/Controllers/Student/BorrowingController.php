@@ -66,9 +66,10 @@ class BorrowingController extends Controller
     /**
      * Returning borowing by changing the is_return status column.
      */
-    public function returnBorrowing(Borrowing $borrowing)
+    public function returnBorrowing(Request $request, Borrowing $borrowing)
     {
         $borrowing->update([
+            'note' => $request->note,
             'time_end' => now(),
         ]);
 

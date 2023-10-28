@@ -117,13 +117,14 @@
                     </button>
 
                     @if($borrowing->time_end === NULL)
-                    <form action="{{ route('students.borrowings.return', $borrowing) }}" method="POST">
-                      @csrf
-                      @method('PUT')
-                      <button type="submit" class="btn btn-sm btn-warning btn-returned">
-                        <i class="bi bi-check-circle-fill"></i>
-                      </button>
-                    </form>
+                    <button type="button" class="btn btn btn-sm btn-warning" data-bs-toggle="modal"
+                      data-bs-target="#returnBorrowingModal">
+                      <i class="bi bi-check-circle-fill"></i>
+                    </button>
+
+                    @push('modal')
+                    @include('student.borrowing.main.modal.return-borrowing')
+                    @endpush
                     @endif
                   </div>
                 </td>
@@ -139,9 +140,9 @@
 @endsection
 
 @push('modal')
-@include('administrator.borrowing.main.modal.show')
+@include('student.borrowing.main.modal.show')
 @endpush
 
 @push('script')
-@include('administrator.borrowing.script')
+@include('student.borrowing.script')
 @endpush

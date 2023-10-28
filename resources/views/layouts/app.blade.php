@@ -170,7 +170,7 @@
           cancelButtonText: 'Tidak',
         }).then((result) => {
           if (result.isConfirmed) {
-            $(this).parent().submit();
+            $(this).parent().parent().submit();
           }
         });
       });
