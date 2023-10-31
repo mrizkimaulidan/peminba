@@ -13,25 +13,31 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::get('/commodities', [CommodityController::class, 'index'])->name('commodities.index');
-    Route::post('/commodities', [CommodityController::class, 'store'])->name('commodities.store');
-    Route::put('/commodities/{commodity}', [CommodityController::class, 'update'])->name('commodities.update');
-    Route::delete('/commodities/{commodity}', [CommodityController::class, 'destroy'])->name('commodities.destroy');
+    Route::resource('commodities', CommodityController::class)->except(
+        'create',
+        'show',
+        'edit'
+    );
     Route::post('/commodities/import', [CommodityController::class, 'import'])->name('commodities.import');
 
-    Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-    Route::post('/students', [StudentController::class, 'store'])->name('students.store');
-    Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
-    Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
+    Route::resource('students', StudentController::class)->except(
+        'create',
+        'show',
+        'edit'
+    );
 
-    Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
+    Route::controller(BorrowingController::class)->group(function () {
+        Route::get('/borrowings', 'index')->name('borrowings.index');
+        Route::get('/borrowings/validate/{borrowing}', 'validateBorrowing')->name('borrowings.validate');
+    });
+
     Route::get('/borrowings/report', [BorrowingReportController::class, 'index'])->name('borrowings-report.index');
-    Route::get('/borrowings/validate/{borrowing}', [BorrowingController::class, 'validateBorrowing'])->name('borrowings.validate');
-
     Route::get('/borrowings/history', BorrowingHistoryController::class)->name('borrowings-history.index');
 
-    Route::get('/profile/settings', [ProfileSettingController::class, 'index'])->name('profile-settings.index');
-    Route::put('/profile/settings', [ProfileSettingController::class, 'update'])->name('profile-settings.update');
+    Route::controller(ProfileSettingController::class)->group(function () {
+        Route::get('/profile/settings', 'index')->name('profile-settings.index');
+        Route::put('/profile/settings', 'update')->name('profile-settings.update');
+    });
 
     Route::get('/borrowings/report/export/{start_date}/{end_date}', [BorrowingReportExport::class, 'export'])->name('borrowings-report.export');
 });

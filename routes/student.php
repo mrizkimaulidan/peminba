@@ -8,13 +8,18 @@ use App\Http\Controllers\Student\ProfileSettingController;
 Route::middleware('auth:student')->name('students.')->prefix('student')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
-    Route::get('/borrowings', [BorrowingController::class, 'index'])->name('borrowings.index');
-    Route::post('/borrowings', [BorrowingController::class, 'store'])->name('borrowings.store');
-    Route::put('/borrowings/{borrowing}', [BorrowingController::class, 'update'])->name('borrowings.update');
+    Route::resource('borrowings', BorrowingController::class)->except(
+        'create',
+        'show',
+        'edit',
+        'destroy'
+    );
     Route::put('/borrowings/return/{borrowing}', [BorrowingController::class, 'returnBorrowing'])->name('borrowings.return');
 
     Route::get('/borrowings/history', BorrowingHistoryController::class)->name('borrowings-history.index');
 
-    Route::get('/profile/settings', [ProfileSettingController::class, 'index'])->name('profile-settings.index');
-    Route::put('/profile/settings', [ProfileSettingController::class, 'update'])->name('profile-settings.update');
+    Route::controller(ProfileSettingController::class)->group(function () {
+        Route::get('/profile/settings', 'index')->name('profile-settings.index');
+        Route::put('/profile/settings', 'update')->name('profile-settings.update');
+    });
 });
