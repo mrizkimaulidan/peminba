@@ -64,7 +64,7 @@
               </div>
               <div class="col-md-12 col-lg-6">
                 <div class="mb-3">
-                  <label class="form-label">Pada Mata Kuliah</label>
+                  <label class="form-label">Mata Kuliah atau Tipe Peminjaman</label>
                   <input class="form-control" id="subject_name" disabled>
                 </div>
               </div>

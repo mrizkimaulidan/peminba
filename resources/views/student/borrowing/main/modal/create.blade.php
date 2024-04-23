@@ -37,7 +37,7 @@
               </div>
 
               <div class="mb-3">
-                <label for="subject_id" class="form-label">Mata Kuliah</label>
+                <label for="subject_id" class="form-label">Mata Kuliah atau Tipe Peminjaman</label>
                 <select class="form-select @error('subject_id', 'store') is-invalid @enderror" name="subject_id"
                   id="subject_id" required>
                   <option value="" selected>Pilih..</option>

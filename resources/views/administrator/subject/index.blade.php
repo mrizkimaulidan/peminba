@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Daftar Mata Kuliah')
-@section('description', 'Halaman daftar mata kuliah')
+@section('title', 'Daftar Mata Kuliah atau Tipe Peminjaman')
+@section('description', 'Halaman daftar mata kuliah atau tipe peminjaman')
 
 @section('content')
 <section class="row">
@@ -20,7 +20,7 @@
 
           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createSubjectModal">
             <i class="bi bi-plus-circle-fill"></i>
-            Tambah Mata Kuliah
+            Tambah Mata Kuliah atau Tipe Peminjaman
           </button>
         </x-button-group-flex>
 
