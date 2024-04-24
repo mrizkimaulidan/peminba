@@ -105,7 +105,7 @@
                         $borrowing->student->name }}</span>
                     </td>
                     <td>{{ $borrowing->commodity->name }}</td>
-                    <td>{{ $borrowing->date }}</td>
+                    <td>{{ $borrowing->getDateFormatted() }}</td>
                   </tr>
                   @endforeach
                 </tbody>

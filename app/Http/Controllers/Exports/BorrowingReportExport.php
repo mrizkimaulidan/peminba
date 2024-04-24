@@ -47,7 +47,7 @@ class BorrowingReportExport extends Controller
             $activeWorkSheet->setCellValue('E' . $columnNumberCoordinate, $borrowing->student->name);
             $activeWorkSheet->setCellValue('F' . $columnNumberCoordinate, $borrowing->student->email);
             $activeWorkSheet->getCell('G' . $columnNumberCoordinate)->setValueExplicit($borrowing->student->phone_number, \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-            $activeWorkSheet->setCellValue('H' . $columnNumberCoordinate, $borrowing->date);
+            $activeWorkSheet->setCellValue('H' . $columnNumberCoordinate, $borrowing->getDateFormatted());
             $activeWorkSheet->setCellValue('I' . $columnNumberCoordinate, $borrowing->commodity->name);
             $activeWorkSheet->setCellValue('J' . $columnNumberCoordinate, $borrowing->time_start);
             $activeWorkSheet->setCellValue('K' . $columnNumberCoordinate, $borrowing->getTimeEnd());

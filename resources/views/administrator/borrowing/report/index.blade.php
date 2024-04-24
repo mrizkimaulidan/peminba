@@ -78,7 +78,7 @@
                     $borrowing->student->name }}</span>
                 </th>
                 <td>{{ $borrowing->commodity->name }}</td>
-                <td>{{ $borrowing->date }}</td>
+                <td>{{ $borrowing->getDateFormatted() }}</td>
                 <td>
                   <span class="badge text-bg-secondary">
                     <i class="bi bi-clock-fill"></i>

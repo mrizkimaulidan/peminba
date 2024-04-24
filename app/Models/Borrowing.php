@@ -16,6 +16,10 @@ class Borrowing extends Model
         'date', 'note', 'time_start', 'time_end',
     ];
 
+    protected $casts = [
+        'date' => 'date'
+    ];
+
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
@@ -49,5 +53,10 @@ class Borrowing extends Model
     public function getTimeEnd(): string
     {
         return $this->time_end ?? '-';
+    }
+
+    public function getDateFormatted(): string
+    {
+        return $this->date->locale('id')->translatedFormat('l, j F Y');
     }
 }
