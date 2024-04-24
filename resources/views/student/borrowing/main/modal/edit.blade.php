@@ -62,7 +62,7 @@
                 Data di bawah adalah detail data peminjaman.
               </div>
               <div class="row">
-                <div class="col-md-12 col-lg-6">
+                <div class="col-md-12 col-lg-12">
                   <div class="mb-3">
                     <label for="commodity_id" class="form-label">Nama Komoditas</label>
                     <select class="form-select" name="commodity_id" id="commodity_id">
@@ -73,17 +73,6 @@
 
                       @foreach ($commoditiesCannotBeBorrowed as $commodity)
                       <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }} - Sedang dipinjam</option>
-                      @endforeach
-                    </select>
-                  </div>
-                </div>
-                <div class="col-md-12 col-lg-6">
-                  <div class="mb-3">
-                    <label for="subject_id" class="form-label">Pada Mata Kuliah</label>
-                    <select class="form-select" name="subject" id="subject_id">
-                      <option selected>Pilih..</option>
-                      @foreach ($subjects as $subejct)
-                      <option value="{{ $subejct->id }}">{{ $subejct->name }}</option>
                       @endforeach
                     </select>
                   </div>

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('commodity_id')->constrained();
             $table->foreignId('student_id')->constrained();
-            $table->foreignId('subject_id')->constrained();
             $table->foreignId('officer_id')->nullable()->constrained();
             $table->date('date');
             $table->time('time_start');

@@ -110,9 +110,9 @@
 @endsection
 
 @push('modal')
-@include('administrator.borrowing.main.modal.show')
+@include('officer.borrowing.main.modal.show')
 @endpush
 
 @push('script')
-@include('administrator.borrowing.script')
+@include('officer.borrowing.script')
 @endpush

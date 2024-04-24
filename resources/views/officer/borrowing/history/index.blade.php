@@ -195,9 +195,9 @@
 @endsection
 
 @push('modal')
-@include('administrator.borrowing.main.modal.show')
+@include('officer.borrowing.history.modal.show')
 @endpush
 
 @push('script')
-@include('administrator.borrowing.script')
+@include('officer.borrowing.script')
 @endpush

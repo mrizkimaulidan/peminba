@@ -19,7 +19,6 @@
           $('#detailBorrowingModal #school_class_name').val(res.data.student.schoolClass);
 
           $('#detailBorrowingModal #commodity_name').val(res.data.commodity.name);
-          $('#detailBorrowingModal #subject_name').val(res.data.subject.name);
           $('#detailBorrowingModal #time_start').val(res.data.timeStart);
           $('#detailBorrowingModal #time_end').val(res.data.timeEnd);
           $('#detailBorrowingModal #is_returned').val(res.data.isReturned);
@@ -60,7 +59,6 @@
           $('#editBorrowingModal #school_class_name').val(res.data.student.schoolClass);
 
           $('#editBorrowingModal #commodity_id').val(res.data.commodity.id);
-          $('#editBorrowingModal #subject_id').val(res.data.subject.id);
           $('#editBorrowingModal #time_start').val(res.data.timeStart);
           $('#editBorrowingModal #time_end').val(res.data.timeEnd);
           $('#editBorrowingModal #is_returned').val(res.data.isReturned);

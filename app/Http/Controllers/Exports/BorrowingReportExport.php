@@ -14,13 +14,13 @@ class BorrowingReportExport extends Controller
 
     private array $columnNames = [
         'NO', 'Program Studi Mahasiswa', 'Kelas Mahasiswa', 'NIM', 'Nama Lengkap', 'Email',
-        'Nomor Handphone', 'Kode Mata Kuliah atau Tipe Peminjaman', 'Nama Mata Kuliah atau Tipe Peminjaman', 'Tanggal', 'Nama Komoditas', 'Jam Pinjam',
+        'Nomor Handphone', 'Tanggal', 'Nama Komoditas', 'Jam Pinjam',
         'Jam Kembali', 'Status', 'Petugas',
     ];
 
     public function setHeaderColumn(Worksheet $activeWorkSheet): void
     {
-        foreach (range('A', 'O') as $key => $alphabet) {
+        foreach (range('A', 'M') as $key => $alphabet) {
             $activeWorkSheet->setCellValue($alphabet . 1, $this->columnNames[$key]);
         }
     }
@@ -30,7 +30,7 @@ class BorrowingReportExport extends Controller
         $spreadsheet = new Spreadsheet();
         $activeWorkSheet = $spreadsheet->getActiveSheet();
 
-        $borrowings = Borrowing::select('id', 'commodity_id', 'student_id', 'subject_id', 'officer_id', 'date', 'time_start', 'time_end')
+        $borrowings = Borrowing::select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->whereBetween('date', [$startDate, $endDate])
             ->orderBy('date', 'ASC')
             ->get();
@@ -47,14 +47,12 @@ class BorrowingReportExport extends Controller
             $activeWorkSheet->setCellValue('E' . $columnNumberCoordinate, $borrowing->student->name);
             $activeWorkSheet->setCellValue('F' . $columnNumberCoordinate, $borrowing->student->email);
             $activeWorkSheet->getCell('G' . $columnNumberCoordinate)->setValueExplicit($borrowing->student->phone_number, \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
-            $activeWorkSheet->setCellValue('H' . $columnNumberCoordinate, $borrowing->subject->code);
-            $activeWorkSheet->setCellValue('I' . $columnNumberCoordinate, $borrowing->subject->name);
-            $activeWorkSheet->setCellValue('J' . $columnNumberCoordinate, $borrowing->date);
-            $activeWorkSheet->setCellValue('K' . $columnNumberCoordinate, $borrowing->commodity->name);
-            $activeWorkSheet->setCellValue('L' . $columnNumberCoordinate, $borrowing->time_start);
-            $activeWorkSheet->setCellValue('M' . $columnNumberCoordinate, $borrowing->getTimeEnd());
-            $activeWorkSheet->setCellValue('N' . $columnNumberCoordinate, $borrowing->getIsReturnedStatus());
-            $activeWorkSheet->setCellValue('O' . $columnNumberCoordinate, $borrowing->getOfficerName());
+            $activeWorkSheet->setCellValue('H' . $columnNumberCoordinate, $borrowing->date);
+            $activeWorkSheet->setCellValue('I' . $columnNumberCoordinate, $borrowing->commodity->name);
+            $activeWorkSheet->setCellValue('J' . $columnNumberCoordinate, $borrowing->time_start);
+            $activeWorkSheet->setCellValue('K' . $columnNumberCoordinate, $borrowing->getTimeEnd());
+            $activeWorkSheet->setCellValue('L' . $columnNumberCoordinate, $borrowing->getIsReturnedStatus());
+            $activeWorkSheet->setCellValue('M' . $columnNumberCoordinate, $borrowing->getOfficerName());
             $columnNumberCoordinate++;
             $no++;
         }

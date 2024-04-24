@@ -12,7 +12,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="alert alert-primary">
-                Pengembalian peminjaman.
+                Anda akan mengubah status peminjaman ini menjadi 'sudah kembali'. Kolom 'jam kembali' akan otomatis
+                diisi dengan waktu setelah Anda mengeklik tombol 'kembalikan'. Mohon isi kolom catatan jika ada hal yang
+                ingin disampaikan.
               </div>
 
               <div class="mb-3">

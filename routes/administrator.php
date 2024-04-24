@@ -9,7 +9,6 @@ use App\Http\Controllers\Administrator\ProfileSettingController;
 use App\Http\Controllers\Administrator\ProgramStudyController;
 use App\Http\Controllers\Administrator\SchoolClassController;
 use App\Http\Controllers\Administrator\StudentController;
-use App\Http\Controllers\Administrator\SubjectController;
 use App\Http\Controllers\Administrator\UserController;
 use App\Http\Controllers\Exports\BorrowingReportExport;
 use Illuminate\Support\Facades\Route;
@@ -37,13 +36,6 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
         'edit'
     );
     Route::post('/school-classes/import', [SchoolClassController::class, 'import'])->name('school-classes.import');
-
-    Route::resource('subjects', SubjectController::class)->except(
-        'create',
-        'show',
-        'edit'
-    );
-    Route::post('/subjects/import', [SubjectController::class, 'import'])->name('subjects.import');
 
     Route::resource('students', StudentController::class)->except(
         'create',

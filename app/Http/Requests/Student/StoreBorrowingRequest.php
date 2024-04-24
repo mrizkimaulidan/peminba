@@ -25,8 +25,6 @@ class StoreBorrowingRequest extends FormRequest
     {
         return [
             'commodity_id' => 'required|min:1|exists:commodities,id',
-            'subject_id' => 'required|min:1|exists:subjects,id',
-            'date' => 'required|date',
             'time_start' => 'required|date_format:H:i',
         ];
     }
@@ -42,13 +40,6 @@ class StoreBorrowingRequest extends FormRequest
             'commodity_id.required' => 'Kolom komoditas wajib diisi!',
             'commodity_id.min' => 'Kolom komoditas tidak valid!',
             'commodity_id.exists' => 'Kolom komoditas tidak valid!',
-
-            'subject_id.required' => 'Kolom mata kuliah wajib diisi!',
-            'subject_id.min' => 'Kolom mata kuliah tidak valid!',
-            'subject_id.exists' => 'Kolom mata kuliah tidak valid!',
-
-            'date.required' => 'Kolom tanggal wajib diisi!',
-            'date.date' => 'Kolom tanggal tidak valid!',
 
             'time_start.required' => 'Kolom jam pinjam wajib diisi!',
             'time_start.date_format' => 'Kolom jam pinjam tidak valid!',

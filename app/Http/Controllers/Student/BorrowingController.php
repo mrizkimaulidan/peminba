@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Student\StoreBorrowingRequest;
 use App\Models\Borrowing;
 use App\Models\Commodity;
-use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class BorrowingController extends Controller
@@ -27,8 +26,6 @@ class BorrowingController extends Controller
             ->orderBy('date', 'DESC')
             ->get();
 
-        $subjects = Subject::select('id', 'name')->get();
-
         $commoditiesCanBorrowed = Commodity::select('id', 'name')
             ->whereNotIn('id', $commodityProgress->pluck('commodity_id'))->get();
         $commoditiesCannotBeBorrowed = Commodity::select('id', 'name')
@@ -38,7 +35,6 @@ class BorrowingController extends Controller
             'borrowings',
             'commoditiesCanBorrowed',
             'commoditiesCannotBeBorrowed',
-            'subjects'
         ));
     }
 
@@ -47,7 +43,7 @@ class BorrowingController extends Controller
      */
     public function store(StoreBorrowingRequest $request)
     {
-        $validated = $request->safe()->merge(['student_id' => auth('student')->id()]);
+        $validated = $request->safe()->merge(['student_id' => auth('student')->id(), 'date' => now()]);
         Borrowing::create($validated->toArray());
 
         return redirect()->route('students.borrowings.index')->with('success', 'Data berhasil ditambahkan!');

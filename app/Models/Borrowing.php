@@ -38,12 +38,12 @@ class Borrowing extends Model
 
     public function getIsReturnedStatus(): string
     {
-        return $this->is_returned ? 'Sudah dikembalikan.' : 'Belum dikembalikan!';
+        return !is_null($this->time_end) ? 'Sudah dikembalikan.' : 'Belum dikembalikan!';
     }
 
     public function getOfficerName(): string
     {
-        return ! is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
+        return !is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
     }
 
     public function getTimeEnd(): string
