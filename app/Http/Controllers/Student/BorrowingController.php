@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Student\ReturnBorrowingRequest;
 use App\Http\Requests\Student\StoreBorrowingRequest;
 use App\Models\Borrowing;
 use App\Models\Commodity;
@@ -17,7 +18,7 @@ class BorrowingController extends Controller
     {
         $borrowings = Borrowing::with('student:id,identification_number,name', 'commodity:id,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
-            ->whereDate('date', now())->where('student_id', auth()->id())
+            ->whereDate('date', now())->where('student_id', auth('student')->id())
             ->orderBy('date', 'DESC')
             ->get();
 
@@ -44,6 +45,19 @@ class BorrowingController extends Controller
     public function store(StoreBorrowingRequest $request)
     {
         $validated = $request->safe()->merge(['student_id' => auth('student')->id(), 'date' => now()]);
+
+        $exists = Borrowing::select('student_id', 'commodity_id')
+            ->where('student_id', auth('student')->id())
+            ->where('commodity_id', $validated['commodity_id'])
+            ->whereDate('date', now())
+            ->whereNull('time_end')
+            ->exists();
+
+        if ($exists) {
+            return redirect()->route('students.borrowings.index')
+                ->with('error', 'Komoditas yang dipilih sedang digunakan!');
+        }
+
         Borrowing::create($validated->toArray());
 
         return redirect()->route('students.borrowings.index')->with('success', 'Data berhasil ditambahkan!');
@@ -62,12 +76,10 @@ class BorrowingController extends Controller
     /**
      * Returning borowing by changing the is_return status column.
      */
-    public function returnBorrowing(Request $request, Borrowing $borrowing)
+    public function returnBorrowing(ReturnBorrowingRequest $request, Borrowing $borrowing)
     {
-        $borrowing->update([
-            'note' => $request->note,
-            'time_end' => now(),
-        ]);
+        $validated = $request->merge(['time_end' => now()])->toArray();
+        $borrowing->update($validated);
 
         return redirect()->back()->with('success', 'Status berhasil diubah!');
     }
