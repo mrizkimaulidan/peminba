@@ -100,8 +100,10 @@
                     </div>
                   </div>
 
-                  <div class="d-flex pt-3 pb-3">
+                  <div class="d-flex gap-1 pt-3 pb-3">
                     <button type="submit" class="btn btn-primary flex-fill">Cari</button>
+                    <a href="{{ route('administrators.borrowings-history.index') }}" class="btn btn-warning">Reset
+                      filter</a>
                   </div>
                 </div>
               </div>
