@@ -26,6 +26,7 @@ class BorrowingResource extends JsonResource
                 'id' => $this->commodity->id,
                 'name' => $this->commodity->name,
             ],
+            'date' => $this->getDateFormatted(),
             'timeStart' => $this->time_start,
             'timeEnd' => $this->time_end ?? '-',
             'isReturned' => $this->time_end !== null ? 'Sudah dikembalikan.' : 'Belum dikembalikan!',

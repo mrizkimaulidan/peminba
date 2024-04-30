@@ -77,6 +77,18 @@
             </div>
 
             <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <div class="mb-3">
+                  <label class="form-label">Tanggal</label>
+                  <div class="input-group">
+                    <span class="d-block input-group-text"><i class="bi bi-calendar-fill"></i></span>
+                    <input class="form-control" id="date" disabled>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
               <div class="col-md-6 col-lg-6">
                 <div class="mb-3">
                   <label class="form-label">Jam Pinjam</label>
