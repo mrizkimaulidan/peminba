@@ -36,6 +36,14 @@
           </div>
           @enderror
         </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <select class="form-select" name="type" required>
+            <option value="">Login Sebagai</option>
+            <option value="administrator">Administrator</option>
+            <option value="officer">Petugas</option>
+            <option value="student">Mahasiswa</option>
+          </select>
+        </div>
         <div class="form-check form-check-lg d-flex align-items-end">
           <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault" />
           <label class="form-check-label text-gray-600" for="flexCheckDefault">

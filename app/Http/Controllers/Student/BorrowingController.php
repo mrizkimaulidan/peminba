@@ -47,7 +47,6 @@ class BorrowingController extends Controller
         $validated = $request->safe()->merge(['student_id' => auth('student')->id(), 'date' => now()]);
 
         $exists = Borrowing::select('student_id', 'commodity_id')
-            ->where('student_id', auth('student')->id())
             ->where('commodity_id', $validated['commodity_id'])
             ->whereDate('date', now())
             ->whereNull('time_end')
