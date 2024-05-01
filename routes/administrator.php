@@ -5,6 +5,7 @@ use App\Http\Controllers\Administrator\BorrowingHistoryController;
 use App\Http\Controllers\Administrator\BorrowingReportController;
 use App\Http\Controllers\Administrator\CommodityController;
 use App\Http\Controllers\Administrator\DashboardController;
+use App\Http\Controllers\Administrator\OfficerController;
 use App\Http\Controllers\Administrator\ProfileSettingController;
 use App\Http\Controllers\Administrator\ProgramStudyController;
 use App\Http\Controllers\Administrator\SchoolClassController;
@@ -44,6 +45,12 @@ Route::middleware('auth:administrator')->name('administrators.')->prefix('admini
     );
 
     Route::resource('users', UserController::class)->except(
+        'create',
+        'show',
+        'edit'
+    );
+
+    Route::resource('officers', OfficerController::class)->except(
         'create',
         'show',
         'edit'

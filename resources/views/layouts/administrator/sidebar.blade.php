@@ -66,6 +66,13 @@
       </a>
     </li>
 
+    <li class="sidebar-item {{ request()->routeIs('administrators.officers.*') ? 'active' : '' }}">
+      <a href="{{ route('administrators.officers.index') }}" class="sidebar-link">
+        <i class="bi bi-person-badge-fill"></i>
+        <span>Petugas</span>
+      </a>
+    </li>
+
     <li class="sidebar-item {{ request()->routeIs('administrators.profile-settings.*') ? 'active' : '' }}">
       <a href="{{ route('administrators.profile-settings.index') }}" class="sidebar-link">
         <i class="bi bi-person-fill-gear"></i>
