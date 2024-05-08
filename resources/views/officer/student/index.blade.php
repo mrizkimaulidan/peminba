@@ -19,57 +19,38 @@
           </button>
         </x-button-group-flex>
 
-        <form action="" method="GET">
-          <div class="accordion pb-3">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelFilter"
-                  aria-expanded="true" aria-controls="panelFilter">
-                  <span class="me-3"><i class="bi bi-filter"></i></span>Filter (klik atau sentuh untuk membuka/menutup
-                  menu filter)
-                </button>
-              </h2>
-              <div id="panelFilter" class="accordion-collapse collapse show">
-                <div class="accordion-body">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label for="program_study_id" class="form-label">Program Studi:</label>
-                        <select name="program_study_id" id="program_study_id" class="form-select">
-                          <option value="">Pilih program studi..</option>
-                          @foreach ($programStudies as $programStudy)
-                          <option value="{{ $programStudy->id }}" @selected(request('program_study_id')==$programStudy->
-                            id)>{{ $programStudy->name }}
-                          </option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label for="school_class_id" class="form-label">Kelas:</label>
-                        <select name="school_class_id" id="school_class_id" class="form-select">
-                          <option value="">Pilih kelas..</option>
-                          @foreach ($schoolClasses as $schoolClass)
-                          <option value="{{ $schoolClass->id }}" @selected(request('school_class_id')==$schoolClass->
-                            id)>{{ $schoolClass->name }}
-                          </option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="d-flex gap-1 pt-3 pb-3">
-                    <button type="submit" class="btn btn-primary flex-fill">Cari</button>
-                    <a href="{{ route('officers.students.index') }}" class="btn btn-warning">Reset
-                      filter</a>
-                  </div>
-                </div>
+        <x-filter-menu>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="program_study_id" class="form-label">Program Studi:</label>
+                <select name="program_study_id" id="program_study_id" class="form-select">
+                  <option value="">Pilih program studi..</option>
+                  @foreach ($programStudies as $programStudy)
+                  <option value="{{ $programStudy->id }}" @selected(request('program_study_id')==$programStudy->
+                    id)>{{ $programStudy->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="school_class_id" class="form-label">Kelas:</label>
+                <select name="school_class_id" id="school_class_id" class="form-select">
+                  <option value="">Pilih kelas..</option>
+                  @foreach ($schoolClasses as $schoolClass)
+                  <option value="{{ $schoolClass->id }}" @selected(request('school_class_id')==$schoolClass->
+                    id)>{{ $schoolClass->name }}
+                  </option>
+                  @endforeach
+                </select>
               </div>
             </div>
           </div>
-        </form>
+
+          <x-slot name="resetButtonURL">{{ route('officers.students.index') }}</x-slot>
+        </x-filter-menu>
 
         <div class="table-responsive">
           <table class="table datatable">
