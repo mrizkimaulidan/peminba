@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">Ubah Data</h1>
+        <h1 class="modal-title fs-5">Ubah Mahasiswa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -12,15 +12,15 @@
           <div class="row">
             <div class="col-md-12 col-lg-4">
               <div class="mb-3">
-                <label for="identification_number" class="form-label">NIM</label>
+                <label for="identification_number" class="form-label">NIM Mahasiswa</label>
                 <input type="text" name="identification_number" id="identification_number" class="form-control"
-                  placeholder="Masukkan nim..">
+                  placeholder="Masukkan nim mahasiswa..">
               </div>
             </div>
             <div class="col-md-12 col-lg-8">
               <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama..">
+                <label for="name" class="form-label">Nama Mahasiswa</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama mahasiswa..">
               </div>
             </div>
           </div>
@@ -50,10 +50,10 @@
           </div>
           <div class="row">
             <div class="col">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">Alamat Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
-                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan email..">
+                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan alamat email..">
               </div>
             </div>
             <div class="col">

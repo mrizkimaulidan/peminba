@@ -36,10 +36,10 @@ class StoreCommodityRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Kolom nama wajib diisi!',
-            'name.string' => 'Kolom nama wajib karakter!',
-            'name.min' => 'Kolom nama minimal :min karakter!',
-            'name.max' => 'Kolom nama maksimal :max karakter!',
+            'name.required' => 'Kolom nama komoditas wajib diisi!',
+            'name.string' => 'Kolom nama komoditas wajib karakter!',
+            'name.min' => 'Kolom nama komoditas minimal :min karakter!',
+            'name.max' => 'Kolom nama komoditas maksimal :max karakter!',
         ];
     }
 }

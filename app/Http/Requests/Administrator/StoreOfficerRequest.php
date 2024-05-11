@@ -44,11 +44,11 @@ class StoreOfficerRequest extends FormRequest
             'name.min' => 'Kolom nama minimal :min karakter!',
             'name.max' => 'Kolom nama maksimal :max karakter!',
 
-            'email.required' => 'Kolom email wajib diisi!',
-            'email.email' => 'Kolom email wajib email yang valid!',
-            'email.unique' => 'Email sudah terdaftar!',
-            'email.min' => 'Kolom email minimal :min karakter!',
-            'email.max' => 'Kolom email maksimal :max karakter!',
+            'email.required' => 'Kolom alamat email wajib diisi!',
+            'email.email' => 'Kolom alamat email wajib email yang valid!',
+            'email.unique' => 'Alamat email sudah terdaftar!',
+            'email.min' => 'Kolom alamat email minimal :min karakter!',
+            'email.max' => 'Kolom alamat email maksimal :max karakter!',
 
             'password.required' => 'Kolom password wajib diisi!',
             'password.confirmed' => 'Kolom konfirmasi password tidak sesuai!',

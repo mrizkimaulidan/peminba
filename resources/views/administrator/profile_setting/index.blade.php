@@ -29,11 +29,11 @@
               </div>
             </div>
             <div class="col-12">
-              <label for="email" class="form-label">Email:</label>
+              <label for="email" class="form-label">Alamat Email:</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
                 <input type="email" class="form-control @error('email', 'update') is-invalid @enderror" name="email"
-                  value="{{ $myInformation->email }}" placeholder="Masukkan email..">
+                  value="{{ $myInformation->email }}" placeholder="Masukkan alamat email..">
                 @error('email', 'update')
                 <div class="d-block invalid-feedback">
                   {{ $message }}

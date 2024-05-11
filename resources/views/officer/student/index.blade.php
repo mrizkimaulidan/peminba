@@ -57,8 +57,8 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">NIM</th>
-                <th scope="col">Nama</th>
+                <th scope="col">NIM Mahasiswa</th>
+                <th scope="col">Nama Mahasiswa</th>
                 <th scope="col">Program Studi</th>
                 <th scope="col">Kelas</th>
                 <th scope="col">Aksi</th>

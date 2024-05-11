@@ -30,7 +30,7 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama</th>
+                <th scope="col">Nama Komoditas</th>
                 <th scope="col">Aksi</th>
               </tr>
             </thead>
