@@ -39,5 +39,5 @@ Route::middleware('auth:officer')->name('officers.')->prefix('officer')->group(f
         Route::put('/profile/settings', 'update')->name('profile-settings.update');
     });
 
-    Route::get('/borrowings/report/export/{start_date}/{end_date}', [BorrowingReportExport::class, 'export'])->name('borrowings-report.export');
+    Route::post('/borrowings/report/export', [BorrowingReportExport::class, 'export'])->name('borrowings-report.export');
 });
