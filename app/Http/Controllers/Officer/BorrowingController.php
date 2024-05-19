@@ -16,37 +16,9 @@ class BorrowingController extends Controller
      */
     public function index()
     {
-        $query = Borrowing::query();
+        $query = Borrowing::filter();
 
-        $query->when(request()->filled('date'), function ($q) {
-            return $q->whereDate('date', request('date'));
-        });
-
-        $query->when(request()->filled('status'), function ($q) {
-            if (request('status') === '1') {
-                return $q->whereNotNull('time_end');
-            }
-
-            return $q->whereNull('time_end');
-        });
-
-        $query->when(request()->filled('student_id'), function ($q) {
-            return $q->where('student_id', request('student_id'));
-        });
-
-        $query->when(request()->filled('validate'), function ($q) {
-            if (request('validate') === '1') {
-                return $q->whereNotNull('officer_id');
-            }
-
-            return $q->whereNull('officer_id');
-        });
-
-        $query->when(request()->filled('commodity_id'), function ($q) {
-            return $q->where('commodity_id', request('commodity_id'));
-        });
-
-        $borrowings = $query->with(['student:id,identification_number,name'], ['commodity:id,name'])
+        $borrowings = $query->with('student:id,identification_number,name', 'commodity:id,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->whereDate('date', now())
             ->orderBy('date', 'DESC')

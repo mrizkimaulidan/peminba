@@ -15,29 +15,7 @@ class BorrowingReportController extends Controller
      */
     public function index()
     {
-        $query = Borrowing::query();
-
-        $query->when(request()->filled('student_id'), function ($q) {
-            return $q->where('student_id', request('student_id'));
-        });
-
-        $query->when(request()->filled('program_study_id'), function ($q) {
-            return $q->whereHas('student', function ($query) {
-                $query->where('program_study_id', request('program_study_id'));
-            });
-        });
-
-        $query->when(request()->filled('school_class_id'), function ($q) {
-            return $q->whereHas('student', function ($query) {
-                $query->whereHas('programStudy', function ($query) {
-                    $query->where('school_class_id', request('school_class_id'));
-                });
-            });
-        });
-
-        $query->when(request()->filled('start_date') && request()->filled('end_date'), function ($q) {
-            return $q->whereBetween('date', [request('start_date'), request('end_date')]);
-        });
+        $query = Borrowing::filter();
 
         $borrowings = $query->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')

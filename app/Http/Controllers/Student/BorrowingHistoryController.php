@@ -13,22 +13,10 @@ class BorrowingHistoryController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $query = Borrowing::query()
+        $query = Borrowing::filter()
             ->where('student_id', auth('student')->id())
             ->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name')
             ->orderByDesc('date');
-
-        $query->when($request->filled('date'), function ($q) use ($request) {
-            return $q->whereDate('date', $request->date);
-        });
-
-        $query->when($request->filled('status'), function ($q) use ($request) {
-            if ($request->status === '1') {
-                return $q->whereNotNull('time_end');
-            }
-
-            return $q->whereNull('time_end');
-        });
 
         $borrowings = $query
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
