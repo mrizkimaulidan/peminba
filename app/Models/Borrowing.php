@@ -21,9 +21,21 @@ class Borrowing extends Model
         // Define filter conditions
         $conditions = [
             'date' => fn ($q, $value) => $q->whereDate('date', $value),
-            'status' => fn ($q, $value) => $q->whereNotNull('time_end', $value === '1'),
+            'status' => function ($q, $value) {
+                if ($value === '1') {
+                    return $q->whereNotNull('time_end');
+                }
+
+                return $q->whereNull('time_end');
+            },
             'student_id' => fn ($q, $value) => $q->where('student_id', $value),
-            'validate' => fn ($q, $value) => $q->whereNotNull('officer_id', $value === '1'),
+            'validate' => function ($q, $value) {
+                if ($value === '1') {
+                    return $q->whereNotNull('officer_id');
+                }
+
+                return $q->whereNull('officer_id');
+            },
             'commodity_id' => fn ($q, $value) => $q->where('commodity_id', $value),
             'program_study_id' => fn ($q, $value) => $q->whereHas('student', fn ($query) => $query->where('program_study_id', $value)),
             'school_class_id' => fn ($q, $value) => $q->whereHas('student.programStudy', fn ($query) => $query->where('school_class_id', $value)),
