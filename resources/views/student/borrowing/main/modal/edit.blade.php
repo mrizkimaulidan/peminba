@@ -67,11 +67,11 @@
                     <label for="commodity_id" class="form-label">Nama Komoditas</label>
                     <select class="form-select" name="commodity_id" id="commodity_id">
                       <option selected>Pilih..</option>
-                      @foreach ($commoditiesCanBorrowed as $commodity)
+                      @foreach ($availableCommodities as $commodity)
                       <option value="{{ $commodity->id }}">{{ $commodity->name }}</option>
                       @endforeach
 
-                      @foreach ($commoditiesCannotBeBorrowed as $commodity)
+                      @foreach ($unavailableCommodities as $commodity)
                       <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }} - Sedang dipinjam</option>
                       @endforeach
                     </select>

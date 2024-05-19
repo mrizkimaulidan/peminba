@@ -15,17 +15,17 @@
                 <select class="form-select @error('commodity_id', 'store') is-invalid @enderror" name="commodity_id"
                   id="commodity_id" required>
                   <option value="" selected>Pilih..</option>
-                  @foreach ($commoditiesCanBorrowed as $commodity)
+                  @foreach ($availableCommodities as $commodity)
                   <option value="{{ $commodity->id }}" {{ old('commodity_id')===(string)$commodity->id ?
                     'selected' :
                     '' }}>{{ $commodity->name }}</option>
                   @endforeach
 
-                  @if(count($commoditiesCannotBeBorrowed) > 1)
+                  @if(count($unavailableCommodities) > 1)
                   <option disabled>&#9866;</option>
                   @endif
 
-                  @foreach ($commoditiesCannotBeBorrowed as $commodity)
+                  @foreach ($unavailableCommodities as $commodity)
                   <option value="{{ $commodity->id }}" disabled>{{ $commodity->name }} - Sedang dipinjam</option>
                   @endforeach
                 </select>
