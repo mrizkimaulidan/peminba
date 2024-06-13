@@ -10,7 +10,7 @@
 
     $('.datatable').on('click', '.editOfficerButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.users.show', 'param') }}";
+      let showURL = "{{ route('api.v1.officers.show', 'param') }}";
       let updateURL = "{{ route('administrators.officers.update', 'param') }}";
       showURL = showURL.replace('param', id);
       updateURL = updateURL.replace('param', id);

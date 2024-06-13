@@ -27,15 +27,31 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
                 <th scope="col">Nomor Handphone</th>
+                <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($officers as $user)
+              @foreach ($officers as $officer)
               <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->phone_number }}</td>
+                <td>{{ $officer->name }}</td>
+                <td>{{ $officer->email }}</td>
+                <td>{{ $officer->phone_number }}</td>
+                <td>
+                  <div class="btn-group gap-1">
+                    <button type="button" class="btn btn-sm btn-success editOfficerButton" data-bs-toggle="modal"
+                      data-id="{{ $officer->id }}" data-bs-target="#editOfficerModal">
+                      <i class="bi bi-pencil-fill"></i>
+                    </button>
+
+                    <form action="{{ route('administrators.officers.destroy', $officer) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
+                          class="bi bi-trash-fill"></i></button>
+                    </form>
+                  </div>
+                </td>
               </tr>
               @endforeach
             </tbody>

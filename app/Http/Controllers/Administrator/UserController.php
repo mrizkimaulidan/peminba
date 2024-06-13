@@ -36,4 +36,29 @@ class UserController extends Controller
 
         return redirect()->route('administrators.users.index')->with('success', 'Data berhasil ditambahkan!');
     }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Administrator $user)
+    {
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => !is_null($request->password) ? bcrypt($request->password) : $user->password,
+            'phone_number' => $request->phone_number,
+        ]);
+
+        return redirect()->route('administrators.users.index')->with('success', 'Data berhasil diubah!');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Administrator $user)
+    {
+        $user->delete();
+
+        return redirect()->route('administrators.users.index')->with('success', 'Data berhasil dihapus!');
+    }
 }
