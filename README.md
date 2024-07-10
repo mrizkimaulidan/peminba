@@ -1,92 +1,91 @@
 # Peminba
 
-Aplikasi peminjaman barang jurusan menggunakan Framework Laravel 10. Aplikasi ini memiliki 3 role, yaitu _Administrator Jurusan_, _Petugas Jurusan_ dan _Mahasiswa_.
-Beberapa CRUD menggunakan AJAX untuk pengambilan data agar mengurangi penggunaan perpindahan halaman.
+Aplikasi peminjaman barang jurusan menggunakan Framework Laravel 10. Aplikasi ini memiliki 3 role, yaitu _Administrator Jurusan_, _Petugas Jurusan_, dan _Mahasiswa_.
 
-Setiap role memiliki tampilan halaman yang berbeda-beda sesuai dengan hak akses masing-masing.
+Beberapa CRUD menggunakan AJAX untuk pengambilan data agar mengurangi penggunaan perpindahan halaman. Setiap role memiliki tampilan halaman yang berbeda-beda sesuai dengan hak akses masing-masing.
 
 ### Demo
 
--   https://demo.peminba.mrizkimaulidan.my.id/login
+- Demo Aplikasi (https://demo.peminba.mrizkimaulidan.my.id/login)
 
 ### Prasyarat
 
 Berikut beberapa hal yang perlu diinstal terlebih dahulu:
 
--   Composer (https://getcomposer.org/)
--   PHP ^8.1
--   MySQL 15.x
--   NPM ^21.x (https://nodejs.org/)
--   XAMPP
+- Composer (https://getcomposer.org/)
+- PHP ^8.1
+- MySQL 15.x
+- NodeJS ^20.x (https://nodejs.org/)
+- XAMPP (https://www.apachefriends.org/)
 
-Jika Anda menggunakan XAMPP, untuk PHP dan MySQL sudah menjadi 1 (bundle) di dalam aplikasi XAMPP.
+Jika Anda menggunakan XAMPP, PHP, dan MySQL sudah menjadi satu paket di dalam aplikasi XAMPP.
 
 ### Fitur
 
--   CRUD Komoditas
--   CRUD Program Studi
--   CRUD Kelas
--   CRUD Mata Kuliah
--   Informasi peminjaman barang dari mahasiswa
--   CRUD Mahasiswa
--   CRUD Administrator
--   Pengaturan Profil
+- CRUD Komoditas
+- CRUD Program Studi
+- CRUD Kelas
+- Informasi peminjaman barang dari mahasiswa
+- CRUD Administrator
+- CRUD Petugas
+- CRUD Mahasiswa
+- Pengaturan Profil
 
 ### Preview Gambar
 
-_Tampilan Login_
-![Image 1](https://i.imgur.com/IVw0yEt.png)
+**Tampilan Login**
+![Image 1](https://i.imgur.com/yZedz59.png)
 
-_Beranda_
-![Image 2](https://i.imgur.com/jE1zjU6.png)
+**Beranda**
+![Image 2](https://i.imgur.com/PYaECYV.png)
 
-_Daftar Komoditas_
-![Image 3](https://i.imgur.com/XJyjXtY.png)
+**Daftar Komoditas**
+![Image 3](https://i.imgur.com/QiGUFAw.png)
 
-_Daftar Program Studi_
-![Image 4](https://i.imgur.com/tT27eOD.png)
+**Daftar Program Studi**
+![Image 4](https://i.imgur.com/nWGga19.png)
 
-_Daftar Kelas_
-![Image 5](https://i.imgur.com/a8mVjTg.png)
+**Daftar Kelas**
+![Image 5](https://i.imgur.com/9WFsQ94.png)
 
-_Daftar Mata Kuliah_
-![Image 6](https://i.imgur.com/tPHMiDC.png)
+**Daftar Peminjaman Hari Ini**
+![Image 6](https://i.imgur.com/k9mYfTP.png)
 
-_Daftar Peminjaman Hari Ini_
-![Image 7](https://i.imgur.com/8CPC8CI.png)
+**Daftar Riwayat Peminjaman**
+![Image 7](https://i.imgur.com/TTmCGB5.png)
 
-_Daftar Riwayat Peminjaman_
-![Image 8](https://i.imgur.com/uCj0WZd.png)
+**Daftar Laporan Peminjaman**
+![Image 8](https://i.imgur.com/EkgmF6t.png)
 
-_Daftar Laporan Peminjaman_
-![Image 9](https://i.imgur.com/o62NK8n.png)
+**Daftar Administrator**
+![Image 9](https://i.imgur.com/Orxeb1C.png)
 
-_Daftar Mahasiswa_
-![Image 10](https://i.imgur.com/sysJ3Ty.png)
+**Daftar Petugas**
+![Image 10](https://i.imgur.com/6JKU7E6.png)
 
-_Daftar Administrator_
-![Image 11](https://i.imgur.com/hShsruk.png)
+**Daftar Mahasiswa**
+![Image 11](https://i.imgur.com/sg3patg.png)
 
-_Pengaturan Profil_
-![Image 12](https://i.imgur.com/SCQQjom.png)
+**Pengaturan Profil**
+![Image 12](https://i.imgur.com/49qmxoF.png)
 
-### Langkah-langkah instalasi
+### Langkah-langkah Instalasi
 
--   Clone repository ini
+1. Clone repository ini dengan memilih tipe protokol HTTPS atau SSH. Jika belum memiliki setup SSH, bisa menggunakan HTTPS.
 
-HTTPS:
+**HTTPS:**
 
 ```bash
 $ git clone https://github.com/mrizkimaulidan/peminba.git
 ```
 
-SSH:
+**SSH:**
 
 ```bash
 $ git clone git@github.com:mrizkimaulidan/peminba.git
 ```
 
--   Install seluruh packages yang dibutuhkan
+2. Instal seluruh packages yang dibutuhkan.
 
 ```bash
 $ npm install
@@ -96,15 +95,28 @@ $ npm install
 $ composer install
 ```
 
--   Siapkan database dan atur file `.env` sesuai dengan konfigurasi Anda
--   Ubah value `APP_NAME=` pada file `.env` menjadi nama aplikasi yang anda inginkan
--   Jika sudah, migrate seluruh migrasi dan seeding data
+3. Siapkan database dan atur value pada file `.env` sesuai dengan konfigurasi Anda.
+
+
+```bash
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
+
+4. Ubah value  `APP_NAME=` pada file `.env` menjadi nama aplikasi yang Anda inginkan.
+
+```bash
+APP_NAME=
+```
+
+5. Migrate seluruh migrasi dan seeding data palsu.
 
 ```bash
 $ php artisan migrate:fresh --seed
 ```
 
--   Generate IDE Helper
+6. Generate IDE Helper (opsional jika ingin melakukan development)
 
 ```bash
 $ php artisan ide-helper:generate
@@ -114,45 +126,51 @@ $ php artisan ide-helper:generate
 $ php artisan ide-helper:models
 ```
 
--   Jalankan local server
+7. Jalankan local server
 
 ```bash
 $ php artisan serve
 ```
 
--   User default aplikasi untuk login
+```bash
+INFO  Server running on [http://127.0.0.1:8000].  
 
-##### Administrator Jurusan
-
-```
-Email       : admin@mail.com
-Password    : secret
+Press Ctrl+C to stop the server
 ```
 
-##### Petugas Jurusan
+### User default aplikasi untuk login
 
-```
-Email       : petugas@mail.com
-Password    : secret
+**Admin Jurusan**
+
+```bash
+Email   : admin@mail.com
+Pass    : secret
 ```
 
-##### Mahasiswa
+**Petugas Jurusan**
 
+```bash
+Email   : petugas@mail.com
+Pass    : secret
 ```
-Email       : mahasiswa@mail.com
-Password    : secret
+
+**Mahasiswa**
+
+```bash
+Email   : mahasiswa@mail.com
+Pass    : secret
 ```
 
 ### Dibuat dengan
 
--   [Laravel](https://laravel.com) - Web Framework
+- Laravel (https://laravel.com/)
 
 ### Kontribusi
 
-Silahkan request melalui kolom `Pull Requests` jika ingin melakukan kontribusi
+Silakan request melalui kolom `Pull Requests` jika ingin melakukan kontribusi.
 
 ### Lisensi
 
 Aplikasi ini boleh untuk dibagi dan diubah. Mohon tidak untuk diperjualbelikan!
 
-**@Muhammad Rizki Maulidan** - [@mrizkimaulidan](https://github.com/mrizkimaulidan)
+Muhammad Rizki Maulidan - [@mrizkimaulidan](https://github.com/mrizkimaulidan)
