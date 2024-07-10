@@ -30,13 +30,19 @@
               <div class="col-md-6 col-lg-6">
                 <div class="mb-3">
                   <label class="form-label">Program Studi</label>
-                  <input class="form-control" id="program_study_name" disabled>
+                  <div class="input-group">
+                    <span class="d-block input-group-text"><i class="bi bi-bookmarks-fill"></i></span>
+                    <input class="form-control" id="program_study_name" disabled>
+                  </div>
                 </div>
               </div>
               <div class="col-md-6 col-lg-6">
                 <div class="mb-3">
                   <label class="form-label">Kelas</label>
-                  <input class="form-control" id="school_class_name" disabled>
+                  <div class="input-group">
+                    <span class="d-block input-group-text"><i class="bi bi-building-fill"></i></span>
+                    <input class="form-control" id="school_class_name" disabled>
+                  </div>
                 </div>
               </div>
             </div>
@@ -59,16 +65,25 @@
               Data di bawah adalah detail data peminjaman.
             </div>
             <div class="row">
-              <div class="col-md-12 col-lg-6">
+              <div class="col-md-12 col-lg-12">
                 <div class="mb-3">
                   <label class="form-label">Nama Komoditas</label>
-                  <input class="form-control" id="commodity_name" disabled>
+                  <div class="input-group">
+                    <span class="d-block input-group-text"><i class="bi bi-collection-fill"></i></span>
+                    <input class="form-control" id="commodity_name" disabled>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-12 col-lg-6">
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
                 <div class="mb-3">
-                  <label class="form-label">Pada Mata Kuliah</label>
-                  <input class="form-control" id="subject_name" disabled>
+                  <label class="form-label">Tanggal</label>
+                  <div class="input-group">
+                    <span class="d-block input-group-text"><i class="bi bi-calendar-fill"></i></span>
+                    <input class="form-control" id="date" disabled>
+                  </div>
                 </div>
               </div>
             </div>
@@ -107,7 +122,7 @@
               <div class="col-md-12">
                 <div class="mb-3">
                   <label class="form-label">Catatan</label>
-                  <textarea class="form-control" id="note" disabled></textarea>
+                  <textarea class="form-control" id="note" disabled style="height: 100px"></textarea>
                 </div>
               </div>
             </div>

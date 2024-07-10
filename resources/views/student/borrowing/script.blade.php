@@ -2,8 +2,8 @@
   $(function() {
     $('.datatable').on('click', '.showBorrowingButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.borrowings.show', 'id') }}";
-      showURL = showURL.replace('id', id);
+      let showURL = "{{ route('api.v1.borrowings.show', ':paramID') }}";
+      showURL = showURL.replace(':paramID', id);
 
       let input = $('#detailBorrowingModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');
@@ -19,7 +19,7 @@
           $('#detailBorrowingModal #school_class_name').val(res.data.student.schoolClass);
 
           $('#detailBorrowingModal #commodity_name').val(res.data.commodity.name);
-          $('#detailBorrowingModal #subject_name').val(res.data.subject.name);
+          $('#detailBorrowingModal #date').val(res.data.date);
           $('#detailBorrowingModal #time_start').val(res.data.timeStart);
           $('#detailBorrowingModal #time_end').val(res.data.timeEnd);
           $('#detailBorrowingModal #is_returned').val(res.data.isReturned);
@@ -41,10 +41,10 @@
 
     $('.datatable').on('click', '.editBorrowingButton', function (e) {
       let id = $(this).data('id');
-      let showURL = "{{ route('api.v1.borrowings.show', 'param') }}";
-      let updateURL = "{{ route('students.borrowings.update', 'param') }}";
-      showURL = showURL.replace('param', id);
-      updateURL = updateURL.replace('param', id);
+      let showURL = "{{ route('api.v1.borrowings.show', ':paramID') }}";
+      let updateURL = "{{ route('students.borrowings.update', ':paramID') }}";
+      showURL = showURL.replace(':paramID', id);
+      updateURL = updateURL.replace(':paramID', id);
 
       let input = $('#editBorrowingModal :input').not('[type=hidden]').not('.btn-close').not('.close-button').not('[type=submit]');
       input.val('Sedang mengambil data..');
@@ -60,7 +60,6 @@
           $('#editBorrowingModal #school_class_name').val(res.data.student.schoolClass);
 
           $('#editBorrowingModal #commodity_id').val(res.data.commodity.id);
-          $('#editBorrowingModal #subject_id').val(res.data.subject.id);
           $('#editBorrowingModal #time_start').val(res.data.timeStart);
           $('#editBorrowingModal #time_end').val(res.data.timeEnd);
           $('#editBorrowingModal #is_returned').val(res.data.isReturned);

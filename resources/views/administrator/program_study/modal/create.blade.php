@@ -11,10 +11,10 @@
           <div class="row">
             <div class="col-12">
               <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
+                <label for="name" class="form-label">Nama Program Studi</label>
                 <input type="name" name="name" id="name"
                   class="form-control @error('name', 'store') is-invalid @enderror" @if($errors->hasBag('store'))
-                value="{{ old('name') }}" @endif placeholder="Masukkan nama.." required>
+                value="{{ old('name') }}" @endif placeholder="Masukkan nama program studi.." required>
                 @error('name', 'store')
                 <div class="d-block invalid-feedback">
                   {{ $message }}

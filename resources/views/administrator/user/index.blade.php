@@ -28,6 +28,7 @@
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
                 <th scope="col">Nomor Handphone</th>
+                <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -37,6 +38,21 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->phone_number }}</td>
+                <td>
+                  <div class="btn-group gap-1">
+                    <button type="button" class="btn btn-sm btn-success editAdministratorButton" data-bs-toggle="modal"
+                      data-id="{{ $user->id }}" data-bs-target="#editAdministratorModal">
+                      <i class="bi bi-pencil-fill"></i>
+                    </button>
+
+                    <form action="{{ route('administrators.users.destroy', $user) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger btn-delete"><i
+                          class="bi bi-trash-fill"></i></button>
+                    </form>
+                  </div>
+                </td>
               </tr>
               @endforeach
             </tbody>

@@ -10,7 +10,10 @@
           @csrf
           <div class="alert alert-warning">
             <h5>Perhatian!</h5> Jika terdapat data yang duplikat pada file excel terhadap data yang ada di dalam basis
-            data, maka data tersebut akan dihiraukan oleh sistem.
+            data, maka data tersebut akan dihiraukan oleh sistem. Berikut template excel dengan klik
+            <a href="{{ asset('import-komoditas-template.xlsx') }}" class="alert-link"><i class="bi bi-download"></i>
+              di
+              sini</a>
           </div>
 
           <div class="mb-3">

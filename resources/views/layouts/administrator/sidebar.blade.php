@@ -32,13 +32,6 @@
       </a>
     </li>
 
-    <li class="sidebar-item {{ request()->routeIs('administrators.subjects.*') ? 'active' : '' }}">
-      <a href="{{ route('administrators.subjects.index') }}" class="sidebar-link">
-        <i class="bi bi-book-half"></i>
-        <span>Mata Kuliah</span>
-      </a>
-    </li>
-
     <li class="sidebar-item has-sub">
       <a href="#" class="sidebar-link">
         <i class="bi bi-stack"></i>
@@ -70,6 +63,13 @@
       <a href="{{ route('administrators.users.index') }}" class="sidebar-link">
         <i class="bi bi-person-badge-fill"></i>
         <span>Administrator</span>
+      </a>
+    </li>
+
+    <li class="sidebar-item {{ request()->routeIs('administrators.officers.*') ? 'active' : '' }}">
+      <a href="{{ route('administrators.officers.index') }}" class="sidebar-link">
+        <i class="bi bi-person-badge-fill"></i>
+        <span>Petugas</span>
       </a>
     </li>
 

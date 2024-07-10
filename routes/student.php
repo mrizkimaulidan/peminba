@@ -4,6 +4,7 @@ use App\Http\Controllers\Student\BorrowingController;
 use App\Http\Controllers\Student\BorrowingHistoryController;
 use App\Http\Controllers\Student\DashboardController;
 use App\Http\Controllers\Student\ProfileSettingController;
+use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:student')->name('students.')->prefix('student')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');

@@ -19,6 +19,24 @@ class Student extends Authenticatable
         'password', 'phone_number',
     ];
 
+    public function scopeFilter($query)
+    {
+        // Define filter conditions
+        $conditions = [
+            'program_study_id' => fn ($q, $value) => $q->where('program_study_id', $value),
+            'school_class_id' => fn ($q, $value) => $q->where('school_class_id', $value)
+        ];
+
+        // Apply filter conditions based on request parameters
+        foreach ($conditions as $parameter => $condition) {
+            if (request()->filled($parameter)) {
+                $query = $condition($query, request($parameter));
+            }
+        }
+
+        return $query;
+    }
+
     public function programStudy(): HasOne
     {
         return $this->hasOne(ProgramStudy::class, 'id', 'program_study_id');

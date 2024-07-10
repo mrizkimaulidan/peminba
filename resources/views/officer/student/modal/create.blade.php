@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5">Tambah Data</h1>
+        <h1 class="modal-title fs-5">Tambah Mahasiswa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -11,11 +11,11 @@
           <div class="row">
             <div class="col-md-12 col-lg-4">
               <div class="mb-3">
-                <label for="identification_number" class="form-label">NIM</label>
+                <label for="identification_number" class="form-label">NIM Mahasiswa</label>
                 <input type="number" name="identification_number"
                   class="form-control @error('identification_number', 'store') is-invalid @enderror"
                   @if($errors->hasBag('store'))
-                value="{{ old('identification_number') }}" @endif placeholder="Masukkan nim.." required>
+                value="{{ old('identification_number') }}" @endif placeholder="Masukkan nim mahasiswa.." required>
                 @error('identification_number', 'store')
                 <div class="d-block invalid-feedback">
                   {{ $message }}
@@ -25,10 +25,10 @@
             </div>
             <div class="col-md-12 col-lg-8">
               <div class="mb-3">
-                <label for="name" class="form-label">Nama</label>
+                <label for="name" class="form-label">Nama Mahasiswa</label>
                 <input type="text" name="name" class="form-control @error('name', 'store') is-invalid @enderror"
                   @if($errors->hasBag('store'))
-                value="{{ old('name') }}" @endif placeholder="Masukkan nama.." required>
+                value="{{ old('name') }}" @endif placeholder="Masukkan nama mahasiswa.." required>
                 @error('name', 'store')
                 <div class="d-block invalid-feedback">
                   {{ $message }}
@@ -81,12 +81,12 @@
           </div>
           <div class="row">
             <div class="col">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">Alamat Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
                 <input type="email" name="email" class="form-control @error('email', 'store') is-invalid @enderror"
                   @if($errors->hasBag('store'))
-                value="{{ old('email') }}" @endif placeholder="Masukkan email.." required>
+                value="{{ old('email') }}" @endif placeholder="Masukkan alamat email.." required>
                 @error('email', 'store')
                 <div class="d-block invalid-feedback">
                   {{ $message }}

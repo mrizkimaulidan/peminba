@@ -27,12 +27,12 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label">Alamat Email</label>
               <div class="input-group mb-3">
                 <span class="d-block input-group-text"><i class="bi bi-envelope-at-fill"></i></span>
                 <input type="email" name="email" id="email"
-                  class="form-control @error('email', 'store') is-invalid @enderror" placeholder="Masukkan email.."
-                  @if($errors->hasBag('store'))
+                  class="form-control @error('email', 'store') is-invalid @enderror"
+                  placeholder="Masukkan alamat email.." @if($errors->hasBag('store'))
                 value="{{ old('email') }}" @endif required>
                 @error('email', 'store')
                 <div class="d-block invalid-feedback">

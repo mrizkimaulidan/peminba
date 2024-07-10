@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Administrator;
 
 use App\Http\Controllers\Controller;
 use App\Models\Borrowing;
+use App\Models\ProgramStudy;
+use App\Models\SchoolClass;
+use App\Models\Student;
 
 class BorrowingReportController extends Controller
 {
@@ -12,17 +15,25 @@ class BorrowingReportController extends Controller
      */
     public function index()
     {
-        $query = Borrowing::query();
-
-        $query->when(request()->has('start_date') && request()->has('end_date'), function ($q) {
-            return $q->whereBetween('date', [request('start_date'), request('end_date')]);
-        });
+        $query = Borrowing::filter();
 
         $borrowings = $query->with('commodity:id,name', 'student:id,identification_number,name', 'officer:id,name')
             ->select('id', 'commodity_id', 'student_id', 'officer_id', 'date', 'time_start', 'time_end')
             ->orderBy('date', 'DESC')
             ->get();
 
-        return view('administrator.borrowing.report.index', compact('borrowings'));
+        $students = Student::select('id', 'identification_number', 'name')->orderBy('identification_number')->get();
+        $programStudies = ProgramStudy::select('id', 'name')->orderBy('name')->get();
+        $schoolClasses = SchoolClass::select('id', 'name')->orderBy('name')->get();
+
+        return view(
+            'administrator.borrowing.report.index',
+            compact(
+                'borrowings',
+                'students',
+                'programStudies',
+                'schoolClasses'
+            )
+        );
     }
 }

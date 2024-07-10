@@ -26,7 +26,6 @@ class BorrowingFactory extends Factory
         return [
             'commodity_id' => Commodity::inRandomOrder()->first()->id,
             'student_id' => Student::inRandomOrder()->first()->id,
-            'subject_id' => Subject::inRandomOrder()->first()->id,
             'officer_id' => $timeEnd !== null ? $officerID : null,
             'date' => now()->createFromDate(mt_rand(2010, now()->year), mt_rand(1, 12), mt_rand(1, 31)),
             'time_start' => now()->createFromTime(mt_rand(1, 24), mt_rand(1, 59), mt_rand(1, 59)),

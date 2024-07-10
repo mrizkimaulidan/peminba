@@ -26,11 +26,11 @@ class UpdateStudentRequest extends FormRequest
         return [
             'program_study_id' => 'required|min:1|exists:program_studies,id',
             'school_class_id' => 'required|min:1|exists:school_classes,id',
-            'identification_number' => 'required|numeric|unique:students,identification_number,'.$this->student->id.'|digits_between:3,255',
+            'identification_number' => 'required|numeric|unique:students,identification_number,' . $this->student->id . '|digits_between:3,255',
             'name' => 'required|string|min:3|max:255',
-            'email' => 'required|email|unique:students,email,'.$this->student->id.'|min:3|max:255',
+            'email' => 'required|email|unique:students,email,' . $this->student->id . '|min:3|max:255',
             'password' => 'nullable|confirmed|min:3|max:255',
-            'phone_number' => 'required|numeric|unique:students,phone_number,'.$this->student->id.'|digits_between:3,255',
+            'phone_number' => 'required|numeric|unique:students,phone_number,' . $this->student->id . '|digits_between:3,255',
         ];
     }
 
@@ -50,21 +50,21 @@ class UpdateStudentRequest extends FormRequest
             'school_class_id.min' => 'Kolom kelas tidak valid!',
             'school_class_id.exists' => 'Kolom kelas tidak valid!',
 
-            'identification_number.required' => 'Kolom NIM wajib diisi!',
-            'identification_number.numeric' => 'Kolom NIM harus berupa angka!',
-            'identification_number.unique' => 'NIM sudah terdaftar!',
-            'identification_number.digits_between' => 'Kolom NIM minimal :min karakter dan maksimal :max karakter!',
+            'identification_number.required' => 'Kolom NIM mahasiswa wajib diisi!',
+            'identification_number.numeric' => 'Kolom NIM mahasiswa harus berupa angka!',
+            'identification_number.unique' => 'NIM mahasiswa sudah terdaftar!',
+            'identification_number.digits_between' => 'Kolom NIM mahasiswa minimal :min karakter dan maksimal :max karakter!',
 
-            'name.required' => 'Kolom nama wajib diisi!',
-            'name.string' => 'Kolom nama harus berupa karakter!',
-            'name.min' => 'Kolom nama minimal :min karakter!',
-            'name.max' => 'Kolom nama maksimal :max karakter!',
+            'name.required' => 'Kolom nama mahasiswa wajib diisi!',
+            'name.string' => 'Kolom nama mahasiswa harus berupa karakter!',
+            'name.min' => 'Kolom nama mahasiswa minimal :min karakter!',
+            'name.max' => 'Kolom nama mahasiswa maksimal :max karakter!',
 
-            'email.required' => 'Kolom email wajib diisi!',
-            'email.email' => 'Kolom email wajib email yang valid!',
-            'email.unique' => 'Email sudah terdaftar!',
-            'email.min' => 'Kolom email minimal :min karakter!',
-            'email.max' => 'Kolom email maksimal :max karakter!',
+            'email.required' => 'Kolom alamat email wajib diisi!',
+            'email.email' => 'Kolom alamat email wajib email yang valid!',
+            'email.unique' => 'Alamat email sudah terdaftar!',
+            'email.min' => 'Kolom alamat email minimal :min karakter!',
+            'email.max' => 'Kolom alamat email maksimal :max karakter!',
 
             'password.required' => 'Kolom password wajib diisi!',
             'password.confirmed' => 'Kolom konfirmasi password tidak sesuai!',

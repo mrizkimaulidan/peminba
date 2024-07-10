@@ -17,7 +17,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach ($commoditiesCanBorrowed as $commodity)
+                @foreach ($availableCommodities as $commodity)
                 <tr>
                   <th>{{ $loop->iteration }}</th>
                   <td>{{ $commodity->name }}</td>

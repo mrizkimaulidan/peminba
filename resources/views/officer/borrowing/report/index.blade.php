@@ -10,10 +10,52 @@
         <h4 class="card-title">@yield('title')</h4>
       </div>
       <div class="card-body">
-        <form action="" method="GET">
+        <x-filter-menu>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="student_id" class="form-label">Mahasiswa:</label>
+                <select name="student_id" id="student_id" class="form-select">
+                  <option value="">Pilih mahasiswa..</option>
+                  @foreach ($students as $student)
+                  <option value="{{ $student->id }}" @selected(request('student_id')==$student->id)>{{
+                    $student->identification_number }} - {{ $student->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="program_study_id" class="form-label">Program Studi:</label>
+                <select name="program_study_id" id="program_study_id" class="form-select">
+                  <option value="">Pilih program studi..</option>
+                  @foreach ($programStudies as $programStudy)
+                  <option value="{{ $programStudy->id }}" @selected(request('program_study_id')==$programStudy->id)>{{
+                    $programStudy->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label for="school_class_id" class="form-label">Kelas:</label>
+                <select name="school_class_id" id="school_class_id" class="form-select">
+                  <option value="">Pilih kelas..</option>
+                  @foreach ($schoolClasses as $schoolClass)
+                  <option value="{{ $schoolClass->id }}" @selected(request('school_class_id')==$schoolClass->id)>{{
+                    $schoolClass->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-md-6">
-              <div class="my-3">
+              <div class="mb-3">
                 <label for="start_date">Tanggal Awal:</label>
               </div>
               <div class="input-group">
@@ -26,8 +68,8 @@
             </div>
 
             <div class="col-md-6">
-              <div class="my-3">
-                <label for="end_date">Tanggal Akhir</label>
+              <div class="mb-3">
+                <label for="end_date">Tanggal Akhir:</label>
               </div>
               <div class="input-group">
                 <span class="input-group-text">
@@ -38,18 +80,22 @@
               </div>
             </div>
           </div>
-          <div class="d-flex pt-3 pb-3">
-            <button type="submit" class="btn btn-primary flex-fill">Cari</button>
-          </div>
-        </form>
-        @if(request('start_date') && request('end_date') !== NULL)
+
+          <x-slot name="resetButtonURL">{{ route('officers.borrowings-report.index') }}</x-slot>
+        </x-filter-menu>
+
         <div class="d-flex flex-row-reverse pb-3">
-          <a href="{{ route('officers.borrowings-report.export', [request('start_date'), request('end_date')]) }}"
-            class="btn btn-success" data-bs-toggle="tooltip" data-bs-title="Export excel">
-            <i class="bi bi-file-earmark-excel-fill"></i>
-          </a>
+          <form action="{{ route('officers.borrowings-report.export') }}" method="POST">
+            @csrf
+            <input type="hidden" name="start_date" value="{{ request('start_date') }}">
+            <input type="hidden" name="end_date" value="{{ request('end_date') }}">
+            <input type="hidden" name="program_study_id" value="{{ request('program_study_id') }}">
+            <input type="hidden" name="student_id" value="{{ request('student_id') }}">
+            <input type="hidden" name="school_class_id" value="{{ request('school_class_id') }}">
+            <button class="btn btn-success" type="submit"><i class="bi bi-file-earmark-excel-fill"></i></button>
+          </form>
         </div>
-        @endif
+
         <div class="table-responsive">
           <table class="table datatable">
             <thead>
@@ -74,7 +120,7 @@
                     $borrowing->student->name }}</span>
                 </th>
                 <td>{{ $borrowing->commodity->name }}</td>
-                <td>{{ $borrowing->date }}</td>
+                <td>{{ $borrowing->getDateFormatted() }}</td>
                 <td>
                   <span class="badge text-bg-secondary">
                     <i class="bi bi-clock-fill"></i>

@@ -12,7 +12,7 @@ class BorrowingSeeder extends Seeder
      */
     public function run(): void
     {
-        $borrowings = Borrowing::factory(500)->make()->toArray();
+        $borrowings = Borrowing::factory(1000)->make()->toArray();
 
         $recordsToInsert = [];
         foreach ($borrowings as $borrowing) {

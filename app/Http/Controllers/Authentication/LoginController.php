@@ -22,24 +22,31 @@ class LoginController extends Controller
      */
     public function authenticate(LoginRequest $request): RedirectResponse
     {
-        $credentials = $request->validated();
+        $credentials = $request->only('email', 'password');
+        $type = $request->type;
 
-        if (auth('administrator')->attempt($credentials)) {
-            $request->session()->regenerate();
+        if ($type === 'administrator') {
+            if (auth('administrator')->attempt($credentials)) {
+                $request->session()->regenerate();
 
-            return redirect()->route('administrators.dashboard');
+                return redirect()->route('administrators.dashboard');
+            }
         }
 
-        if (auth('officer')->attempt($credentials)) {
-            $request->session()->regenerate();
+        if ($type === 'officer') {
+            if (auth('officer')->attempt($credentials)) {
+                $request->session()->regenerate();
 
-            return redirect()->route('officers.dashboard');
+                return redirect()->route('officers.dashboard');
+            }
         }
 
-        if (auth('student')->attempt($credentials)) {
-            $request->session()->regenerate();
+        if ($type === 'student') {
+            if (auth('student')->attempt($credentials)) {
+                $request->session()->regenerate();
 
-            return redirect()->route('students.dashboard');
+                return redirect()->route('students.dashboard');
+            }
         }
 
         return redirect()->route('login')->with('authentication', 'Email atau password salah!')->withInput();

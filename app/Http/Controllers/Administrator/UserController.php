@@ -45,7 +45,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => is_null($request->password) ? $user->password : bcrypt($request->password),
+            'password' => !is_null($request->password) ? bcrypt($request->password) : $user->password,
             'phone_number' => $request->phone_number,
         ]);
 

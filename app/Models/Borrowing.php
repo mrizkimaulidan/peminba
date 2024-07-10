@@ -16,6 +16,43 @@ class Borrowing extends Model
         'date', 'note', 'time_start', 'time_end',
     ];
 
+    public function scopeFilter($query)
+    {
+        // Define filter conditions
+        $conditions = [
+            'date' => fn ($q, $value) => $q->whereDate('date', $value),
+            'status' => function ($q, $value) {
+                if ($value === '1') {
+                    return $q->whereNotNull('time_end');
+                }
+
+                return $q->whereNull('time_end');
+            },
+            'student_id' => fn ($q, $value) => $q->where('student_id', $value),
+            'validate' => function ($q, $value) {
+                if ($value === '1') {
+                    return $q->whereNotNull('officer_id');
+                }
+
+                return $q->whereNull('officer_id');
+            },
+            'commodity_id' => fn ($q, $value) => $q->where('commodity_id', $value),
+            'program_study_id' => fn ($q, $value) => $q->whereHas('student', fn ($query) => $query->where('program_study_id', $value)),
+            'school_class_id' => fn ($q, $value) => $q->whereHas('student.programStudy', fn ($query) => $query->where('school_class_id', $value)),
+            'start_date' => fn ($q, $value) => $q->where('date', '>=', $value),
+            'end_date' => fn ($q, $value) => $q->where('date', '<=', $value),
+        ];
+
+        // Apply filter conditions based on request parameters
+        foreach ($conditions as $parameter => $condition) {
+            if (request()->filled($parameter)) {
+                $query = $condition($query, request($parameter));
+            }
+        }
+
+        return $query;
+    }
+
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
@@ -38,16 +75,21 @@ class Borrowing extends Model
 
     public function getIsReturnedStatus(): string
     {
-        return $this->is_returned ? 'Sudah dikembalikan.' : 'Belum dikembalikan!';
+        return !is_null($this->time_end) ? 'Sudah dikembalikan.' : 'Belum dikembalikan!';
     }
 
     public function getOfficerName(): string
     {
-        return ! is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
+        return !is_null($this->officer_id) ? $this->officer->name : 'Belum divalidasi!';
     }
 
     public function getTimeEnd(): string
     {
         return $this->time_end ?? '-';
+    }
+
+    public function getDateFormatted(): string
+    {
+        return now()->parse($this->date)->locale('id')->translatedFormat('l, j F Y');
     }
 }

@@ -25,6 +25,62 @@
             dipinjam apakah benar sudah dikembalikan.</div>
         </div>
 
+        <x-filter-menu>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="student_id" class="form-label">Mahasiswa:</label>
+                <select name="student_id" id="student_id" class="form-select">
+                  <option value="">Pilih mahasiswa..</option>
+                  @foreach ($students as $student)
+                  <option value="{{ $student->id }}" @selected(request('student_id')==$student->id)>{{
+                    $student->identification_number }} - {{ $student->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="status" class="form-label">Status pengembalian:</label>
+                <select name="status" id="status" class="form-select">
+                  <option value="" @selected(request('status')==='' )>Pilih status pengembalian..</option>
+                  <option value="1" @selected(request('status')==='1' )>Sudah dikembalikan</option>
+                  <option value="0" @selected(request('status')==='0' )>Belum dikembalikan</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="validate" class="form-label">Status validasi:</label>
+                <select name="validate" id="validate" class="form-select">
+                  <option value="" @selected(request('validate')==='' )>Pilih status validasi..</option>
+                  <option value="1" @selected(request('validate')==='1' )>Sudah divalidasi</option>
+                  <option value="0" @selected(request('validate')==='0' )>Belum divalidasi</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label for="commodity_id" class="form-label">Komoditas:</label>
+                <select name="commodity_id" id="commodity_id" class="form-select">
+                  <option value="">Pilih komoditas..</option>
+                  @foreach ($commodities as $commodity)
+                  <option value="{{ $commodity->id }}" @selected(request('commodity_id')==$commodity->id)>{{
+                    $commodity->name }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <x-slot name="resetButtonURL">{{ route('administrators.borrowings.index') }}</x-slot>
+        </x-filter-menu>
+
         <div class="table-responsive">
           <table class="table datatable">
             <thead>
@@ -49,7 +105,7 @@
                     $borrowing->student->name }}</span>
                 </th>
                 <td>{{ $borrowing->commodity->name }}</td>
-                <td>{{ $borrowing->date }}</td>
+                <td>{{ $borrowing->getDateFormatted() }}</td>
                 <td>
                   <span class="badge text-bg-secondary">
                     <i class="bi bi-clock-fill"></i>

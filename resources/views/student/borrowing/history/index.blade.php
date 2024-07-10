@@ -15,7 +15,7 @@
         <div class="alert alert-info" role="alert">
           Tabel di bawah adalah daftar riwayat peminjaman yang sudah dilakukan oleh Anda.
         </div>
-        <form action="" method="GET">
+        <x-filter-menu>
           <div class="row">
             <div class="col-md-6">
               <div class="mb-3">
@@ -48,10 +48,8 @@
             </div>
           </div>
 
-          <div class="d-flex pt-3 pb-3">
-            <button type="submit" class="btn btn-primary flex-fill">Cari</button>
-          </div>
-        </form>
+          <x-slot name="resetButtonURL">{{ route('students.borrowings-history.index') }}</x-slot>
+        </x-filter-menu>
 
         <div class="table-responsive">
           <table class="table datatable">
@@ -77,7 +75,7 @@
                     $borrowing->student->name }}</span>
                 </th>
                 <td>{{ $borrowing->commodity->name }}</td>
-                <td>{{ $borrowing->date }}</td>
+                <td>{{ $borrowing->getDateFormatted() }}</td>
                 <td>
                   <span class="badge text-bg-secondary">
                     <i class="bi bi-clock-fill"></i>

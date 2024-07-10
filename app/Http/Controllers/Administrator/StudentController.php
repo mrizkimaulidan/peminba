@@ -16,15 +16,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $query = Student::query();
-
-        $query->when(request()->filled('program_study_id'), function ($q) {
-            return $q->where('program_study_id', request('program_study_id'));
-        });
-
-        $query->when(request()->filled('school_class_id'), function ($q) {
-            return $q->where('school_class_id', request('school_class_id'));
-        });
+        $query = Student::filter();
 
         $students = $query->with('programStudy:id,name', 'schoolClass:id,name')->select(
             'id',
@@ -73,7 +65,7 @@ class StudentController extends Controller
             'identification_number' => $validated['identification_number'],
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => ! is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
+            'password' => !is_null($validated['password']) ? bcrypt($validated['password']) : $student->password,
             'phone_number' => $validated['phone_number'],
         ]);
 

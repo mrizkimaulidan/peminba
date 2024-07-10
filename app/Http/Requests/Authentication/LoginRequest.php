@@ -24,6 +24,7 @@ class LoginRequest extends FormRequest
         return [
             'email' => 'required|string|email|min:3|max:255',
             'password' => 'required|string|min:3|max:255',
+            'type' => 'required|string'
         ];
     }
 
@@ -45,6 +46,9 @@ class LoginRequest extends FormRequest
             'password.string' => 'Kolom password harus karakter!',
             'password.min' => 'Kolom password minimal :min karakter!',
             'password.max' => 'Kolom password maksimal :max diisi!',
+
+            'type.required' => 'Kolom login sebagai wajib diisi!',
+            'type.string' => 'Kolom login sebagai harus karakter!'
         ];
     }
 }
