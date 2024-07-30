@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('program_study_id')->constrained();
             $table->foreignId('school_class_id')->constrained();
-            $table->string('identification_number')->unique();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone_number')->unique();
+            $table->string('identification_number', 12)->unique();
+            $table->string('name', 30);
+            $table->string('email', 30)->unique();
+            $table->string('password', 100);
+            $table->string('phone_number', 12)->unique();
             $table->timestamps();
             $table->softDeletes();
         });

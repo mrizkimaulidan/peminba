@@ -21,10 +21,10 @@ class StudentFactory extends Factory
             'program_study_id' => fake()->randomElement(ProgramStudy::pluck('id')),
             'school_class_id' => fake()->randomElement(ProgramStudy::pluck('id')),
             'identification_number' => fake()->numberBetween(100000000, 999999999),
-            'name' => fake()->name,
-            'email' => fake()->unique()->email,
+            'name' => substr(fake('id_ID')->name, 0, 30),
+            'email' => substr(fake('id_ID')->unique()->safeEmail, 0, 30),
             'password' => '$2a$12$ChKeJotwLj9A.MQfoaQN6uc1xs5U5CRDNa6yMqmeAi9nIV8iaChj2', // secret
-            'phone_number' => fake()->phoneNumber,
+            'phone_number' => str_replace(['+'], '', fake('id_ID')->numerify('08##########')),
         ];
     }
 }

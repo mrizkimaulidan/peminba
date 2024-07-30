@@ -19,7 +19,7 @@ class StudentSeeder extends Seeder
             'name' => 'Mahasiswa',
             'email' => 'mahasiswa@mail.com',
             'password' => '$2a$12$ChKeJotwLj9A.MQfoaQN6uc1xs5U5CRDNa6yMqmeAi9nIV8iaChj2', // secret,
-            'phone_number' => '+628123456789',
+            'phone_number' => str_replace(['+'], '', fake('id_ID')->numerify('08##########')),
         ]);
 
         $students = Student::factory(150)->make()->toArray();

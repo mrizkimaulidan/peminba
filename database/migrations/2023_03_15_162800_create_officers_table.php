@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('officers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('phone_number')->unique();
+            $table->string('name', 30);
+            $table->string('email', 30)->unique();
+            $table->string('password', 100);
+            $table->string('phone_number', 12)->unique();
             $table->timestamps();
             $table->softDeletes();
         });
