@@ -11,13 +11,6 @@
 
     <li class="sidebar-title">Data Master</li>
 
-    <li class="sidebar-item {{ request()->routeIs('officers.commodities.*') ? 'active' : '' }}">
-      <a href="{{ route('officers.commodities.index') }}" class="sidebar-link">
-        <i class="bi bi-collection-fill"></i>
-        <span>Komoditas</span>
-      </a>
-    </li>
-
     <li class="sidebar-item has-sub">
       <a href="#" class="sidebar-link">
         <i class="bi bi-stack"></i>
@@ -34,22 +27,6 @@
           <a href="{{ route('officers.borrowings-report.index') }}">Laporan</a>
         </li>
       </ul>
-    </li>
-
-    <li class="sidebar-title">Manajemen Akun</li>
-
-    <li class="sidebar-item {{ request()->routeIs('officers.students.*') ? 'active' : '' }}">
-      <a href="{{ route('officers.students.index') }}" class="sidebar-link">
-        <i class="bi bi-people-fill"></i>
-        <span>Mahasiswa</span>
-      </a>
-    </li>
-
-    <li class="sidebar-item {{ request()->routeIs('officers.profile-settings.*') ? 'active' : '' }}">
-      <a href="{{ route('officers.profile-settings.index') }}" class="sidebar-link">
-        <i class="bi bi-person-fill-gear"></i>
-        <span>Pengaturan Profil</span>
-      </a>
     </li>
 
     <li class="sidebar-title"></li>
