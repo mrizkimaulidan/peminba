@@ -78,7 +78,7 @@ _Pengaturan Profil_
 
 ### Langkah-langkah instalasi
 
--   Clone repository ini
+-   Clone repository ini dengan memilih tipe protokol HTTPS atau SSH. Jika belum memiliki setup SSH, bisa menggunakan HTTPS.
 
 HTTPS:
 
@@ -90,6 +90,16 @@ SSH:
 
 ```bash
 $ git clone git@github.com:mrizkimaulidan/peminba.git
+```
+
+-   Masuk ke folder proyek dan pindah branch ke `d3`
+
+```bash
+$ cd peminba
+```
+
+```bash
+$ git checkout d3
 ```
 
 -   Install seluruh packages yang dibutuhkan
