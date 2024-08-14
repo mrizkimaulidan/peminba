@@ -5,9 +5,15 @@ Beberapa CRUD menggunakan AJAX untuk pengambilan data agar mengurangi penggunaan
 
 Setiap role memiliki tampilan halaman yang berbeda-beda sesuai dengan hak akses masing-masing.
 
+Proyek ini adalah tugas akhir untuk menyelesaikan program studi saya selama 6 semester perkuliahan yaitu Jurusan Teknologi Informasi Program Studi D3 Teknik Informatika.
+
 ### Demo
 
--   https://demo.peminba.mrizkimaulidan.my.id/login
+-   https://d3.mrizkimaulidan.my.id/login
+
+### Github Repository
+
+-   https://github.com/mrizkimaulidan/peminba/tree/d3
 
 ### Prasyarat
 
